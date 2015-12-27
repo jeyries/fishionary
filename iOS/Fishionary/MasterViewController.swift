@@ -38,7 +38,9 @@ class MasterViewController: UITableViewController {
 
     
     func loadData() {
-        let path = NSBundle.mainBundle().pathForResource("fishionary", ofType: "json", inDirectory: "data")
+        let path = NSBundle.mainBundle().bundleURL
+            .URLByAppendingPathComponent("data/fishionary.json")
+            .path
         let jsonData = NSData(contentsOfFile: path!)
         let json = JSON(data: jsonData!)
         let name = json["database"][0]["image"].stringValue

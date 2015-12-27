@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MasterViewController: UITableViewController {
 
@@ -25,7 +26,26 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+
+
+        print("hello", "swift")
+
+        loadData()
+       
     }
+    
+
+    
+    func loadData() {
+        let path = NSBundle.mainBundle().pathForResource("fishionary", ofType: "json", inDirectory: "data")
+        let jsonData = NSData(contentsOfFile: path!)
+        let json = JSON(data: jsonData!)
+        let name = json["database"][0]["image"].stringValue
+        print("name", name)
+
+        
+    }
+
 
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed

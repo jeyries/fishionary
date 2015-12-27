@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB85122253D19B676DDB54D7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = BB8516A1B40F147AC2224D2E /* data */; };
+		CDC83BFB440E903C2F3FBA09 /* Pods_Fishionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E8132209DC566C3760332A /* Pods_Fishionary.framework */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
 		F9E2AE301C303DE800EE184A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2F1C303DE800EE184A /* MasterViewController.swift */; };
 		F9E2AE321C303DE800EE184A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE311C303DE800EE184A /* DetailViewController.swift */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38D54175E3144F0E858B6586 /* Pods-Fishionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.debug.xcconfig"; sourceTree = "<group>"; };
+		40FFDA4684C728EE2F0F1CFC /* Pods-Fishionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.release.xcconfig"; sourceTree = "<group>"; };
+		52E8132209DC566C3760332A /* Pods_Fishionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fishionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB8516A1B40F147AC2224D2E /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E2AE2F1C303DE800EE184A /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC83BFB440E903C2F3FBA09 /* Pods_Fishionary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0B991F0D791F26CECBDA698 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52E8132209DC566C3760332A /* Pods_Fishionary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DED90A9EEAFF142577850E3E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38D54175E3144F0E858B6586 /* Pods-Fishionary.debug.xcconfig */,
+				40FFDA4684C728EE2F0F1CFC /* Pods-Fishionary.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F9E2AE211C303DE800EE184A = {
 			isa = PBXGroup;
 			children = (
 				F9E2AE2C1C303DE800EE184A /* Fishionary */,
 				F9E2AE2B1C303DE800EE184A /* Products */,
+				DED90A9EEAFF142577850E3E /* Pods */,
+				C0B991F0D791F26CECBDA698 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +89,7 @@
 				F9E2AE361C303DE800EE184A /* Assets.xcassets */,
 				F9E2AE381C303DE800EE184A /* LaunchScreen.storyboard */,
 				F9E2AE3B1C303DE800EE184A /* Info.plist */,
+				BB8516A1B40F147AC2224D2E /* data */,
 			);
 			path = Fishionary;
 			sourceTree = "<group>";
@@ -74,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9E2AE3E1C303DE800EE184A /* Build configuration list for PBXNativeTarget "Fishionary" */;
 			buildPhases = (
+				F38E8919A6AEDDCD2714DB82 /* Check Pods Manifest.lock */,
 				F9E2AE261C303DE800EE184A /* Sources */,
 				F9E2AE271C303DE800EE184A /* Frameworks */,
 				F9E2AE281C303DE800EE184A /* Resources */,
+				6816ABA42F59BD826BE754ED /* Embed Pods Frameworks */,
+				35D9CC91F90BECBA2E1A489F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,10 +158,59 @@
 				F9E2AE3A1C303DE800EE184A /* LaunchScreen.storyboard in Resources */,
 				F9E2AE371C303DE800EE184A /* Assets.xcassets in Resources */,
 				F9E2AE351C303DE800EE184A /* Main.storyboard in Resources */,
+				BB85122253D19B676DDB54D7 /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35D9CC91F90BECBA2E1A489F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6816ABA42F59BD826BE754ED /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F38E8919A6AEDDCD2714DB82 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F9E2AE261C303DE800EE184A /* Sources */ = {
@@ -249,6 +328,7 @@
 		};
 		F9E2AE3F1C303DE800EE184A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38D54175E3144F0E858B6586 /* Pods-Fishionary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Fishionary/Info.plist;
@@ -260,6 +340,7 @@
 		};
 		F9E2AE401C303DE800EE184A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40FFDA4684C728EE2F0F1CFC /* Pods-Fishionary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Fishionary/Info.plist;

@@ -23,4 +23,8 @@ xcuserdata
 *.xccheckout
 *.moved-aside
 *.xcuserstate
+*.xcworkspace/
+
+# pods
+Pods/
 

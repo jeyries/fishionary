@@ -8,17 +8,17 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, UISearchResultsUpdating {
 
+    let searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? = nil
     var objects = [Fish]()
-    var target = "english"
+    var source = "english"
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         //self.navigationItem.rightBarButtonItem = addButton
@@ -27,7 +27,14 @@ class MasterViewController: UITableViewController {
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
 
-        objects  = DataManager.sharedInstance.database
+
+        filter(nil)
+
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        self.tableView.tableHeaderView = searchController.searchBar
        
     }
 
@@ -71,12 +78,49 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         let fish = objects[indexPath.row]
-        let name = fish.name(target)
+        let name = fish.name(source)
 
         cell.textLabel!.text = name
         return cell
     }
 
+    // MARK: - Search Controller
+
+    func filter(var searchString: String?) {
+
+        //objects  =  [Fish]()
+        /*for fish in DataManager.sharedInstance.database {
+
+        } */
+
+        let sourceArray = DataManager.sharedInstance.database
+
+        if (searchString == nil || searchString!.isEmpty) {
+            objects = sourceArray
+            return
+        }
+
+        searchString = searchString!.lowercaseString
+
+        let filteredArray = sourceArray.filter() {
+            let fish = $0
+            let name = fish.name(source)
+            if name.lowercaseString.rangeOfString(searchString!) != nil {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        objects = filteredArray
+    }
+
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+
+        let searchString = searchController.searchBar.text;
+        filter(searchString)
+        tableView.reloadData()
+    }
 
 
 

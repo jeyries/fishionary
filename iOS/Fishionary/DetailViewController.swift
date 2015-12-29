@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 class DetailViewController: UIViewController {
 
@@ -16,7 +15,7 @@ class DetailViewController: UIViewController {
 
     var target = "english"
 
-    var detailItem: JSON? {
+    var detailItem: Fish? {
         didSet {
             // Update the view.
             self.configureView()
@@ -27,22 +26,10 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let fish = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                let names = fish[target]
-                var name: String
-                if (target=="english"){
-                    name = names.stringValue
-                } else {
-                    name = names[0].stringValue
-                }
-                label.text = name
+                label.text = fish.name(target)
             }
             if let imageView = self.detailImage {
-                let filename = fish["image"].stringValue
-                let path = NSBundle.mainBundle().bundleURL
-                    .URLByAppendingPathComponent("data/database")
-                    .URLByAppendingPathComponent(filename)
-                    .path
-                let content : UIImage = UIImage(contentsOfFile:path!)!
+                let content = fish.imageContent()
                 imageView.contentMode = .ScaleAspectFit
                 imageView.image = content
             }

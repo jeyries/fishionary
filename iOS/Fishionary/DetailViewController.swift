@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
 
-    var target = "english"
+    var target = ConfigManager.sharedInstance.target
 
     var detailItem: Fish? {
         didSet {
@@ -39,6 +39,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.edgesForExtendedLayout = UIRectEdge.None // no overlap with navigation bar
         self.configureView()
     }
 

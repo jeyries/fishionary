@@ -33,21 +33,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z67-0h-8Qn">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="377"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z67-0h-8Qn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="377"/>
                                 <subviews>
-                                    <imageView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="360" image="samplefish" translatesAutoresizingMaskIntoConstraints="NO" id="npH-dU-qdf" userLabel="Detail Image">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="360"/>
+                                    <imageView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="360" image="samplefish" translatesAutoresizingMaskIntoConstraints="NO" id="npH-dU-qdf" userLabel="Detail Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="360" id="7Jl-wP-JZe"/>
-                                            <constraint firstAttribute="width" constant="300" id="jvN-vD-yqw"/>
                                         </constraints>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="360"/>
                                         </variation>
                                     </imageView>
-                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                        <rect key="frame" x="0.0" y="360" width="300" height="17"/>
+                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
+                                        <rect key="frame" x="0.0" y="360" width="375" height="17"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" size="system"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -57,12 +57,18 @@
                                         </variation>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="377"/>
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Z67-0h-8Qn" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="9aM-kT-4Er"/>
+                            <constraint firstAttribute="trailing" secondItem="Z67-0h-8Qn" secondAttribute="trailing" id="K9R-Vk-NfG"/>
+                            <constraint firstItem="Z67-0h-8Qn" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="topMargin" id="me8-yn-vIO"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
@@ -93,7 +99,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Uhe-eD-ps1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6xu-DH-Q5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="nTd-Lx-nba" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oTC-fl-e4u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -103,6 +108,7 @@
                         <segue destination="Hmk-Sa-tzf" kind="relationship" relationship="rootViewController" id="Vny-4F-0mH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xu-DH-Q5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="333" y="-1729"/>
         </scene>
@@ -118,11 +124,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-background-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-gi-Nm5">
-                                <rect key="frame" x="98" y="127" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-background-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-gi-Nm5">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="SVb-Bu-sD1"/>
+                                    <constraint firstAttribute="width" constant="200" id="irL-j7-Snv"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eSs-gi-Nm5" firstAttribute="centerX" secondItem="IKD-BW-4Qm" secondAttribute="centerX" id="Njh-q6-x32"/>
+                            <constraint firstItem="eSs-gi-Nm5" firstAttribute="centerY" secondItem="IKD-BW-4Qm" secondAttribute="centerY" id="hCq-cB-h5r"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bVO-DL-raD">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="9PP-vk-50X">

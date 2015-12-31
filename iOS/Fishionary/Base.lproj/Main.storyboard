@@ -211,6 +211,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" title="Gallery" id="wYt-uS-HQa">
+                            <connections>
+                                <segue destination="dzF-tf-33O" kind="presentation" id="QmT-8f-HZv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="nks-Oa-8cz">
                             <connections>
                                 <segue destination="nTd-Lx-nba" kind="presentation" id="KcV-SY-za3"/>
@@ -221,6 +226,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="690.5" y="-730.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="epJ-61-T1B">
+            <objects>
+                <navigationController id="dzF-tf-33O" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ycR-Zh-Ri0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nOd-m8-BIT" kind="relationship" relationship="rootViewController" id="IKW-mt-MAx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nhp-KI-ufV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1553.5" y="-705.5"/>
+        </scene>
+        <!--Gallery View Controller-->
+        <scene sceneID="ruU-Og-aNi">
+            <objects>
+                <collectionViewController id="nOd-m8-BIT" customClass="GalleryViewController" customModule="Fishionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Kmi-QQ-G0Y">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w3D-Yg-M3l">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="HwO-1x-cbZ" customClass="GalleryCell" customModule="Fishionary" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="samplefish" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-fQ-HB3">
+                                            <rect key="frame" x="23" y="23" width="83" height="81"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="thumbImageView" destination="KHR-fQ-HB3" id="GFg-ex-Qbj"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="nOd-m8-BIT" id="x2B-Bl-1uH"/>
+                            <outlet property="delegate" destination="nOd-m8-BIT" id="dZX-3x-Aan"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="fUf-dS-VcO">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="07P-Rh-gNq">
+                            <connections>
+                                <action selector="done:" destination="nOd-m8-BIT" id="H8G-p8-rQn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4oC-d4-vWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2392.5" y="-705.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">

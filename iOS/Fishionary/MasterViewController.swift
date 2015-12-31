@@ -13,7 +13,7 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating {
     let searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? = nil
     var objects = [Fish]()
-    var source = "english"
+    var source = ConfigManager.sharedInstance.source
 
 
     override func viewDidLoad() {
@@ -73,12 +73,10 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("FishCell", forIndexPath: indexPath) as! FishCell
 
         let fish = objects[indexPath.row]
-        let name = fish.name(source)
-
-        cell.textLabel!.text = name
+        cell.configure(fish)
         return cell
     }
 

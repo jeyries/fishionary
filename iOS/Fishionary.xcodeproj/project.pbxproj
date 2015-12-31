@@ -17,6 +17,9 @@
 		F9E2AE351C303DE800EE184A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E2AE331C303DE800EE184A /* Main.storyboard */; };
 		F9E2AE371C303DE800EE184A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E2AE361C303DE800EE184A /* Assets.xcassets */; };
 		F9E2AE3A1C303DE800EE184A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E2AE381C303DE800EE184A /* LaunchScreen.storyboard */; };
+		F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA30BF1C3533A70093E590 /* FishCell.swift */; };
+		F9EA30C21C3542810093E590 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA30C11C3542810093E590 /* ConfigManager.swift */; };
+		F9EA30C41C3557110093E590 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA30C31C3557110093E590 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		F9E2AE361C303DE800EE184A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9E2AE391C303DE800EE184A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9E2AE3B1C303DE800EE184A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9EA30BF1C3533A70093E590 /* FishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishCell.swift; sourceTree = "<group>"; };
+		F9EA30C11C3542810093E590 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		F9EA30C31C3557110093E590 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,18 +92,61 @@
 		F9E2AE2C1C303DE800EE184A /* Fishionary */ = {
 			isa = PBXGroup;
 			children = (
+				F9EA30BA1C352D6A0093E590 /* Storyboards */,
+				F9EA30BC1C352D9B0093E590 /* Controllers */,
+				F9EA30BE1C352DD80093E590 /* Managers */,
+				F9EA30BB1C352D830093E590 /* Models */,
+				F9EA30BD1C352DAA0093E590 /* Views */,
 				F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */,
-				F9E2AE2F1C303DE800EE184A /* MasterViewController.swift */,
-				F9E2AE311C303DE800EE184A /* DetailViewController.swift */,
-				F9E2AE331C303DE800EE184A /* Main.storyboard */,
-				F9E2AE361C303DE800EE184A /* Assets.xcassets */,
 				F9E2AE381C303DE800EE184A /* LaunchScreen.storyboard */,
+				F9E2AE361C303DE800EE184A /* Assets.xcassets */,
 				F9E2AE3B1C303DE800EE184A /* Info.plist */,
 				BB8516A1B40F147AC2224D2E /* data */,
-				BB851ACFAE85AA23A31AD395 /* DataManager.swift */,
-				BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */,
 			);
 			path = Fishionary;
+			sourceTree = "<group>";
+		};
+		F9EA30BA1C352D6A0093E590 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F9E2AE331C303DE800EE184A /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		F9EA30BB1C352D830093E590 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F9EA30BC1C352D9B0093E590 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9E2AE2F1C303DE800EE184A /* MasterViewController.swift */,
+				F9E2AE311C303DE800EE184A /* DetailViewController.swift */,
+				F9EA30C31C3557110093E590 /* SettingsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F9EA30BD1C352DAA0093E590 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F9EA30BF1C3533A70093E590 /* FishCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F9EA30BE1C352DD80093E590 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BB851ACFAE85AA23A31AD395 /* DataManager.swift */,
+				F9EA30C11C3542810093E590 /* ConfigManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +275,11 @@
 				F9E2AE321C303DE800EE184A /* DetailViewController.swift in Sources */,
 				F9E2AE301C303DE800EE184A /* MasterViewController.swift in Sources */,
 				F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */,
+				F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */,
 				BB85168AB5141ED570B518AD /* DataManager.swift in Sources */,
+				F9EA30C21C3542810093E590 /* ConfigManager.swift in Sources */,
 				BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */,
+				F9EA30C41C3557110093E590 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

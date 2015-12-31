@@ -2,3 +2,6 @@
 
 https://github.com/SwiftyJSON/SwiftyJSON/blob/master/Source/SwiftyJSON.swift
 
+http://www.raywenderlich.com/114552/uistackview-tutorial-introducing-stack-views
+
+http://blog.mengto.com/prototype-xcode-storyboard/

@@ -29,6 +29,35 @@ class DataManager {
             let fish = Fish(fromJSON: object)
             database.append(fish)
         }
+
+        sortInPlace("english")
+    }
+
+    func sortInPlace(language: String){
+        database.sortInPlace {
+            //return $0.name(language) < $1.name(language)
+            return $0.name(language).localizedCaseInsensitiveCompare($1.name(language)) == NSComparisonResult.OrderedAscending
+        }
+    }
+
+    func filter(language: String, var search: String?) -> [Fish] {
+
+        if (search == nil || search!.isEmpty) {
+            return database
+        }
+
+        search = search!.lowercaseString
+
+        return database.filter() {
+            let fish = $0
+            let name = fish.name(language)
+            if name.lowercaseString.rangeOfString(search!) != nil {
+                return true
+            } else {
+                return false
+            }
+        }
+
     }
 
 

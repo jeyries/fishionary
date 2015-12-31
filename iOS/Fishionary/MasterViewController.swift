@@ -20,15 +20,13 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        //self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
 
 
-        filter(nil)
+        objects = DataManager.sharedInstance.filter(source, search: nil)
 
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -86,39 +84,10 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating {
 
     // MARK: - Search Controller
 
-    func filter(var searchString: String?) {
-
-        //objects  =  [Fish]()
-        /*for fish in DataManager.sharedInstance.database {
-
-        } */
-
-        let sourceArray = DataManager.sharedInstance.database
-
-        if (searchString == nil || searchString!.isEmpty) {
-            objects = sourceArray
-            return
-        }
-
-        searchString = searchString!.lowercaseString
-
-        let filteredArray = sourceArray.filter() {
-            let fish = $0
-            let name = fish.name(source)
-            if name.lowercaseString.rangeOfString(searchString!) != nil {
-                return true
-            } else {
-                return false
-            }
-        }
-
-        objects = filteredArray
-    }
-
     func updateSearchResultsForSearchController(searchController: UISearchController) {
 
         let searchString = searchController.searchBar.text;
-        filter(searchString)
+        objects = DataManager.sharedInstance.filter(source, search: searchString)
         tableView.reloadData()
     }
 

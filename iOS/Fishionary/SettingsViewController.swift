@@ -10,4 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBAction func done(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
 }

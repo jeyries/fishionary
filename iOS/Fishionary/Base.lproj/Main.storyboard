@@ -90,6 +90,22 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uhe-eD-ps1">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xu-DH-Q5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="nTd-Lx-nba" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oTC-fl-e4u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Hmk-Sa-tzf" kind="relationship" relationship="rootViewController" id="Vny-4F-0mH"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="333" y="-1729"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="Fo7-4x-Kf0">
             <objects>
@@ -105,18 +121,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-background-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-gi-Nm5">
                                 <rect key="frame" x="98" y="127" width="200" height="200"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJu-Mg-fou">
-                                <rect key="frame" x="164" y="412" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bVO-DL-raD">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="9PP-vk-50X">
+                            <connections>
+                                <action selector="done:" destination="Hmk-Sa-tzf" id="Z2L-jI-V4z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4L-se-gSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640.5" y="-1605.5"/>
+            <point key="canvasLocation" x="1020.5" y="-1729.5"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -180,9 +199,7 @@
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="nks-Oa-8cz">
                             <connections>
-                                <segue destination="Hmk-Sa-tzf" kind="popoverPresentation" popoverAnchorBarButtonItem="nks-Oa-8cz" id="wrF-Ty-N6J">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="nTd-Lx-nba" kind="presentation" id="KcV-SY-za3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, UISearchResultsUpdating {
+class MasterViewController: UITableViewController, UISearchResultsUpdating
+    , UIPopoverPresentationControllerDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? = nil
@@ -19,6 +20,10 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let button = UIBarButtonItem(title: "Menu", style: .Plain ,target: self, action: "showMenu:")
+        self.navigationItem.rightBarButtonItem = button
+        
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -89,7 +94,55 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating {
         tableView.reloadData()
     }
 
+    // MARK: - Menu
+    
+    func showMenu(sender: AnyObject) {
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Settings", style: .Default, handler: {(alert :UIAlertAction!) in
+            
+            let storyboard = UIStoryboard(
+                name: "Main",
+                bundle: nil)
+            
+            let controller = storyboard.instantiateViewControllerWithIdentifier("Settings")
+            
+            self.presentViewController(
+                controller,
+                animated: true,
+                completion: nil)
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Gallery", style: .Default, handler: {(alert :UIAlertAction!) in
+            
+            let storyboard = UIStoryboard(
+                name: "Main",
+                bundle: nil)
+            
+            let controller = storyboard.instantiateViewControllerWithIdentifier("Gallery")
+            
+            self.presentViewController(
+                controller,
+                animated: true,
+                completion: nil)
+            
+        }))
+        
+        let popover = alertController.popoverPresentationController
+        popover?.permittedArrowDirections = .Any
+        popover?.delegate = self
+        popover?.barButtonItem = sender as? UIBarButtonItem
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
 
-
+    func adaptivePresentationStyleForPresentationController(
+        controller: UIPresentationController) -> UIModalPresentationStyle {
+            return .None
+    }
+    
 }
 

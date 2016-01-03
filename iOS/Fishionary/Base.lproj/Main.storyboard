@@ -99,7 +99,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Uhe-eD-ps1">
             <objects>
-                <navigationController modalPresentationStyle="formSheet" id="nTd-Lx-nba" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Settings" modalPresentationStyle="formSheet" id="nTd-Lx-nba" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oTC-fl-e4u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -210,18 +210,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" title="Gallery" id="wYt-uS-HQa">
-                            <connections>
-                                <segue destination="dzF-tf-33O" kind="presentation" id="QmT-8f-HZv"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="nks-Oa-8cz">
-                            <connections>
-                                <segue destination="nTd-Lx-nba" kind="presentation" id="KcV-SY-za3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,7 +219,7 @@
         <!--Navigation Controller-->
         <scene sceneID="epJ-61-T1B">
             <objects>
-                <navigationController id="dzF-tf-33O" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Gallery" id="dzF-tf-33O" sceneMemberID="viewController">
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ycR-Zh-Ri0">

@@ -29,6 +29,7 @@ class Fish {
     }
 
     func imageContent() -> UIKit.UIImage {
+        //print("imageContent for \(image)")
         let filename = image
         let path = NSBundle.mainBundle().bundleURL
                 .URLByAppendingPathComponent("data/database")
@@ -36,5 +37,10 @@ class Fish {
                 .path
         let content : UIImage = UIImage(contentsOfFile:path!)!
         return content
+    }
+    
+    func imageSize() -> UIKit.CGSize {
+        //print("imageSize for \(image)")
+        return imageContent().size
     }
 }

@@ -12,6 +12,10 @@
 		BB85168AB5141ED570B518AD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB851ACFAE85AA23A31AD395 /* DataManager.swift */; };
 		CDC83BFB440E903C2F3FBA09 /* Pods_Fishionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E8132209DC566C3760332A /* Pods_Fishionary.framework */; };
 		F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */; };
+		F932FEC51C3A733700E9A7F5 /* WaterfallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */; };
+		F932FEC71C3A79DD00E9A7F5 /* WaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC61C3A79DD00E9A7F5 /* WaterfallCell.swift */; };
+		F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */; };
+		F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */; };
 		F9D074F51C359D160081A5C2 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F41C359D160081A5C2 /* GalleryViewController.swift */; };
 		F9D074F71C35A0610081A5C2 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F61C35A0610081A5C2 /* GalleryCell.swift */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
@@ -33,6 +37,10 @@
 		BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		BB851ACFAE85AA23A31AD395 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallViewController.swift; sourceTree = "<group>"; };
+		F932FEC61C3A79DD00E9A7F5 /* WaterfallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallCell.swift; sourceTree = "<group>"; };
+		F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallHeader.swift; sourceTree = "<group>"; };
+		F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallFooter.swift; sourceTree = "<group>"; };
 		F9D074F41C359D160081A5C2 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F9D074F61C35A0610081A5C2 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +144,7 @@
 				F9EA30C31C3557110093E590 /* SettingsViewController.swift */,
 				F9D074F41C359D160081A5C2 /* GalleryViewController.swift */,
 				F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */,
+				F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -145,6 +154,9 @@
 			children = (
 				F9EA30BF1C3533A70093E590 /* FishCell.swift */,
 				F9D074F61C35A0610081A5C2 /* GalleryCell.swift */,
+				F932FEC61C3A79DD00E9A7F5 /* WaterfallCell.swift */,
+				F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */,
+				F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -286,8 +298,12 @@
 				F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */,
 				F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */,
 				F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */,
+				F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */,
+				F932FEC51C3A733700E9A7F5 /* WaterfallViewController.swift in Sources */,
 				BB85168AB5141ED570B518AD /* DataManager.swift in Sources */,
+				F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */,
 				F9EA30C21C3542810093E590 /* ConfigManager.swift in Sources */,
+				F932FEC71C3A79DD00E9A7F5 /* WaterfallCell.swift in Sources */,
 				F9D074F71C35A0610081A5C2 /* GalleryCell.swift in Sources */,
 				F9D074F51C359D160081A5C2 /* GalleryViewController.swift in Sources */,
 				BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */,
@@ -403,12 +419,16 @@
 			baseConfigurationReference = 38D54175E3144F0E858B6586 /* Pods-Fishionary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Fishionary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeyries.fishionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -418,12 +438,15 @@
 			baseConfigurationReference = 40FFDA4684C728EE2F0F1CFC /* Pods-Fishionary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Fishionary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeyries.fishionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

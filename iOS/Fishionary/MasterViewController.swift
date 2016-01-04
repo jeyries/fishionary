@@ -130,6 +130,19 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
             
         }))
         
+        alertController.addAction(UIAlertAction(title: "Waterfall", style: .Default, handler: {(alert :UIAlertAction!) in
+            
+            let controller = WaterfallViewController()
+            let nav = UINavigationController.init(rootViewController: controller)
+            
+            self.presentViewController(
+                nav,
+                animated: true,
+                completion: nil)
+            
+        }))
+        
+        
         let popover = alertController.popoverPresentationController
         popover?.permittedArrowDirections = .Any
         popover?.delegate = self

@@ -48,6 +48,17 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showImage" {
+            
+            let controller = segue.destinationViewController as! ImageViewController
+            let image = detailItem?.imageContent()
+            controller.image = image
+        
+        }
+    }
 
 }
 

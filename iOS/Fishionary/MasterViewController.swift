@@ -32,6 +32,19 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
 
 
         objects = DataManager.sharedInstance.filter(source, search: nil)
+        print("loaded \(objects.count) objects")
+        
+        /*
+        detailViewController?.detailItem = objects[0]
+        
+        // search for "SPARUS AURATA"
+        for fish in objects {
+            if fish.name("scientific") == "SPARUS AURATA" {
+                detailViewController?.detailItem = fish
+                break
+            }
+        }
+        */
 
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false

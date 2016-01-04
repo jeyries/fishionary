@@ -16,6 +16,7 @@
 		F932FEC71C3A79DD00E9A7F5 /* WaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC61C3A79DD00E9A7F5 /* WaterfallCell.swift */; };
 		F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */; };
 		F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */; };
+		F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */; };
 		F9D074F51C359D160081A5C2 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F41C359D160081A5C2 /* GalleryViewController.swift */; };
 		F9D074F71C35A0610081A5C2 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F61C35A0610081A5C2 /* GalleryCell.swift */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 		F932FEC61C3A79DD00E9A7F5 /* WaterfallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallCell.swift; sourceTree = "<group>"; };
 		F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallHeader.swift; sourceTree = "<group>"; };
 		F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallFooter.swift; sourceTree = "<group>"; };
+		F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		F9D074F41C359D160081A5C2 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F9D074F61C35A0610081A5C2 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				F9D074F41C359D160081A5C2 /* GalleryViewController.swift */,
 				F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */,
 				F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */,
+				F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */,
 				F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */,
 				F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */,
+				F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */,
 				F932FEC51C3A733700E9A7F5 /* WaterfallViewController.swift in Sources */,
 				BB85168AB5141ED570B518AD /* DataManager.swift in Sources */,
 				F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */,

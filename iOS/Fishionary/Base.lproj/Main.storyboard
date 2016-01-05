@@ -130,18 +130,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-background-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-gi-Nm5">
-                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="SVb-Bu-sD1"/>
-                                    <constraint firstAttribute="width" constant="200" id="irL-j7-Snv"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qjj-eC-jQG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="251"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-background-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-gi-Nm5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="BM0-Hs-cdf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-vZ-kwO">
+                                        <rect key="frame" x="0.0" y="200" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nothing here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eJ-uO-Kms">
+                                        <rect key="frame" x="0.0" y="221" width="375" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eSs-gi-Nm5" firstAttribute="centerX" secondItem="IKD-BW-4Qm" secondAttribute="centerX" id="Njh-q6-x32"/>
-                            <constraint firstItem="eSs-gi-Nm5" firstAttribute="centerY" secondItem="IKD-BW-4Qm" secondAttribute="centerY" id="hCq-cB-h5r"/>
+                            <constraint firstAttribute="trailing" secondItem="qjj-eC-jQG" secondAttribute="trailing" id="aAt-Fm-4To"/>
+                            <constraint firstItem="qjj-eC-jQG" firstAttribute="leading" secondItem="IKD-BW-4Qm" secondAttribute="leading" id="lUN-NO-OnL"/>
+                            <constraint firstItem="qjj-eC-jQG" firstAttribute="top" secondItem="sXQ-C7-h3a" secondAttribute="bottom" id="m3a-qd-iji"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bVO-DL-raD">
@@ -152,6 +168,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="sourceTextField" destination="2eJ-uO-Kms" id="Hd4-ty-cek"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4L-se-gSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

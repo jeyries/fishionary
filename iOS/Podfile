@@ -4,4 +4,5 @@ use_frameworks!
 target 'Fishionary' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'CHTCollectionViewWaterfallLayout'
+    pod 'DownPicker'
 end

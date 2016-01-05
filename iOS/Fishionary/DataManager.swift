@@ -11,7 +11,8 @@ class DataManager {
     static let sharedInstance = DataManager()
 
     var database = [Fish]()
-
+    var props = [Property]()
+    
     init() {
 
         let path = NSBundle.mainBundle().bundleURL
@@ -28,6 +29,12 @@ class DataManager {
         for (_, object):(String, JSON) in json["database"] {
             let fish = Fish(fromJSON: object)
             database.append(fish)
+        }
+        
+        props = [Property]()
+        for (_, object):(String, JSON) in json["props"] {
+            let prop = Property(fromJSON: object)
+            props.append(prop)
         }
 
         sortInPlace("english")
@@ -59,6 +66,20 @@ class DataManager {
         }
 
     }
+    
+    
+    func filter_props() -> [Property]
+    {
+        return props.filter({ (prop) -> Bool in
+            if (prop.mode > 1) {return false}
+            
+            if (prop.name == "synonyms") {return false}
+            
+            return true
+        })
+    }
 
 
+    
+    
 }

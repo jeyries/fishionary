@@ -162,6 +162,7 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
                 .URLByAppendingPathComponent("data/info/index.html")
             
             let controller = WebViewController(requestURL: requestURL)
+            controller.title = "Informations"
       
             let nav = UINavigationController.init(rootViewController: controller)
             

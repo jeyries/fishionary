@@ -109,6 +109,10 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
 
     // MARK: - Menu
     
+    @IBAction func dismiss(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     func showMenu(sender: AnyObject) {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -146,6 +150,33 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         alertController.addAction(UIAlertAction(title: "Waterfall", style: .Default, handler: {(alert :UIAlertAction!) in
             
             let controller = WaterfallViewController()
+            let nav = UINavigationController.init(rootViewController: controller)
+            
+            self.presentViewController(
+                nav,
+                animated: true,
+                completion: nil)
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Info", style: .Default, handler: {(alert :UIAlertAction!) in
+            
+            
+            //let requestURL = NSURL(string:"https://www.google.com")!
+            let requestURL = NSBundle.mainBundle().bundleURL
+                .URLByAppendingPathComponent("data/info/index.html")
+            
+            let webView = UIWebView()
+            let request = NSURLRequest(URL: requestURL)
+            webView.loadRequest(request)
+            
+            let controller = UIViewController()
+            controller.view = webView
+            
+            let button = UIBarButtonItem(barButtonSystemItem: .Done ,target: self, action: "dismiss:")
+            controller.navigationItem.rightBarButtonItem = button
+            
+            
             let nav = UINavigationController.init(rootViewController: controller)
             
             self.presentViewController(

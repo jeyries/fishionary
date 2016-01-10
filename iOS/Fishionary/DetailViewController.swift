@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import DownPicker
 
 class DetailViewController: UIViewController {
+    
+    let props = DataManager.sharedInstance.filter_props()
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var targetTextField: UITextField!
+    
+    var targetPicker : DownPicker!
+    var translationsController : TranslationsViewController!
     
     var detailItem: Fish? {
         didSet {
@@ -35,11 +41,6 @@ class DetailViewController: UIViewController {
                 imageView.contentMode = .ScaleAspectFit
                 imageView.image = content
             }
-            
-            if let targetTextField = self.targetTextField {
-                let prop = DataManager.sharedInstance.search_prop(target)
-                targetTextField.text = prop?.header
-            }
         }
     }
 
@@ -55,6 +56,21 @@ class DetailViewController: UIViewController {
             }
         }
         self.configureView()
+        
+        let props = DataManager.sharedInstance.filter_props()
+        let texts = props.map() {
+            return $0.header
+        }
+        
+        let target = ConfigManager.sharedInstance.target
+        let prop = DataManager.sharedInstance.search_prop(target)
+        targetTextField.text = prop?.header
+        
+        targetPicker = DownPicker.init(textField: targetTextField, withData: texts)
+        targetPicker.addTarget(self, action: "targetSelected:", forControlEvents: .ValueChanged)
+
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,14 +89,30 @@ class DetailViewController: UIViewController {
         
         } else if segue.identifier == "showTranslations" {
             
-            let fish = self.detailItem!
-            let names = fish.names(ConfigManager.sharedInstance.target)
-            
-            let controller = segue.destinationViewController as! TranslationsViewController
-            controller.objects = names
+            translationsController = segue.destinationViewController as! TranslationsViewController
+            prepareTranslations()
             
         }
     }
+    
+    // other stuff
+    
+    func prepareTranslations() {
+        let fish = self.detailItem!
+        let names = fish.names(ConfigManager.sharedInstance.target)
+        translationsController.objects = names
+    }
+    
+    func targetSelected(sender: AnyObject) {
+        //print("targetSelected \(sender)")
+        let picker = sender as! DownPicker
+        let row = picker.getPickerView().selectedRowInComponent(0)
+        let value = props[row].name
+        print("target = \(value)")
+        ConfigManager.sharedInstance.target = value
+        prepareTranslations()
+    }
+
 
 }
 

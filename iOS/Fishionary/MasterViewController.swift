@@ -31,20 +31,8 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         }
 
 
-        objects = DataManager.sharedInstance.filter(source, search: nil)
-        print("loaded \(objects.count) objects")
+        objects = DataManager.sharedInstance.filter(source, search: nil)      
         
-        /*
-        detailViewController?.detailItem = objects[0]
-        
-        // search for "SPARUS AURATA"
-        for fish in objects {
-            if fish.name("scientific") == "SPARUS AURATA" {
-                detailViewController?.detailItem = fish
-                break
-            }
-        }
-        */
 
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -153,6 +141,15 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
                 animated: true,
                 completion: nil)
             
+            controller.didSelect = {
+                [unowned self] (fish : Fish) in
+                let name = fish.name("scientific")
+                print("selected \(name)")
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    self.select_fish(name)
+                })
+            }
+            
         }))
         
         alertController.addAction(UIAlertAction(title: "Info", style: .Default, handler: {(alert :UIAlertAction!) in
@@ -187,6 +184,22 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         controller: UIPresentationController) -> UIModalPresentationStyle {
             return .None
     }
+    
+    // other
+
+    func select_fish(scientific: String) {
+        
+        let row = DataManager.search_fish(scientific, objects:objects)
+        if row < 0 {
+            return
+        }
+
+        let path = NSIndexPath(forRow: row, inSection: 0)
+        tableView.selectRowAtIndexPath(path, animated: true, scrollPosition: .Middle)
+        
+        performSegueWithIdentifier("showDetail", sender: nil)
+    }
+    
     
 }
 

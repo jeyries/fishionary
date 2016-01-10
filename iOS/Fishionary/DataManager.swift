@@ -30,12 +30,14 @@ class DataManager {
             let fish = Fish(fromJSON: object)
             database.append(fish)
         }
+        print("loaded \(database.count) fishes")
         
         props = [Property]()
         for (_, object):(String, JSON) in json["props"] {
             let prop = Property(fromJSON: object)
             props.append(prop)
         }
+        print("loaded \(props.count) properties")
 
         sortInPlace("english")
     }
@@ -79,6 +81,17 @@ class DataManager {
         })
     }
 
+    static func search_fish(scientific: String, objects: [Fish]) -> Int {
+        
+        var index = 0
+        for fish in objects {
+            if fish.name("scientific") == scientific {
+                return index
+            }
+            index += 1
+        }
+        return -1
+    }
 
     
     

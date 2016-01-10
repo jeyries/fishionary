@@ -40,6 +40,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.edgesForExtendedLayout = UIRectEdge.None // no overlap with navigation bar
+        if detailItem == nil {
+            let objects = DataManager.sharedInstance.database
+            let index = DataManager.search_fish("SPARUS AURATA", objects:objects)
+            if index >= 0 {
+                self.detailItem = objects[index]
+            }
+        }
         self.configureView()
     }
 

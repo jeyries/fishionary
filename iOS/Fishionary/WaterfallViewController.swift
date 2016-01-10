@@ -18,7 +18,7 @@ class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHT
     let objects = DataManager.sharedInstance.filter("english", search: nil)
 
     var collectionView : UICollectionView!
-
+    var didSelect : (Fish -> ())!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,6 +165,16 @@ class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHT
         
         let fish = objects[indexPath.row]
         return fish.imageSize()
+    }
+    
+    // MARK - UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        if let didSelect = didSelect {
+            let fish = objects[indexPath.row]
+            didSelect( fish )
+        }
     }
   
 }

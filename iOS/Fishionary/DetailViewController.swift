@@ -12,9 +12,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
-
-    var target = ConfigManager.sharedInstance.target
-
+    @IBOutlet weak var targetTextField: UITextField!
+    
     var detailItem: Fish? {
         didSet {
             // Update the view.
@@ -25,13 +24,21 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let fish = self.detailItem {
+            let target = ConfigManager.sharedInstance.target
+            
             if let label = self.detailDescriptionLabel {
                 label.text = fish.name(target)
             }
+            
             if let imageView = self.detailImage {
                 let content = fish.imageContent()
                 imageView.contentMode = .ScaleAspectFit
                 imageView.image = content
+            }
+            
+            if let targetTextField = self.targetTextField {
+                let prop = DataManager.sharedInstance.search_prop(target)
+                targetTextField.text = prop?.header
             }
         }
     }
@@ -64,6 +71,14 @@ class DetailViewController: UIViewController {
             let image = detailItem?.imageContent()
             controller.image = image
         
+        } else if segue.identifier == "showTranslations" {
+            
+            let fish = self.detailItem!
+            let names = fish.names(ConfigManager.sharedInstance.target)
+            
+            let controller = segue.destinationViewController as! TranslationsViewController
+            controller.objects = names
+            
         }
     }
 

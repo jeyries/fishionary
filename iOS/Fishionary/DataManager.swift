@@ -80,6 +80,15 @@ class DataManager {
             return true
         })
     }
+    
+    func search_prop(name: String) -> Property? {
+        for prop in props {
+            if prop.name == name {
+                return prop
+            }
+        }
+        return nil
+    }
 
     static func search_fish(scientific: String, objects: [Fish]) -> Int {
         

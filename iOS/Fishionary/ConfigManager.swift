@@ -13,7 +13,7 @@ class ConfigManager {
     static let sharedInstance = ConfigManager()
 
     var source = "english"
-    var target = "scientific"
+    var target = "france"
     
     init() {
     }

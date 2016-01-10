@@ -12,6 +12,8 @@
 		BB85168AB5141ED570B518AD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB851ACFAE85AA23A31AD395 /* DataManager.swift */; };
 		CDC83BFB440E903C2F3FBA09 /* Pods_Fishionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E8132209DC566C3760332A /* Pods_Fishionary.framework */; };
 		F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */; };
+		F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91BCA271C428A640090DFA0 /* TranslationsViewController.swift */; };
+		F91BCA2A1C428DC70090DFA0 /* TranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91BCA291C428DC70090DFA0 /* TranslationCell.swift */; };
 		F91D19871C3C1C08003BAD65 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D19861C3C1C08003BAD65 /* WebViewController.swift */; };
 		F91D19891C3C3AA2003BAD65 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D19881C3C3AA2003BAD65 /* Property.swift */; };
 		F932FEC51C3A733700E9A7F5 /* WaterfallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */; };
@@ -40,6 +42,8 @@
 		BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		BB851ACFAE85AA23A31AD395 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F91BCA271C428A640090DFA0 /* TranslationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationsViewController.swift; sourceTree = "<group>"; };
+		F91BCA291C428DC70090DFA0 /* TranslationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationCell.swift; sourceTree = "<group>"; };
 		F91D19861C3C1C08003BAD65 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F91D19881C3C3AA2003BAD65 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */,
 				F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */,
 				F91D19861C3C1C08003BAD65 /* WebViewController.swift */,
+				F91BCA271C428A640090DFA0 /* TranslationsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				F932FEC61C3A79DD00E9A7F5 /* WaterfallCell.swift */,
 				F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */,
 				F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */,
+				F91BCA291C428DC70090DFA0 /* TranslationCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -305,10 +311,12 @@
 				F91D19891C3C3AA2003BAD65 /* Property.swift in Sources */,
 				F9E2AE321C303DE800EE184A /* DetailViewController.swift in Sources */,
 				F9E2AE301C303DE800EE184A /* MasterViewController.swift in Sources */,
+				F91BCA2A1C428DC70090DFA0 /* TranslationCell.swift in Sources */,
 				F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */,
 				F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */,
 				F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */,
 				F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */,
+				F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */,
 				F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */,
 				F932FEC51C3A733700E9A7F5 /* WaterfallViewController.swift in Sources */,
 				BB85168AB5141ED570B518AD /* DataManager.swift in Sources */,

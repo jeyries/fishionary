@@ -27,6 +27,19 @@ class Fish {
         }
         return name
     }
+    
+    func names(target: String) -> [String] {
+        let _names = json[target]
+        var names = [String]()
+        if (target=="english"){
+            names.append(_names.stringValue)
+        } else {
+            for (_, name):(String, JSON) in _names {
+                names.append(name.stringValue)
+            }
+        }
+        return names
+    }
 
     func imageContent() -> UIKit.UIImage {
         //print("imageContent for \(image)")

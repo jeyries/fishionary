@@ -45,7 +45,10 @@ class SettingsViewController: UIViewController{
     }
     
     @IBAction func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            NSNotificationCenter.defaultCenter()
+                .postNotificationName("SettingsDone", object: nil)
+        }
     }
     
 

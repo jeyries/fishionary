@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MasterViewController: UITableViewController, UISearchResultsUpdating
     , UIPopoverPresentationControllerDelegate {
@@ -14,8 +16,7 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
     let searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? = nil
     var objects = [Fish]()
-    var source = ConfigManager.sharedInstance.source
-
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +30,20 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-
-
-        objects = DataManager.sharedInstance.filter(source, search: nil)      
-        
-
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         self.tableView.tableHeaderView = searchController.searchBar
-       
+        
+        _ = NSNotificationCenter.defaultCenter()
+            .rx_notification("SettingsDone")
+            .subscribeNext { [unowned self] _ in
+                print("SettingsDone")
+                self.update()
+        }
+
+        update()
     }
 
 
@@ -80,7 +84,7 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FishCell", forIndexPath: indexPath) as! FishCell
-
+        //print("configure row \(indexPath.row)")
         let fish = objects[indexPath.row]
         cell.configure(fish)
         return cell
@@ -89,10 +93,7 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
     // MARK: - Search Controller
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-
-        let searchString = searchController.searchBar.text;
-        objects = DataManager.sharedInstance.filter(source, search: searchString)
-        tableView.reloadData()
+        update()
     }
 
     // MARK: - Menu
@@ -199,7 +200,12 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         
         performSegueWithIdentifier("showDetail", sender: nil)
     }
-    
+
+    func update() {
+        let searchString = searchController.searchBar.text;
+        objects = DataManager.sharedInstance.filter(ConfigManager.sharedInstance.source, search: searchString)
+        tableView.reloadData()
+    }
     
 }
 

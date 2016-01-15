@@ -98,9 +98,10 @@ class DetailViewController: UIViewController {
     // other stuff
     
     func prepareTranslations() {
-        let fish = self.detailItem!
-        let names = fish.names(ConfigManager.sharedInstance.target)
-        translationsController.objects = names
+        if let fish = self.detailItem {
+            let names = fish.names(ConfigManager.sharedInstance.target)
+            translationsController.objects = names
+        }
     }
     
     func targetSelected(sender: AnyObject) {

@@ -92,7 +92,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z67-0h-8Qn" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="8tx-VX-t9o"/>
                             <constraint firstItem="TEX-A1-MJz" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="EG9-Gi-3c6"/>
@@ -112,6 +112,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="containerHeight" destination="atw-lk-biO" id="Y2d-ac-t5N"/>
                         <outlet property="detailImage" destination="npH-dU-qdf" id="CCd-8W-8vW"/>
                         <outlet property="targetTextField" destination="c6n-8d-C7Y" id="vn2-zO-VOU"/>
                     </connections>

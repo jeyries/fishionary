@@ -16,6 +16,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var targetTextField: UITextField!
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
+
     
     var targetPicker : DownPicker!
     var translationsController : TranslationsViewController!
@@ -101,6 +103,9 @@ class DetailViewController: UIViewController {
         if let fish = self.detailItem {
             let names = fish.names(ConfigManager.sharedInstance.target)
             translationsController.objects = names
+            
+            containerHeight.constant = CGFloat(names.count * 44)
+            view.layoutIfNeeded()
         }
     }
     

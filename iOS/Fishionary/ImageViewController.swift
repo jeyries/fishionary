@@ -19,8 +19,6 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var imageConstraintLeft: NSLayoutConstraint!
     @IBOutlet private weak var imageConstraintBottom: NSLayoutConstraint!
     
-    private var lastZoomScale: CGFloat = -1
-    
     var image: UIImage? {
         didSet {
             // Update the view.
@@ -34,11 +32,20 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
 
         // Do any additional setup after loading the view.
         scrollView.delegate = self
+        scrollView.maximumZoomScale = 2
         imageView.image = image
         updateZoom()
-        updateConstraints()
 
     }
+    
+    override func viewDidAppear(animated: Bool) {
+
+        super.viewDidAppear(animated)
+        
+        updateZoom()
+
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,14 +64,14 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     override func shouldAutorotate() -> Bool {
         return false
     }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Landscape
-    }
     */
     
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .Landscape
+    }
+    
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return UIInterfaceOrientation.LandscapeLeft
+        return .LandscapeLeft
     }
     
     // Update zoom scale and constraints with animation.
@@ -99,18 +106,26 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     func updateConstraints() {
         if let image = imageView.image {
+            
+            print("-- updateConstraints --")
+            
             let imageWidth = image.size.width
             let imageHeight = image.size.height
             
             let viewWidth = scrollView.bounds.size.width
             let viewHeight = scrollView.bounds.size.height
             
-            // center image if it is smaller than the scroll view
-            var hPadding = (viewWidth - scrollView.zoomScale * imageWidth) / 2
-            if hPadding < 0 { hPadding = 0 }
+            print("image: \(Int(imageWidth)) x \(Int(imageHeight))")
+            print("scrollView: \(Int(viewWidth)) x \(Int(viewHeight))")
+            print("zoomScale: \(String(format:"%.3f", scrollView.zoomScale))")
+            print("image x zoomScale: \(Int(scrollView.zoomScale * imageWidth)) x \(Int(scrollView.zoomScale * imageHeight))")
             
-            var vPadding = (viewHeight - scrollView.zoomScale * imageHeight) / 2
-            if vPadding < 0 { vPadding = 0 }
+            
+            // center image if it is smaller than the scroll view
+            let hPadding = max(0, (viewWidth - scrollView.zoomScale * imageWidth) / 2)
+            let vPadding = max(0, (viewHeight - scrollView.zoomScale * imageHeight) / 2)
+            
+            print("padding: \(Int(hPadding)) x \(Int(vPadding))")
             
             imageConstraintLeft.constant = hPadding
             imageConstraintRight.constant = hPadding
@@ -125,18 +140,26 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     // Zoom to show as much image as possible unless image is smaller than the scroll view
     private func updateZoom() {
         if let image = imageView.image {
-            var minZoom = min(scrollView.bounds.size.width / image.size.width,
-                scrollView.bounds.size.height / image.size.height)
             
-            if minZoom > 1 { minZoom = 1 }
+            print("-- updateZoom --")
+            let imageWidth = image.size.width
+            let imageHeight = image.size.height
+            
+            let viewWidth = scrollView.bounds.size.width
+            let viewHeight = scrollView.bounds.size.height
+       
+            print("image: \(Int(imageWidth)) x \(Int(imageHeight))")
+            print("scrollView: \(Int(viewWidth)) x \(Int(viewHeight))") 
+            
+            let minZoom = min(1, min(viewWidth / imageWidth,
+                viewHeight / imageHeight))
+            
+            print("minZoom: \(String(format:"%.3f", minZoom))")
             
             scrollView.minimumZoomScale = minZoom
-            
-            // Force scrollViewDidZoom fire if zoom did not change
-            if minZoom == lastZoomScale { minZoom += 0.000001 }
-            
             scrollView.zoomScale = minZoom
-            lastZoomScale = minZoom
+            
+            updateConstraints()
         }
     }
     

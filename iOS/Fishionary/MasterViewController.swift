@@ -119,21 +119,6 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         
         alertController.addAction(UIAlertAction(title: "Gallery", style: .Default, handler: {(alert :UIAlertAction!) in
             
-            let storyboard = UIStoryboard(
-                name: "Main",
-                bundle: nil)
-            
-            let controller = storyboard.instantiateViewControllerWithIdentifier("Gallery")
-            
-            self.presentViewController(
-                controller,
-                animated: true,
-                completion: nil)
-            
-        }))
-        
-        alertController.addAction(UIAlertAction(title: "Waterfall", style: .Default, handler: {(alert :UIAlertAction!) in
-            
             let controller = WaterfallViewController()
             let nav = UINavigationController.init(rootViewController: controller)
             

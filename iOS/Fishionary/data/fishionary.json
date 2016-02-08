@@ -4027,8 +4027,8 @@
             ], 
             "catalan": [
                 "molla de fang", 
-                "m\u00f1llera pigada", 
-                "m\u00f2llera pigadam\u00f2llera de fang"
+                "mollera pigada", 
+                "mollera pigada, mollera de fang"
             ], 
             "russian": [
                 "Bolsheglaziy Niteperiy Nalim", 
@@ -18863,7 +18863,8 @@
             ], 
             "deutsch": [
                 "Brachsen", 
-                "BrachsmeBreissen", 
+                "Brachsme", 
+                "Breissen", 
                 "Breitelen", 
                 "Breitling", 
                 "Breom", 
@@ -19044,7 +19045,8 @@
                 "Gase", 
                 "Grasle", 
                 "Gris", 
-                "G\u00e4se  Catalogue of Life  TrustedG\u00fcnger", 
+                "G\u00e4se", 
+                "G\u00fcnger", 
                 "Ikelei", 
                 "Lang-Bleck", 
                 "Langbleck", 
@@ -19145,7 +19147,7 @@
                 "Schmardel", 
                 "Schmarling", 
                 "Schmerl", 
-                "schmerle", 
+                "Schmerle", 
                 "Schmerling", 
                 "Schmirlin", 
                 "Schmurgel", 
@@ -19288,7 +19290,7 @@
             "synonyms": [], 
             "turkey": [], 
             "id": 219, 
-            "concern": "Endangered   A2ace   ver 3.1 \rPop. trend: decreasing", 
+            "concern": "Endangered   A2ace   ver 3.1 \rPop. trend: decreasing  <a href=\"http://www.iucnredlist.org/apps/redlist/search\" target=\"_blank\">IUCNRedlist</a>", 
             "swedish": [], 
             "vietnamese": [], 
             "france": [
@@ -19320,14 +19322,14 @@
                 "Barbo-italiano"
             ], 
             "deutsch": [
-                "Su?dbarbe"
+                "S\u00fcdbarbe"
             ], 
             "image": "barbusplebejus.jpg", 
             "japanese": [], 
             "synonyms": [], 
             "turkey": [], 
             "id": 220, 
-            "concern": "Least Concern     ver 3.1 \rPop. trend: stable. Regionally endangered. E.g. Switzerland = level 3.", 
+            "concern": "Least Concern     IUCN\rPop. trend: stable. Regionally endangered. E.g. Switzerland = level 3.   <a href=\"http://www.bafu.admin.ch/publikationen/publikation/00071/index.html?lang=def\" target=\"_blank\">CH Redlist</a>", 
             "swedish": [
                 "Tiberbarb"
             ], 
@@ -19377,7 +19379,7 @@
             ], 
             "turkey": [], 
             "id": 221, 
-            "concern": "Least Concern     ver 3.1 \rPop. trend: unknown. Regionally seriously endangered, eg. Switzerland.", 
+            "concern": "Least Concern  IUCN  --- Pop. trend: unknown. Regionally seriously endangered, eg. Switzerland.    <a href=\"http://www.bafu.admin.ch/publikationen/publikation/00071/index.html?lang=def\" target=\"_blank\">CH Redlist</a>", 
             "swedish": [
                 "Noskarp", 
                 "N\u00e4sling"
@@ -19852,7 +19854,7 @@
                 "Gobio"
             ], 
             "deutsch": [
-                "Gru?ndling"
+                "Gr\u00fcndling"
             ], 
             "image": "gobiogobio.jpg", 
             "japanese": [], 
@@ -20851,7 +20853,7 @@
             "synonyms": [], 
             "turkey": [], 
             "id": 246, 
-            "concern": "Not evaluated by Red List (seriously endangered in Central Europe=level 2 under Swiss rules); The species is extinct in Switzerland)", 
+            "concern": "Not evaluated by Red List (seriously endangered in Central Europe=level 2 under Swiss rules).", 
             "swedish": [
                 "Insj\u00f6\u00f6ring"
             ], 
@@ -21587,7 +21589,7 @@
             "Home", 
             "Precedente", 
             "Successivo", 
-            "Detagli", 
+            "Dettagli", 
             "", 
             "", 
             ""

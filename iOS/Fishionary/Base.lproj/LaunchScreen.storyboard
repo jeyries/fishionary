@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,16 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="jYi-3J-811">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Ipf-zL-bOV">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ipf-zL-bOV" secondAttribute="height" multiplier="1:1" id="ysS-Y4-yqu"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jYi-3J-811" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="9PG-o0-DDY"/>
-                            <constraint firstItem="jYi-3J-811" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Knr-5B-kUg"/>
-                            <constraint firstAttribute="trailing" secondItem="jYi-3J-811" secondAttribute="trailing" id="t4u-r2-KU3"/>
-                            <constraint firstItem="jYi-3J-811" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="ww5-EZ-Xzz"/>
+                            <constraint firstItem="Ipf-zL-bOV" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="VUj-wp-M0X"/>
+                            <constraint firstItem="Ipf-zL-bOV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bKf-D7-WjF"/>
+                            <constraint firstItem="Ipf-zL-bOV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="scE-dk-yEg"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -35,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash" width="320" height="480"/>
+        <image name="splash" width="512" height="512"/>
     </resources>
 </document>

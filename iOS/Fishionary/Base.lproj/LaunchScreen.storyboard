@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ipf-zL-bOV" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="VUj-wp-M0X"/>
                             <constraint firstItem="Ipf-zL-bOV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bKf-D7-WjF"/>

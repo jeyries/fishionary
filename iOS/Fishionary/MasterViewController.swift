@@ -22,6 +22,9 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.title = "Fishionary"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
+        
         let button = UIBarButtonItem(title: "Menu", style: .Plain ,target: self, action: "showMenu:")
         self.navigationItem.rightBarButtonItem = button
         

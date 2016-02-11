@@ -32,6 +32,15 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let fish = self.detailItem {
+            
+            let source = ConfigManager.sharedInstance.source
+            let name = fish.name(source)
+            let source_prop = DataManager.sharedInstance.search_prop(source)
+            
+            self.title = String(format: "%@ (%@)"
+                ,name
+                ,source_prop!.header)
+            
             let target = ConfigManager.sharedInstance.target
             
             if let label = self.detailDescriptionLabel {

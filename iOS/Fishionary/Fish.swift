@@ -10,11 +10,28 @@ class Fish {
 
     var image: String
     var json: JSON!
+    var searchTexts: [String]!
+    var matchText: String?
+    var matchRange: Range<String.Index>?
 
     init(fromJSON _json: JSON) {
 
         json = _json
         image = json["image"].stringValue
+        
+        // build search
+        let props = [/*"english",*/ "scientific", /*"image",*/ "synonyms", /*"concern",*/
+                     "japanese", "hawaii", "korean", "france", "dutch", "deutsch", "catalan",
+                     "espana", "portugal", "italia", "swedish", "danish", "norway", "croatian",
+                     "greek", "russian", "turkey", "vietnamese", "mandarin"];
+        
+        searchTexts = []
+        searchTexts.append( json["english"].stringValue )
+        for prop in props {
+            for (_, name):(String, JSON) in json[prop] {
+                searchTexts.append(name.stringValue.lowercaseString)
+            }
+        }
     }
 
     func name(target: String) -> String {
@@ -56,4 +73,28 @@ class Fish {
         //print("imageSize for \(image)")
         return imageContent().size
     }
+    
+    
+    func match(search: String?) -> Bool {
+        
+        self.matchText = nil
+        self.matchRange = nil
+        
+        if (search == nil || search!.isEmpty) {
+            return true
+        }
+        
+        let _search = search!.lowercaseString
+        
+        for name in searchTexts {
+            let range = name.rangeOfString(_search)
+            if  range != nil {
+                self.matchText = name
+                self.matchRange = range
+                return true
+            }
+        }
+        return false
+    }
+
 }

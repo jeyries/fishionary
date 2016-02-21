@@ -33,7 +33,22 @@ class FishCell: UITableViewCell {
         
         mainLabel!.text = fish.name(source)
         detailLabel!.text = fish.name(target)
+        detailLabel!.textColor = UIColor.blackColor()
         thumbImageView!.image = fish.imageContent()
+        
+        if (fish.matchText != nil) {
+
+            let text = fish.matchText!
+            let range = fish.matchRange!
+            let start = text.startIndex.distanceTo(range.startIndex)
+            let length = range.startIndex.distanceTo(range.endIndex)
+
+            let attributedString = NSMutableAttributedString(string: text)
+            let attributes = [NSForegroundColorAttributeName: UIColor.blueColor(), NSBackgroundColorAttributeName: UIColor.yellowColor()]
+            attributedString.addAttributes(attributes, range: NSMakeRange(start, length))
+            detailLabel!.attributedText = attributedString
+  
+        }
         
     }
 

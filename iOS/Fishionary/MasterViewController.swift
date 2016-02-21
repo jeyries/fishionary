@@ -191,7 +191,7 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
 
     func update() {
         let searchString = searchController.searchBar.text;
-        objects = DataManager.sharedInstance.filter(ConfigManager.sharedInstance.source, search: searchString)
+        objects = DataManager.sharedInstance.filterAnyLanguage(searchString)
         tableView.reloadData()
     }
     

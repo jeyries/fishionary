@@ -36,6 +36,7 @@ class DataManager {
         for (_, object):(String, JSON) in json["props"] {
             let prop = Property(fromJSON: object)
             props.append(prop)
+            print("found property : \(prop.name)")
         }
         print("loaded \(props.count) properties")
 
@@ -49,22 +50,12 @@ class DataManager {
         }
     }
 
-    func filter(language: String, var search: String?) -> [Fish] {
-
-        if (search == nil || search!.isEmpty) {
-            return database
-        }
-
-        search = search!.lowercaseString
-
+    
+    func filterAnyLanguage(let search: String?) -> [Fish] {
+        
         return database.filter() {
             let fish = $0
-            let name = fish.name(language)
-            if name.lowercaseString.rangeOfString(search!) != nil {
-                return true
-            } else {
-                return false
-            }
+            return fish.match(search)
         }
 
     }

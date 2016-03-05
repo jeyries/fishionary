@@ -274,16 +274,10 @@ def process():
         "localization":localization,
     }
 
-
-    content_json = json.dumps( content, indent=4);
-
-    #print "json=", content_json
-
     print "writing to","fishionary.json"
-    
-    f = open("fishionary.json", 'w');
-    f.write( content_json );
-    f.close();
+
+    with codecs.open("fishionary.json", "w", "utf-8") as f:
+        json.dump(content, f, indent=4, ensure_ascii=False)
 
     shutil.copyfile("fishionary.json", "../iOS/Fishionary/data/fishionary.json")
     

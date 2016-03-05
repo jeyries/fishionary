@@ -1,0 +1,689 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Julien Eyriès</Author>
+  <LastAuthor>Julien Eyriès</LastAuthor>
+  <TotalTime>0</TotalTime>
+  <Created>2012-01-16T10:23:58Z</Created>
+  <LastSaved>2012-02-13T10:22:03Z</LastSaved>
+  <Version>14.0</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>12300</WindowHeight>
+  <WindowWidth>25600</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Helvetica" ss:Size="14" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#333300" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s17">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="ヒラギノ角ゴ ProN W3" x:CharSet="128" ss:Size="14"
+    ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#333300" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s18">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial Unicode MS" ss:Size="14" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#333300" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s19">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Size="14" ss:Bold="1"/>
+   <Interior ss:Color="#333300" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s20">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="14" ss:Color="#000000"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s21">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="14" ss:Color="#000000"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s22">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="14" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s23">
+   <Font ss:FontName="ＭＳ Ｐゴシック" x:CharSet="128" x:Family="Swiss" ss:Size="14"
+    ss:Color="#000000"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s24">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Courier New" ss:Size="14" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#333300" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s25">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Times New Roman" ss:Size="14" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s26">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="바탕" x:CharSet="129" ss:Size="14" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s27">
+   <Font ss:FontName="小塚明朝 Pro R" x:CharSet="128" x:Family="Swiss" ss:Size="14"
+    ss:Color="#000000"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Feuil1">
+  <Table ss:ExpandedColumnCount="20" ss:ExpandedRowCount="47" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s20" ss:DefaultColumnWidth="64"
+   ss:DefaultRowHeight="18">
+   <Column ss:StyleID="s20" ss:AutoFitWidth="0" ss:Width="276"/>
+   <Column ss:StyleID="s20" ss:Width="253"/>
+   <Column ss:StyleID="s20" ss:AutoFitWidth="0" ss:Width="263"/>
+   <Column ss:StyleID="s20" ss:AutoFitWidth="0" ss:Width="350"/>
+   <Column ss:StyleID="s20" ss:Width="173"/>
+   <Column ss:StyleID="s20" ss:Width="202"/>
+   <Column ss:StyleID="s20" ss:Width="234"/>
+   <Column ss:StyleID="s20" ss:Width="235"/>
+   <Column ss:StyleID="s20" ss:Width="198"/>
+   <Column ss:StyleID="s20" ss:Width="274"/>
+   <Column ss:StyleID="s20" ss:Width="232"/>
+   <Column ss:Index="14" ss:StyleID="s20" ss:AutoFitWidth="0" ss:Width="78"/>
+   <Column ss:Index="19" ss:StyleID="s20" ss:AutoFitWidth="0" ss:Width="79"/>
+   <Column ss:StyleID="s20" ss:AutoFitWidth="0" ss:Width="374"/>
+   <Row ss:Height="42" ss:StyleID="s19">
+    <Cell ss:StyleID="s16"><Data ss:Type="String">English</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">Japanese/日本語</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Hawaii</Data></Cell>
+    <Cell ss:StyleID="s24"><Data ss:Type="String"><Font html:Color="#FFFFFF"
+       xmlns="http://www.w3.org/TR/REC-html40">Korean/</Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#FFFFFF"
+       xmlns="http://www.w3.org/TR/REC-html40">한국어</Font></Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Français</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Dutch</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Deutsch</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Catalan</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">España</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Portugal</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Italiano</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Swedish</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Danish</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Norwegian</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Croatian</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Greek</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Russian</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Turkish</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">Vietnamese</Data></Cell>
+    <Cell ss:StyleID="s16"><Data ss:Type="String">Mandarin Chinese</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">検索言語</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">기점</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">언어</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Langue départ</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Ausgangssprache</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Llengua origen</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Idioma de origen</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Idioma de origem</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Lingua di partenza</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell><Data ss:Type="String">Source Language</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">出生地語言</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">表示言語</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">목표언어</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">, </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">대상언어</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Langue traduction</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Zielsprache</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Llengua traducció</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Idioma de traducción</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Idioma final</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Lingua traduzione</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell><Data ss:Type="String">Target Language</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">目標地語言</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">検索</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">찾기</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Recherche</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Suche</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Cerca</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Búsqueda</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Pesquisa</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Cerca</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell><Data ss:Type="String">Search</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">搜尋</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">戻る</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">뒤로</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Retour</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Zurück</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Tornar</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Retorno</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Voltar</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Indietro</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell><Data ss:Type="String">Back</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">返回</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">サカナの名前を入力して下さい…</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">물고기</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">이름을</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">입력하세요</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">.</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Écrivez nom poisson …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Gib Fischnamen ein.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Escriviu el nom del peix.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Teclee el nombre del pescado …</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Inserir nome de peixe …</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Inserire nome del pesce.</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell><Data ss:Type="String">Enter fish name …</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">輸入魚的名字</Font><Font html:Face="Calibri"
+       x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> …</Font></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">%d </Font><Font html:Face="ＭＳ Ｐゴシック"
+       x:CharSet="128" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">件ヒットしました</Font></Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">: %d </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">이름들이</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">가능합니다</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">.</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">%d noms disponibles.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Es gibt %d entsprechende Namen. </Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Ha %d noms disponibles</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Hay %d nombres disponibles.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">%d nomes disponíveis.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Ci sono %d nomi disponibili.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names available.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">共有</Font><Font html:Face="Calibri"
+       x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">%d </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">名字可選</Font></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">”</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">%s</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">”と合致するデータはありません</Font></Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">&quot; %s&quot;</Font><Font
+       html:Face="바탕" x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">에</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">일치하는</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">이름이</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">없습니다</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">.</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Pas de nom correspondant a &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Kein Treffer  für &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">No hi ha nom que coincideixi amb el text &quot;% s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">No hay nombre correspondiente a &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">O texto &quot;%s&quot; não produziu nenhum resultado.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Non ci sono corrispondenze per il testo &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is no name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">沒有符合的名字</Font><Font
+       html:Face="Calibri" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">&quot;%s&quot;</Font></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">&quot;%s&quot;</Font><Font
+       html:Face="ＭＳ Ｐゴシック" x:CharSet="128" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">に合致する名前が1件あります</Font></Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">&quot; %s&quot;</Font><Font
+       html:Face="바탕" x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">에</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">일치하는</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">이름이</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> 1</Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">개</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">있습니다</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">.</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">1 résultat pour &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">1 Treffer für &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Ha 1 nom que coincideixi amb el text &quot;% s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Hay 1 nombre correspondiente a &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Foi encontrado 1 nome correspondente a “%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">C'è 1 corrispondenza per il testo &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There is 1 name matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">有1個符合的名字</Font><Font
+       html:Face="Calibri" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">&quot;%s&quot;</Font></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">一致する名前が</Font><Font
+       html:Face="Calibri" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> %d </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">件あります</Font></Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String"><Font html:Face="Times New Roman"
+       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40">%d</Font><Font
+       html:Color="#000000" xmlns="http://www.w3.org/TR/REC-html40"> 이름들이 일치합니다.</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">%d résultats pour &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">%d Treffer für &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Hi ha %d noms que coincideixin amb el text &quot;% s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Hay %d nombres correspondientes a &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Foram encontrados %d nomes correspondentes a &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Ci sono %d corrispondenze per il testo &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">There are %d names matching text &quot;%s&quot;.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">有</Font><Font html:Face="Calibri"
+       x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">%d</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">的名字和你的符合</Font><Font
+       html:Face="Calibri" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">%s</Font></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">さらに入力して下さい</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">더</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">많은</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">글을</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">입력하세요</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">.</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Écrivez plus de texte.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Gib mehr Text ein.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Escrigui més.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Teclee más texto.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Por favor inserir mais texto.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Aggiungere lettere.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell><Data ss:Type="String">Please type more text.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">請再輸入多些資料</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">お選びの言語で対応する単語は見つかりませんでした</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">이</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">언어의</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">번역을</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">찾을</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">수</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">없습니다</Font><Font
+       html:Face="Times New Roman" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">.</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Pas de traduction dans cette langue.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Keine Übersetzung gefunden.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">No ha trobat traducció en aquesta llengua.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">No se encontró traducción en este idioma.</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Não foi encontrada nenhuma tradução nesta língua.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Nessuna traduzione trovata per questa lingua.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell><Data ss:Type="String">no translation found in this language.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">這語言沒有翻譯</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">保全状況</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">Concern/</Font><Font html:Face="바탕"
+       x:CharSet="129" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">관심</Font></Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Soucis:</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Bedrohung:</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Preocupació ambiental</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Alerta ambiental</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Questões ecológicas.</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Problematiche:</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String">Concern :</Data></Cell>
+    <Cell><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">Concern/</Font><Font
+       html:Face="小塚明朝 Pro R" x:CharSet="128" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">關心</Font><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> :</Font></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">ホーム</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">홈으로</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Accueil</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Start</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Inici</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Inicio</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Início </Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell><Data ss:Type="String">Home</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">主頁</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">戻る</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">이전</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Antérieur</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Zurück</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Anterior</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Anterior</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Anterior</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Precedente</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String">Previous</Data></Cell>
+    <Cell><Data ss:Type="String"><Font html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40"> </Font><Font html:Face="小塚明朝 Pro R"
+       x:CharSet="128" x:Family="Swiss" html:Color="#000000"
+       xmlns="http://www.w3.org/TR/REC-html40">前頁</Font></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">次へ</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">다음</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Suivant</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Weiter</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Següent</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Siguiente</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Seguinte</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Successivo</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell><Data ss:Type="String">Next</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">下頁</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">詳細</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">세부사항</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Détails</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Details</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Detalls</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Detalles</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Mais</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">Detagli</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell><Data ss:Type="String">Details</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">詳情</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28"/>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell ss:Index="2" ss:StyleID="s27"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28" ss:Span="27"/>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Zoom>125</Zoom>
+   <PageLayoutZoom>125</PageLayoutZoom>
+   <Selected/>
+   <FreezePanes/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>19</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

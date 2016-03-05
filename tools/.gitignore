@@ -1,0 +1,4 @@
+log.txt
+report.txt
+*.pyc
+~$*

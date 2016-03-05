@@ -3,3 +3,8 @@ temp/
 
 # OSX
 .DS_Store
+
+#IntelliJ
+*.iml
+.idea/
+

@@ -79,7 +79,12 @@ class DetailViewController: UIViewController {
         
         targetPicker = DownPicker.init(textField: targetTextField, withData: texts)
         targetPicker.addTarget(self, action: "targetSelected:", forControlEvents: .ValueChanged)
-
+        
+         //setup UITapGestureRecognizer to detect when the user click on the fish ( UIImageView )
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("showImageOnClick:"))
+        detailImage.userInteractionEnabled = true
+        detailImage.addGestureRecognizer(tapGestureRecognizer)
         
         
     }
@@ -126,6 +131,13 @@ class DetailViewController: UIViewController {
         print("target = \(value)")
         ConfigManager.sharedInstance.target = value
         prepareTranslations()
+    }
+
+    
+    func showImageOnClick(img: AnyObject)
+    {
+        print("image tapped")
+        performSegueWithIdentifier("showImage", sender: nil)
     }
 
 

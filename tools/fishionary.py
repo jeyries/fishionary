@@ -7,6 +7,7 @@ import json
 import codecs
 import re
 import convert_xml_to_json
+import shutil
 
 ######### regex stuff
 
@@ -197,7 +198,7 @@ def process():
                 obj['image'] = workaround[scientific]
         
         ##        
-        if not os.path.exists(os.path.join("../www/database",obj['image'])):
+        if not os.path.exists(os.path.join("../iOS/Fishionary/data/database",obj['image'])):
             
             print "image not found : ", obj['image'] 
             image_not_found += 1
@@ -275,9 +276,7 @@ def process():
 
 
     content_json = json.dumps( content, indent=4);
-    
-    content_json = "var fishionary_json="+content_json+";";
-    
+
     #print "json=", content_json
 
     print "writing to","fishionary.json"
@@ -285,6 +284,8 @@ def process():
     f = open("fishionary.json", 'w');
     f.write( content_json );
     f.close();
+
+    shutil.copyfile("fishionary.json", "../iOS/Fishionary/data/fishionary.json")
     
    
     

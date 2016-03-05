@@ -1,9 +1,8 @@
 Requires
 ---
 
-
-- Xcode 7
-- cocoapods
+- XCode 7
+- CocoaPods
 
 Fishionary
 ---

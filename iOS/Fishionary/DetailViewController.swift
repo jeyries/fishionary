@@ -19,6 +19,7 @@ class DetailViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var targetTextField: UITextField!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var detailWebView: UIWebView!
+    @IBOutlet weak var detailWebViewHeight: NSLayoutConstraint!
 
     
     var targetPicker : DownPicker!
@@ -58,19 +59,26 @@ class DetailViewController: UIViewController, UIWebViewDelegate {
             if let detailWebView = self.detailWebView {
                 //let concern = fish.json["concern"].stringValue
                 let concern = "NEAR THREATENED   - - -   Lophius gastrophysus: least concern; Lophius vomerinus=Cape Monk, Devil Anglerfish, Baudroie Diable, Baudroie du Cap\rRape del Cabo, Rape Diablo:  <a href=\"http://www.iucnredlist.org/apps/redlist/search\" target=\"_blank\">IUCNRedlist</a>"
-                
-                /*
-                <p id="detailTextLabel" class="localize">Concern :</p>
-                <p id="detailText" class="ui-corner-all" data-role="content"  data-theme="c"></p>
-                */
-                
-                let template = try! Template(string: "<html><body><p>Concern :</p><p>{{{concern}}}</p></body></html>")
-                let data = [
-                    "concern": concern
-                ]
-                let rendering = try! template.render(Box(data))
+
+                var rendering = ""
+                do {
+                    let url = NSBundle.mainBundle().bundleURL
+                                .URLByAppendingPathComponent("data/concern.html")
+                    let content = try String(contentsOfURL: url, encoding: NSUTF8StringEncoding)
+
+                    let template = try Template(string: content)
+                    let data = [
+                            "concern": concern
+                    ]
+                    rendering = try template.render(Box(data))
+
+                } catch {
+
+                }
+
                 //print("rendering : \(rendering)")
                 detailWebView.delegate = self
+                detailWebView.scrollView.scrollEnabled = false
                 detailWebView.loadHTMLString(rendering, baseURL: nil)
             }
 
@@ -164,6 +172,12 @@ class DetailViewController: UIViewController, UIWebViewDelegate {
 
     
     // MARK: - WebView
+
+    func webViewDidFinishLoad(webView: UIWebView) {
+        let h = webView.scrollView.contentSize.height
+        //print("webview height = \(h)")
+        detailWebViewHeight.constant = h
+    }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         // open links in Safari

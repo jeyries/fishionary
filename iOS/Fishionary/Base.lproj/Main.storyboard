@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z67-0h-8Qn">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="614"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="514"/>
                                         <subviews>
                                             <imageView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="360" image="samplefish" translatesAutoresizingMaskIntoConstraints="NO" id="npH-dU-qdf" userLabel="Detail Image">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -78,10 +78,10 @@
                                                 </connections>
                                             </containerView>
                                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGp-aP-tqx">
-                                                <rect key="frame" x="0.0" y="414" width="375" height="200"/>
+                                                <rect key="frame" x="0.0" y="414" width="375" height="100"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="ncS-Vp-xiV"/>
+                                                    <constraint firstAttribute="height" constant="100" id="ncS-Vp-xiV"/>
                                                 </constraints>
                                             </webView>
                                         </subviews>
@@ -122,6 +122,7 @@
                         <outlet property="containerHeight" destination="atw-lk-biO" id="Y2d-ac-t5N"/>
                         <outlet property="detailImage" destination="npH-dU-qdf" id="CCd-8W-8vW"/>
                         <outlet property="detailWebView" destination="gGp-aP-tqx" id="kn0-j0-7gU"/>
+                        <outlet property="detailWebViewHeight" destination="ncS-Vp-xiV" id="Oac-gf-IiV"/>
                         <outlet property="targetTextField" destination="c6n-8d-C7Y" id="vn2-zO-VOU"/>
                     </connections>
                 </viewController>

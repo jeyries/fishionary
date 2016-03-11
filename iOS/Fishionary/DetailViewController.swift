@@ -8,8 +8,9 @@
 
 import UIKit
 import DownPicker
+import Mustache
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIWebViewDelegate {
     
     let props = DataManager.sharedInstance.filter_props()
 
@@ -17,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var targetTextField: UITextField!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
+    @IBOutlet weak var detailWebView: UIWebView!
 
     
     var targetPicker : DownPicker!
@@ -52,6 +54,26 @@ class DetailViewController: UIViewController {
                 imageView.contentMode = .ScaleAspectFit
                 imageView.image = content
             }
+            
+            if let detailWebView = self.detailWebView {
+                //let concern = fish.json["concern"].stringValue
+                let concern = "NEAR THREATENED   - - -   Lophius gastrophysus: least concern; Lophius vomerinus=Cape Monk, Devil Anglerfish, Baudroie Diable, Baudroie du Cap\rRape del Cabo, Rape Diablo:  <a href=\"http://www.iucnredlist.org/apps/redlist/search\" target=\"_blank\">IUCNRedlist</a>"
+                
+                /*
+                <p id="detailTextLabel" class="localize">Concern :</p>
+                <p id="detailText" class="ui-corner-all" data-role="content"  data-theme="c"></p>
+                */
+                
+                let template = try! Template(string: "<html><body><p>Concern :</p><p>{{{concern}}}</p></body></html>")
+                let data = [
+                    "concern": concern
+                ]
+                let rendering = try! template.render(Box(data))
+                //print("rendering : \(rendering)")
+                detailWebView.delegate = self
+                detailWebView.loadHTMLString(rendering, baseURL: nil)
+            }
+
         }
     }
 
@@ -140,6 +162,17 @@ class DetailViewController: UIViewController {
         performSegueWithIdentifier("showImage", sender: nil)
     }
 
-
+    
+    // MARK: - WebView
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        // open links in Safari
+        if ( navigationType == .LinkClicked ) {
+            UIApplication.sharedApplication().openURL(request.URL!)
+            return false;
+        }
+        
+        return true;
+    }
 }
 

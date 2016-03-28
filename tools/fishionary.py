@@ -54,10 +54,9 @@ def process():
     # mode = 3 => image
     
     props = [
-    {"name":"english", "mode":0},
-    {"name":"scientific", "mode":1},
+    {"name":"english", "mode":1},
     {"name":"image", "mode":3},
-    {"name":"synonyms", "mode":1},
+    {"name":"scientific", "mode":1},
     {"name":"concern", "mode":2},
     {"name":"japanese", "mode":1},
     {"name":"hawaii", "mode":1},

@@ -57,29 +57,35 @@ class DetailViewController: UIViewController, UIWebViewDelegate {
             }
             
             if let detailWebView = self.detailWebView {
-                //let concern = fish.json["concern"].stringValue
-                let concern = "NEAR THREATENED   - - -   Lophius gastrophysus: least concern; Lophius vomerinus=Cape Monk, Devil Anglerfish, Baudroie Diable, Baudroie du Cap\rRape del Cabo, Rape Diablo:  <a href=\"http://www.iucnredlist.org/apps/redlist/search\" target=\"_blank\">IUCNRedlist</a>"
+                let concern = fish.json["concern"].stringValue
+                /*let concern = "NEAR THREATENED   - - -   Lophius gastrophysus: least concern; Lophius vomerinus=Cape Monk, Devil Anglerfish, Baudroie Diable, Baudroie du Cap\rRape del Cabo, Rape Diablo:  <a href=\"http://www.iucnredlist.org/apps/redlist/search\" target=\"_blank\">IUCNRedlist</a>"*/
 
-                var rendering = ""
-                do {
-                    let url = NSBundle.mainBundle().bundleURL
-                                .URLByAppendingPathComponent("data/concern.html")
-                    let content = try String(contentsOfURL: url, encoding: NSUTF8StringEncoding)
+                if (concern.isEmpty){
+                    detailWebView.hidden = true
+                    detailWebViewHeight.constant = 0
+                    
+                } else {
+                    var rendering = ""
+                    do {
+                        let url = NSBundle.mainBundle().bundleURL
+                                    .URLByAppendingPathComponent("data/concern.html")
+                        let content = try String(contentsOfURL: url, encoding: NSUTF8StringEncoding)
 
-                    let template = try Template(string: content)
-                    let data = [
-                            "concern": concern
-                    ]
-                    rendering = try template.render(Box(data))
+                        let template = try Template(string: content)
+                        let data = [
+                                "concern": concern
+                        ]
+                        rendering = try template.render(Box(data))
 
-                } catch {
+                    } catch {
 
+                    }
+
+                    //print("rendering : \(rendering)")
+                    detailWebView.delegate = self
+                    detailWebView.scrollView.scrollEnabled = false
+                    detailWebView.loadHTMLString(rendering, baseURL: nil)
                 }
-
-                //print("rendering : \(rendering)")
-                detailWebView.delegate = self
-                detailWebView.scrollView.scrollEnabled = false
-                detailWebView.loadHTMLString(rendering, baseURL: nil)
             }
 
         }

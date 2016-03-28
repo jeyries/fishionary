@@ -1,48 +1,13 @@
 
-/* Class = "UITextField"; text = "English"; ObjectID = "2eJ-uO-Kms"; */
-"2eJ-uO-Kms.text" = "English";
-
-/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "6Ko-F8-hcn"; */
-"6Ko-F8-hcn.normalTitle" = "Done";
-
-/* Class = "UITableViewController"; title = "Master"; ObjectID = "7bK-jq-Zjz"; */
-"7bK-jq-Zjz.title" = "Master";
-
 /* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "9PP-vk-50X"; */
-"9PP-vk-50X.title" = "Done";
-
-/* Class = "UIViewController"; title = "Detail"; ObjectID = "JEX-9P-axG"; */
-"JEX-9P-axG.title" = "Detail";
+"9PP-vk-50X.title" = "Fait";
 
 /* Class = "UILabel"; text = "Target Language"; ObjectID = "KAH-kr-O1k"; */
-"KAH-kr-O1k.text" = "Target Language";
-
-/* Class = "UILabel"; text = "SPARUS AURATA"; ObjectID = "Pjj-yI-JkR"; */
-"Pjj-yI-JkR.text" = "SPARUS AURATA";
-
-/* Class = "UINavigationController"; title = "Master"; ObjectID = "RMx-3f-FxP"; */
-"RMx-3f-FxP.title" = "Master";
-
-/* Class = "UINavigationItem"; title = "Master"; ObjectID = "Zdf-7t-Un8"; */
-"Zdf-7t-Un8.title" = "Master";
-
-/* Class = "UITextField"; text = "English"; ObjectID = "c6n-8d-C7Y"; */
-"c6n-8d-C7Y.text" = "English";
-
-/* Class = "UITextField"; text = "French"; ObjectID = "chA-3i-6d5"; */
-"chA-3i-6d5.text" = "French";
+"KAH-kr-O1k.text" = "Langue traduction";
 
 /* Class = "UILabel"; text = "Source Language"; ObjectID = "fQM-vZ-kwO"; */
-"fQM-vZ-kwO.text" = "Source Language";
+"fQM-vZ-kwO.text" = "Langue départ";
 
 /* Class = "UIBarButtonItem"; title = "View"; ObjectID = "gd0-Wh-6pM"; */
-"gd0-Wh-6pM.title" = "View";
+"gd0-Wh-6pM.title" = "Aperçu";
 
-/* Class = "UINavigationItem"; title = "Detail"; ObjectID = "mOI-FS-AaM"; */
-"mOI-FS-AaM.title" = "Detail";
-
-/* Class = "UILabel"; text = "Daurade Royale"; ObjectID = "r9H-kx-diX"; */
-"r9H-kx-diX.text" = "Daurade Royale";
-
-/* Class = "UILabel"; text = "Daurade Royale"; ObjectID = "sbP-dB-qca"; */
-"sbP-dB-qca.text" = "Daurade Royale";

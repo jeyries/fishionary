@@ -20,13 +20,12 @@ class Fish {
         image = json["image"].stringValue
         
         // build search
-        let props = [/*"english",*/ "scientific", /*"image",*/ "synonyms", /*"concern",*/
+        let props = ["english", "scientific", /*"image",*/ /*"synonyms",*/ /*"concern",*/
                      "japanese", "hawaii", "korean", "france", "dutch", "deutsch", "catalan",
                      "espana", "portugal", "italia", "swedish", "danish", "norway", "croatian",
                      "greek", "russian", "turkey", "vietnamese", "mandarin"];
         
         searchTexts = []
-        searchTexts.append( json["english"].stringValue )
         for prop in props {
             for (_, name):(String, JSON) in json[prop] {
                 searchTexts.append(name.stringValue.lowercaseString)
@@ -36,24 +35,14 @@ class Fish {
 
     func name(target: String) -> String {
         let names = json[target]
-        var name: String
-        if (target=="english"){
-            name = names.stringValue
-        } else {
-            name = names[0].stringValue
-        }
-        return name
+        return names[0].stringValue
     }
     
     func names(target: String) -> [String] {
         let _names = json[target]
         var names = [String]()
-        if (target=="english"){
-            names.append(_names.stringValue)
-        } else {
-            for (_, name):(String, JSON) in _names {
-                names.append(name.stringValue)
-            }
+        for (_, name):(String, JSON) in _names {
+            names.append(name.stringValue)
         }
         return names
     }

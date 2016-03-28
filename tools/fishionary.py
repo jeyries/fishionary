@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # conversion CSV vers JSON
 # export PYTHONIOENCODING=utf-8
 
@@ -8,6 +9,7 @@ import codecs
 import re
 import convert_xml_to_json
 import shutil
+import collections
 
 ######### regex stuff
 
@@ -40,45 +42,140 @@ def linksub(item):
 #########   Unicode Character 'NO-BREAK SPACE' (U+00A0)
 
 
+####
 
-def process():
+# mode = 0 => single item
+# mode = 1 => multiple item separated by comma
+# mode = 2 => single item with links
+# mode = 3 => image
+
+props = [
+    {
+        "header": u"English",
+        "name": "english",
+        "mode": 1
+    },
+    {
+        "header": u"Image Link",
+        "name": "image",
+        "mode": 3
+    },
+    {
+        "header": u"Scientific Name",
+        "name": "scientific",
+        "mode": 1
+    },
+    {
+        "header": u"Concern (i)",
+        "name": "concern",
+        "mode": 2
+    },
+    {
+        "header": u"Japanese/日本語",
+        "name": "japanese",
+        "mode": 1
+    },
+    {
+        "header": u"Hawaii",
+        "name": "hawaii",
+        "mode": 1
+    },
+    {
+        "header": u"Korean/한국어",
+        "name": "korean",
+        "mode": 1
+    },
+    {
+        "header": u"Français",
+        "name": "france",
+        "mode": 1
+    },
+    {
+        "header": u"Dutch",
+        "name": "dutch",
+        "mode": 1
+    },
+    {
+        "header": u"Deutsch",
+        "name": "deutsch",
+        "mode": 1
+    },
+    {
+        "header": u"Catalan",
+        "name": "catalan",
+        "mode": 1
+    },
+    {
+        "header": u"España",
+        "name": "espana",
+        "mode": 1
+    },
+    {
+        "header": u"Portugal",
+        "name": "portugal",
+        "mode": 1
+    },
+    {
+        "header": u"Italiano",
+        "name": "italia",
+        "mode": 1
+    },
+    {
+        "header": u"Swedish",
+        "name": "swedish",
+        "mode": 1
+    },
+    {
+        "header": u"Danish",
+        "name": "danish",
+        "mode": 1
+    },
+    {
+        "header": u"Norwegian",
+        "name": "norway",
+        "mode": 1
+    },
+    {
+        "header": u"Croatian",
+        "name": "croatian",
+        "mode": 1
+    },
+    {
+        "header": u"Greek/Ελληνικά",
+        "name": "greek",
+        "mode": 1
+    },
+    {
+        "header": u"Russian/Rусский",
+        "name": "russian",
+        "mode": 1
+    },
+    {
+        "header": u"Turkish",
+        "name": "turkey",
+        "mode": 1
+    },
+    {
+        "header": u"Vietnamese",
+        "name": "vietnamese",
+        "mode": 1
+    },
+    {
+        "header": u"Mandarin Chinese/ 國語",
+        "name": "mandarin",
+        "mode": 1
+    }
+]
     
-    print "building fishionary"
-    
-    
-    ####
-    
-    # mode = 0 => single item
-    # mode = 1 => multiple item separated by comma
-    # mode = 2 => single item with links
-    # mode = 3 => image
-    
-    props = [
-    {"name":"english", "mode":1},
-    {"name":"image", "mode":3},
-    {"name":"scientific", "mode":1},
-    {"name":"concern", "mode":2},
-    {"name":"japanese", "mode":1},
-    {"name":"hawaii", "mode":1},
-    {"name":"korean", "mode":1},
-    {"name":"france", "mode":1},
-    {"name":"dutch", "mode":1},
-    {"name":"deutsch", "mode":1},
-    {"name":"catalan", "mode":1},
-    {"name":"espana", "mode":1},
-    {"name":"portugal", "mode":1},
-    {"name":"italia", "mode":1},
-    {"name":"swedish", "mode":1},
-    {"name":"danish", "mode":1},
-    {"name":"norway", "mode":1},
-    {"name":"croatian", "mode":1},
-    {"name":"greek", "mode":1},
-    {"name":"russian", "mode":1},
-    {"name":"turkey", "mode":1},
-    {"name":"vietnamese", "mode":1},
-    {"name":"mandarin", "mode":1},
-    ]
-    
+
+
+def process_props():
+
+    write_output({"props": props}, "props.json")
+
+
+def process_database():
+
     workaround = {
     "ASPITRIGLA CUCULUS":"aspitriglacuculus.jpg",
     "SERRANUS CABRILLA":"serranuscabrilla.jpg",
@@ -91,12 +188,8 @@ def process():
     }
         
     ###########
-    
-    convert_xml_to_json.process("database.xml")
-    
-    with open("database.json") as f:
 
-        database_json = json.load(f);
+    database_json = convert_xml_to_json._process("database.xml")
         
     
     
@@ -108,13 +201,13 @@ def process():
     #print "database_json", database_json['table'][0]
         
     
-    header = database_json['table'][0]
-    for k in range(len(props)):
-        item = None
-        if k < len(header):
-            item = header[k]
-            
-        props[k]['header']= item
+    # header = database_json['table'][0]
+    # for k in range(len(props)):
+    #     item = None
+    #     if k < len(header):
+    #         item = header[k]
+    #
+    #     props[k]['header']= item
             
     
             
@@ -131,8 +224,8 @@ def process():
     for row in database_json['table'][1:]:
     
         #print "row=",row ;
-    
-        obj = {'id':id_};
+        obj = collections.OrderedDict()
+        obj['id'] = id_
         
         for k in range(len(props)):
             
@@ -213,14 +306,15 @@ def process():
     if image_not_found :
         print "*** Stopping. Please correct this problem !"
         return
-    
-    ########
-    
-    convert_xml_to_json.process("localization.xml")
-        
-    with open("localization.json") as f:    
 
-        localization_json = json.load(f);
+    ########
+
+    write_output({"database": database}, "database.json")
+
+
+def process_localization():
+
+    localization_json = convert_xml_to_json._process("localization.xml")
         
     #######
     
@@ -247,7 +341,7 @@ def process():
     {"name":"mandarin", "mode":1},
     ]
     
-    localization = {}
+    localization = collections.OrderedDict()
     
     for language in languages:
         
@@ -266,31 +360,27 @@ def process():
             localization[language['name']].append(item)
             
     ##############
-    
-    content = {
-        "props":props,
-        "database":database,
-        "localization":localization,
-    }
 
-    print "writing to","fishionary.json"
+    write_output({"localization": localization}, "localization.json")
+    
+def write_output( obj, filename ):
 
-    with codecs.open("fishionary.json", "w", "utf-8") as f:
-        json.dump(content, f, indent=4, ensure_ascii=False)
+    print "writing to",filename
 
-    shutil.copyfile("fishionary.json", "../iOS/Fishionary/data/fishionary.json")
-    
-   
-    
+    with codecs.open(filename, "w", "utf-8") as f:
+        json.dump(obj, f, indent=4, ensure_ascii=False)
 
-    
-    
+    shutil.copyfile(filename, "../iOS/Fishionary/data/"+filename)
+
+
+
 def main():
-    
-    
 
+    print "building fishionary"
 
-    process()
+    process_props()
+    process_database()
+    process_localization()
         
 
 

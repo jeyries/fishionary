@@ -58,7 +58,7 @@ class TableXMLHandler:
 
 
 
-def process( rootname ):
+def _process( rootname ):
     
     print "processing", rootname
 
@@ -93,6 +93,11 @@ def process( rootname ):
 
     }
 
+    return content
+
+def process( rootname ):
+
+    content = _process(rootname)
 
     content_json = json.dumps( content, indent=4);
     

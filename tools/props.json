@@ -1,0 +1,119 @@
+{
+    "props": [
+        {
+            "header": "English", 
+            "name": "english", 
+            "mode": 1
+        }, 
+        {
+            "header": "Image Link", 
+            "name": "image", 
+            "mode": 3
+        }, 
+        {
+            "header": "Scientific Name", 
+            "name": "scientific", 
+            "mode": 1
+        }, 
+        {
+            "header": "Concern (i)", 
+            "name": "concern", 
+            "mode": 2
+        }, 
+        {
+            "header": "Japanese/日本語", 
+            "name": "japanese", 
+            "mode": 1
+        }, 
+        {
+            "header": "Hawaii", 
+            "name": "hawaii", 
+            "mode": 1
+        }, 
+        {
+            "header": "Korean/한국어", 
+            "name": "korean", 
+            "mode": 1
+        }, 
+        {
+            "header": "Français", 
+            "name": "france", 
+            "mode": 1
+        }, 
+        {
+            "header": "Dutch", 
+            "name": "dutch", 
+            "mode": 1
+        }, 
+        {
+            "header": "Deutsch", 
+            "name": "deutsch", 
+            "mode": 1
+        }, 
+        {
+            "header": "Catalan", 
+            "name": "catalan", 
+            "mode": 1
+        }, 
+        {
+            "header": "España", 
+            "name": "espana", 
+            "mode": 1
+        }, 
+        {
+            "header": "Portugal", 
+            "name": "portugal", 
+            "mode": 1
+        }, 
+        {
+            "header": "Italiano", 
+            "name": "italia", 
+            "mode": 1
+        }, 
+        {
+            "header": "Swedish", 
+            "name": "swedish", 
+            "mode": 1
+        }, 
+        {
+            "header": "Danish", 
+            "name": "danish", 
+            "mode": 1
+        }, 
+        {
+            "header": "Norwegian", 
+            "name": "norway", 
+            "mode": 1
+        }, 
+        {
+            "header": "Croatian", 
+            "name": "croatian", 
+            "mode": 1
+        }, 
+        {
+            "header": "Greek/Ελληνικά", 
+            "name": "greek", 
+            "mode": 1
+        }, 
+        {
+            "header": "Russian/Rусский", 
+            "name": "russian", 
+            "mode": 1
+        }, 
+        {
+            "header": "Turkish", 
+            "name": "turkey", 
+            "mode": 1
+        }, 
+        {
+            "header": "Vietnamese", 
+            "name": "vietnamese", 
+            "mode": 1
+        }, 
+        {
+            "header": "Mandarin Chinese/ 國語", 
+            "name": "mandarin", 
+            "mode": 1
+        }
+    ]
+}

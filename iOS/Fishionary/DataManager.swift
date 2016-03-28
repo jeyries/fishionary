@@ -12,11 +12,19 @@ class DataManager {
 
     var database = [Fish]()
     var props = [Property]()
-    
+
+
     init() {
+        init_database()
+        init_props()
+
+        sortInPlace("english")
+    }
+
+    func init_database() {
 
         let path = NSBundle.mainBundle().bundleURL
-                    .URLByAppendingPathComponent("data/fishionary.json")
+                    .URLByAppendingPathComponent("data/database.json")
                     .path
         let jsonData = NSData(contentsOfFile: path!)
         let json = JSON(data: jsonData!)
@@ -31,7 +39,17 @@ class DataManager {
             database.append(fish)
         }
         print("loaded \(database.count) fishes")
-        
+
+    }
+
+    func init_props() {
+
+        let path = NSBundle.mainBundle().bundleURL
+                    .URLByAppendingPathComponent("data/props.json")
+                    .path
+        let jsonData = NSData(contentsOfFile: path!)
+        let json = JSON(data: jsonData!)
+
         props = [Property]()
         for (_, object):(String, JSON) in json["props"] {
             let prop = Property(fromJSON: object)
@@ -40,7 +58,6 @@ class DataManager {
         }
         print("loaded \(props.count) properties")
 
-        sortInPlace("english")
     }
 
     func sortInPlace(language: String){

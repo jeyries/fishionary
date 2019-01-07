@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageViewController: UIViewController, UIScrollViewDelegate {
+final class ImageViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var imageView: UIImageView!
@@ -23,7 +23,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         didSet {
             // Update the view.
             //updateZoom()
-            print("image: \(image)")
+            print("image: \(String(describing: image))")
         }
     }
     
@@ -38,7 +38,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
 
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(animated)
         
@@ -66,24 +66,22 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     }
     */
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Landscape
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
     }
     
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return .LandscapeLeft
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .landscapeLeft
     }
     
     // Update zoom scale and constraints with animation.
-    @available(iOS 8.0, *)
-    override func viewWillTransitionToSize(size: CGSize,
-        withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-            
-            super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-            
-            coordinator.animateAlongsideTransition({ [weak self] _ in
-                self?.updateZoom()
-                }, completion: nil)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.updateZoom()
+            }, completion: nil)
     }
     
     //
@@ -163,14 +161,14 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func onDoneButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func onDoneButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     // UIScrollViewDelegate
     // -----------------------
     
-    func scrollViewDidZoom(scrollView: UIScrollView) {
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateConstraints()
     }
     

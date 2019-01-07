@@ -4,20 +4,19 @@
 //
 
 import Foundation
-import SwiftyJSON
+import UIKit
 
-class Fish {
 
-    var image: String
-    var json: JSON!
-    var searchTexts: [String]!
-    var matchText: String?
-    var matchRange: Range<String.Index>?
+struct Fish {
 
-    init(fromJSON _json: JSON) {
+    let image: String
+    let json: [String: Any]
+    let searchTexts: [String]
+
+    init(fromJSON _json: [String: Any]) {
 
         json = _json
-        image = json["image"].stringValue
+        image = json["image"] as! String
         
         // build search
         let props = ["english", "scientific", /*"image",*/ /*"synonyms",*/ /*"concern",*/
@@ -25,65 +24,68 @@ class Fish {
                      "espana", "portugal", "italia", "swedish", "danish", "norway", "croatian",
                      "greek", "russian", "turkey", "vietnamese", "mandarin"];
         
-        searchTexts = []
+        var searchTexts = [String]()
         for prop in props {
-            for (_, name):(String, JSON) in json[prop] {
-                searchTexts.append(name.stringValue.lowercaseString)
+            let names = json[prop] as! [String]
+            for name in names {
+                searchTexts.append(name.lowercased())
             }
         }
+        self.searchTexts = searchTexts
     }
 
     func name(target: String) -> String {
-        let names = json[target]
-        return names[0].stringValue
+        let names = json[target] as! [String]
+        return names.first ?? ""
     }
     
     func names(target: String) -> [String] {
-        let _names = json[target]
-        var names = [String]()
-        for (_, name):(String, JSON) in _names {
-            names.append(name.stringValue)
-        }
-        return names
+        return json[target] as! [String]
     }
+}
 
-    func imageContent() -> UIKit.UIImage {
+// UIKit
+extension Fish {
+    func imageContent() -> UIImage {
         //print("imageContent for \(image)")
         let filename = image
-        let path = NSBundle.mainBundle().bundleURL
-                .URLByAppendingPathComponent("data/database")
-                .URLByAppendingPathComponent(filename)
+        let path = Bundle.main.bundleURL
+                .appendingPathComponent("data/database")
+                .appendingPathComponent(filename)
                 .path
-        let content : UIImage = UIImage(contentsOfFile:path!)!
+        let content = UIImage(contentsOfFile: path)!
         return content
     }
     
-    func imageSize() -> UIKit.CGSize {
+    func imageSize() -> CGSize {
         //print("imageSize for \(image)")
         return imageContent().size
     }
-    
-    
-    func match(search: String?) -> Bool {
-        
-        self.matchText = nil
-        self.matchRange = nil
+}
+
+// filtering
+struct MatchResult {
+    let fish: Fish
+    let matchText: String?
+    let matchRange: Range<String.Index>?
+}
+
+extension Fish {
+    func match(search: String?) -> MatchResult? {
         
         if (search == nil || search!.isEmpty) {
-            return true
+            return MatchResult(fish: self, matchText: nil, matchRange: nil)
         }
         
-        let _search = search!.lowercaseString
+        let _search = search!.lowercased()
         
         for name in searchTexts {
-            let range = name.rangeOfString(_search)
+            let range = name.range(of: _search)
             if  range != nil {
-                self.matchText = name
-                self.matchRange = range
-                return true
+                return MatchResult(fish: self, matchText: name, matchRange: range)
             }
         }
-        return false
+        return nil
     }
-
+    
 }

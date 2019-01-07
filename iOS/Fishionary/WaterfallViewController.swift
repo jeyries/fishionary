@@ -13,26 +13,26 @@ private let CELL_IDENTIFIER = "WaterfallCell"
 private let HEADER_IDENTIFIER = "WaterfallHeader"
 private let FOOTER_IDENTIFIER = "WaterfallFooter"
 
-class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
+final class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
-    let objects = DataManager.sharedInstance.filterAnyLanguage(nil)
+    let objects = DataManager.sharedInstance.filterAnyLanguage(search: nil)
 
     var collectionView : UICollectionView!
-    var didSelect : (Fish -> ())!
+    var didSelect : ((Fish) -> ())!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.redColor()
+        self.view.backgroundColor = .red
         
 
-        let button = UIBarButtonItem(barButtonSystemItem: .Done,target: self, action: "done:")
+        let button = UIBarButtonItem(barButtonSystemItem: .done,target: self, action: #selector(done))
         self.navigationItem.rightBarButtonItem = button
         
         
         let layout = CHTCollectionViewWaterfallLayout()
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10);
         layout.headerHeight = 0 //15;
         layout.footerHeight = 0 //10;
         layout.minimumColumnSpacing = 20;
@@ -40,40 +40,34 @@ class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHT
         layout.columnCount = 2
         
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.dataSource = self;
         collectionView.delegate = self;
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = .white
         
-        collectionView.registerClass(WaterfallCell.self, forCellWithReuseIdentifier: CELL_IDENTIFIER)
-        collectionView.registerClass(WaterfallHeader.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader, withReuseIdentifier:HEADER_IDENTIFIER)
-        collectionView.registerClass(WaterfallFooter.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter, withReuseIdentifier:FOOTER_IDENTIFIER)
+        collectionView.register(WaterfallCell.self, forCellWithReuseIdentifier: CELL_IDENTIFIER)
+        collectionView.register(WaterfallHeader.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader, withReuseIdentifier:HEADER_IDENTIFIER)
+        collectionView.register(WaterfallFooter.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter, withReuseIdentifier:FOOTER_IDENTIFIER)
         
 
          self.view.addSubview(self.collectionView)
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateLayoutForOrientation(UIApplication.sharedApplication().statusBarOrientation)
+        updateLayoutForOrientation(orientation: UIApplication.shared.statusBarOrientation)
         //updateLayoutForSize(...)
     }
 
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
-        updateLayoutForOrientation(toInterfaceOrientation)
+    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        super.willAnimateRotation(to: toInterfaceOrientation, duration: duration)
+        updateLayoutForOrientation(orientation: toInterfaceOrientation)
     }
     
     func updateLayoutForOrientation(orientation: UIInterfaceOrientation) {
         let layout = collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
-        layout.columnCount = UIInterfaceOrientationIsPortrait(orientation) ? 2 : 3;
+        layout.columnCount = orientation.isPortrait ? 2 : 3;
     }
 
     
@@ -112,48 +106,46 @@ class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHT
     }
     */
     
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         
         print("willTransitionToTraitCollection: \(newCollection)")
-        if newCollection.containsTraitsInCollection(UITraitCollection(verticalSizeClass: .Regular)) {
+        if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
             
         }
     }
     
     
-    func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+    @objc func done(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     // MARK: UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return objects.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {                
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CELL_IDENTIFIER, forIndexPath: indexPath) as! WaterfallCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER, for: indexPath as IndexPath) as! WaterfallCell
         
         // Configure the cell
-        let fish = objects[indexPath.row]
-        cell.imageView.image = fish.imageContent()
+        let result = objects[indexPath.row]
+        cell.configure(fish: result.fish)
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         var reusableView : UICollectionReusableView? = nil
         
         if (kind == CHTCollectionElementKindSectionHeader) {
-            reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: HEADER_IDENTIFIER, forIndexPath: indexPath)
+            reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HEADER_IDENTIFIER, for: indexPath)
         } else if (kind == CHTCollectionElementKindSectionFooter) {
-            reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: FOOTER_IDENTIFIER, forIndexPath: indexPath)
+            reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FOOTER_IDENTIFIER, for: indexPath)
         }
         
         return reusableView!;
@@ -161,19 +153,19 @@ class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHT
     
     // MARK - CHTCollectionViewDelegateWaterfallLayout
     
-    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath?) -> CGSize {
         
-        let fish = objects[indexPath.row]
-        return fish.imageSize()
+        let result = objects[indexPath!.row]
+        return result.fish.imageSize()
     }
     
     // MARK - UICollectionViewDelegate
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let didSelect = didSelect {
-            let fish = objects[indexPath.row]
-            didSelect( fish )
+            let result = objects[indexPath.row]
+            didSelect( result.fish )
         }
     }
   

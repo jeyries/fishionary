@@ -3,12 +3,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'Fishionary' do
-    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'DownPicker'
-    pod 'RxSwift',    '~> 2.0'
-    pod 'RxCocoa',    '~> 2.0'
-    #pod 'RxBlocking', '~> 2.0'
-    #pod 'RxTests',    '~> 2.0'
-    pod 'GRMustache.swift'
+    #pod 'RxSwift'
+    #pod 'RxCocoa'
+    pod 'GRMustache', '~> 7.3.2'
 end

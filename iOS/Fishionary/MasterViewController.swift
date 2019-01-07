@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class MasterViewController: UITableViewController, UISearchResultsUpdating
+final class MasterViewController: UITableViewController, UISearchResultsUpdating
     , UIPopoverPresentationControllerDelegate {
 
     let searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? = nil
-    var objects = [Fish]()
+    var objects = [MatchResult]()
     
 
     override func viewDidLoad() {
@@ -23,9 +21,9 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "Fishionary"
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
-        let button = UIBarButtonItem(title: "Menu", style: .Plain ,target: self, action: "showMenu:")
+        let button = UIBarButtonItem(title: "Menu", style: .plain ,target: self, action: #selector(showMenu))
         self.navigationItem.rightBarButtonItem = button
         
 
@@ -39,9 +37,7 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         searchController.searchBar.sizeToFit()
         self.tableView.tableHeaderView = searchController.searchBar
         
-        _ = NSNotificationCenter.defaultCenter()
-            .rx_notification("SettingsDone")
-            .subscribeNext { [unowned self] _ in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "SettingsDone"), object: nil, queue: nil) { [unowned self] _ in
                 print("SettingsDone")
                 self.update()
         }
@@ -51,8 +47,8 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
 
 
 
-    override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+    override func viewWillAppear(_ animated: Bool) {
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
 
@@ -63,13 +59,13 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
 
     // MARK: - Segues
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                controller.detailItem = object.fish
+                //controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
@@ -77,82 +73,82 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
 
     // MARK: - Table View
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
         return objects.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FishCell", forIndexPath: indexPath) as! FishCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath as IndexPath) as! FishCell
         //print("configure row \(indexPath.row)")
-        let fish = objects[indexPath.row]
-        cell.configure(fish)
+        let result = objects[indexPath.row]
+        cell.configure(result: result)
         return cell
     }
 
     // MARK: - Search Controller
 
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         update()
     }
 
     // MARK: - Menu
     
-    func showMenu(sender: AnyObject) {
+    @objc func showMenu(_ sender: AnyObject) {
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
-        alertController.addAction(UIAlertAction(title: "Settings", style: .Default, handler: {(alert :UIAlertAction!) in
+        alertController.addAction(UIAlertAction(title: "Settings", style: .default, handler: { alert in
             
             let storyboard = UIStoryboard(
                 name: "Main",
                 bundle: nil)
             
-            let controller = storyboard.instantiateViewControllerWithIdentifier("Settings")
+            let controller = storyboard.instantiateViewController(withIdentifier: "Settings")
             
-            self.presentViewController(
+            self.present(
                 controller,
                 animated: true,
                 completion: nil)
             
         }))
         
-        alertController.addAction(UIAlertAction(title: "Gallery", style: .Default, handler: {(alert :UIAlertAction!) in
+        alertController.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { alert in
             
             let controller = WaterfallViewController()
             let nav = UINavigationController.init(rootViewController: controller)
             
-            self.presentViewController(
+            self.present(
                 nav,
                 animated: true,
                 completion: nil)
             
             controller.didSelect = {
                 [unowned self] (fish : Fish) in
-                let name = fish.name("scientific")
+                let name = fish.name(target: "scientific")
                 print("selected \(name)")
-                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                    self.select_fish(name)
+                self.dismiss(animated: true, completion: { () -> Void in
+                    self.select_fish(scientific: name)
                 })
             }
             
         }))
         
-        alertController.addAction(UIAlertAction(title: "Info", style: .Default, handler: {(alert :UIAlertAction!) in
+        alertController.addAction(UIAlertAction(title: "Info", style: .default, handler: { alert in
             
             //let requestURL = NSURL(string:"https://www.google.com")!
-            let requestURL = NSBundle.mainBundle().bundleURL
-                .URLByAppendingPathComponent("data/info/index.html")
+            let requestURL = Bundle.main.bundleURL
+                .appendingPathComponent("data/info/index.html")
             
             let controller = WebViewController(requestURL: requestURL)
             controller.title = "Informations"
       
             let nav = UINavigationController.init(rootViewController: controller)
             
-            self.presentViewController(
+            self.present(
                 nav,
                 animated: true,
                 completion: nil)
@@ -161,37 +157,38 @@ class MasterViewController: UITableViewController, UISearchResultsUpdating
         
         
         let popover = alertController.popoverPresentationController
-        popover?.permittedArrowDirections = .Any
+        popover?.permittedArrowDirections = .any
         popover?.delegate = self
         popover?.barButtonItem = sender as? UIBarButtonItem
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
         
     }
 
     func adaptivePresentationStyleForPresentationController(
         controller: UIPresentationController) -> UIModalPresentationStyle {
-            return .None
+        return .none
     }
     
     // other
 
     func select_fish(scientific: String) {
         
-        let row = DataManager.search_fish(scientific, objects:objects)
+        let fishes = objects.map { $0.fish }
+        let row = DataManager.search_fish(scientific: scientific, fishes: fishes)
         if row < 0 {
             return
         }
 
-        let path = NSIndexPath(forRow: row, inSection: 0)
-        tableView.selectRowAtIndexPath(path, animated: true, scrollPosition: .Middle)
+        let path = IndexPath(row: row, section: 0)
+        tableView.selectRow(at: path, animated: true, scrollPosition: .middle)
         
-        performSegueWithIdentifier("showDetail", sender: nil)
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
 
     func update() {
         let searchString = searchController.searchBar.text;
-        objects = DataManager.sharedInstance.filterAnyLanguage(searchString)
+        objects = DataManager.sharedInstance.filterAnyLanguage(search: searchString)
         tableView.reloadData()
     }
     

@@ -8,14 +8,15 @@
 
 import Foundation
 
-class ConfigManager {
+final class ConfigManager {
     
     static let sharedInstance = ConfigManager()
 
     var source = "english"
     var target = "france"
     
-    init() {
+    private init() {
+        // nothing here
     }
     
 }

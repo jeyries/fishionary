@@ -7,19 +7,13 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-class Property {
-    
-    var header: String
-    var name: String
-    var mode: Int
-    
-    init(fromJSON json: JSON) {
-        
-        header = json["header"].stringValue
-        name = json["name"].stringValue
-        mode = json["mode"].intValue
-    }
+struct Property: Codable {
+    let header: String
+    let name: String
+    let mode: Int
  }
 
+struct Props: Codable {
+    let props: [Property]
+}

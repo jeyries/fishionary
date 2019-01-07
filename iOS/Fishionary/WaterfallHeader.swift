@@ -8,11 +8,11 @@
 
 import UIKit
 
-class WaterfallHeader: UICollectionReusableView {
+final class WaterfallHeader: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.redColor()
+        self.backgroundColor = .red
     }
     
     required init?(coder aDecoder: NSCoder) {

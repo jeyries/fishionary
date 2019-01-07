@@ -8,21 +8,25 @@
 
 import UIKit
 
-class WaterfallCell: UICollectionViewCell {
+final class WaterfallCell: UICollectionViewCell {
     
-    var imageView : UIImageView!
+    private var imageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         imageView = UIImageView(frame: contentView.bounds)
-        imageView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        imageView.contentMode = .ScaleAspectFit
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.contentMode = .scaleAspectFit
         contentView.addSubview(imageView)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(fish: Fish) {
+        imageView.image = fish.imageContent()
     }
 
 }

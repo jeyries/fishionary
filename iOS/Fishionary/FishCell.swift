@@ -8,43 +8,31 @@
 
 import UIKit
 
-class FishCell: UITableViewCell {
+final class FishCell: UITableViewCell {
 
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func configure(fish: Fish) {
+    func configure(result: MatchResult) {
         let source = ConfigManager.sharedInstance.source
         let target = ConfigManager.sharedInstance.target
         
-        mainLabel!.text = fish.name(source)
-        detailLabel!.text = fish.name(target)
-        detailLabel!.textColor = UIColor.blackColor()
+        let fish = result.fish
+        mainLabel!.text = fish.name(target: source)
+        detailLabel!.text = fish.name(target: target)
+        detailLabel!.textColor = .black
         thumbImageView!.image = fish.imageContent()
         
-        if (fish.matchText != nil) {
+        if (result.matchText != nil) {
 
-            let text = fish.matchText!
-            let range = fish.matchRange!
-            let start = text.startIndex.distanceTo(range.startIndex)
-            let length = range.startIndex.distanceTo(range.endIndex)
+            let text = result.matchText!
+            let range = result.matchRange!
+            let start: Int = text.distance(from: text.startIndex, to: range.lowerBound)
+            let length: Int = text.distance(from: range.lowerBound, to: range.upperBound)
 
             let attributedString = NSMutableAttributedString(string: text)
-            let attributes = [NSForegroundColorAttributeName: UIColor.blueColor(), NSBackgroundColorAttributeName: UIColor.yellowColor()]
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.blue, NSAttributedString.Key.backgroundColor: UIColor.yellow]
             attributedString.addAttributes(attributes, range: NSMakeRange(start, length))
             detailLabel!.attributedText = attributedString
   

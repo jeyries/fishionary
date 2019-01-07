@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import WebKit
 
-class WebViewController: UIViewController, UIWebViewDelegate {
+final class WebViewController: UIViewController, WKNavigationDelegate {
 
-    private var requestURL: NSURL!
+    private var requestURL: URL!
     
-    init(requestURL: NSURL) {
+    init(requestURL: URL) {
         super.init(nibName: nil, bundle: nil)
         self.requestURL = requestURL
     }
@@ -23,32 +24,33 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     override func loadView() {
 
-        let webView = UIWebView()
-        webView.delegate = self
+        let webView = WKWebView()
+        webView.navigationDelegate = self
         
-        let request = NSURLRequest(URL: requestURL)
-        webView.loadRequest(request)
+        let request = URLRequest(url: requestURL)
+        webView.load(request)
         
         self.view = webView
         
-        let button = UIBarButtonItem(barButtonSystemItem: .Done ,target: self, action: "dismiss:")
+        let button = UIBarButtonItem(barButtonSystemItem: .done ,target: self, action: #selector(dismiss))
         self.navigationItem.rightBarButtonItem = button
 
     }
 
-    
-    func dismiss(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+    @objc func dismiss(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        // open links in Safari
-        if ( navigationType == .LinkClicked ) {
-            UIApplication.sharedApplication().openURL(request.URL!)
-            return false;
-        }
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        return true;
+        // open links in Safari
+        if navigationAction.navigationType == .linkActivated {
+            UIApplication.shared.open(navigationAction.request.url!)
+            decisionHandler(.cancel)
+            return
+        }
+
+        decisionHandler(.allow)
     }
 
 }

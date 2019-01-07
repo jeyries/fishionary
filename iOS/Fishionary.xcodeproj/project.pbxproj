@@ -10,7 +10,7 @@
 		BB85122253D19B676DDB54D7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = BB8516A1B40F147AC2224D2E /* data */; };
 		BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */; };
 		BB85168AB5141ED570B518AD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB851ACFAE85AA23A31AD395 /* DataManager.swift */; };
-		CDC83BFB440E903C2F3FBA09 /* Pods_Fishionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E8132209DC566C3760332A /* Pods_Fishionary.framework */; };
+		CFA2AD8158D071B16DD5BB9A /* Pods_Fishionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */; };
 		F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */; };
 		F90BA95B1CA99B3A002A0BF0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F90BA95D1CA99B3A002A0BF0 /* Localizable.strings */; };
 		F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91BCA271C428A640090DFA0 /* TranslationsViewController.swift */; };
@@ -36,9 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38D54175E3144F0E858B6586 /* Pods-Fishionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.debug.xcconfig"; sourceTree = "<group>"; };
-		40FFDA4684C728EE2F0F1CFC /* Pods-Fishionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.release.xcconfig"; sourceTree = "<group>"; };
-		52E8132209DC566C3760332A /* Pods_Fishionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fishionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fishionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4517C3499FEE5F60B246AF6E /* Pods-Fishionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.debug.xcconfig"; sourceTree = "<group>"; };
+		974FB7E6F224D89A3AFF96FC /* Pods-Fishionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.release.xcconfig"; sourceTree = "<group>"; };
 		BB8516A1B40F147AC2224D2E /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		BB851ACFAE85AA23A31AD395 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -127,26 +127,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDC83BFB440E903C2F3FBA09 /* Pods_Fishionary.framework in Frameworks */,
+				CFA2AD8158D071B16DD5BB9A /* Pods_Fishionary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C0B991F0D791F26CECBDA698 /* Frameworks */ = {
+		D407A72077E4F20DE065EB8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				52E8132209DC566C3760332A /* Pods_Fishionary.framework */,
+				2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DED90A9EEAFF142577850E3E /* Pods */ = {
+		EA78D879A6A6E31ED27414D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				38D54175E3144F0E858B6586 /* Pods-Fishionary.debug.xcconfig */,
-				40FFDA4684C728EE2F0F1CFC /* Pods-Fishionary.release.xcconfig */,
+				4517C3499FEE5F60B246AF6E /* Pods-Fishionary.debug.xcconfig */,
+				974FB7E6F224D89A3AFF96FC /* Pods-Fishionary.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -156,8 +156,8 @@
 			children = (
 				F9E2AE2C1C303DE800EE184A /* Fishionary */,
 				F9E2AE2B1C303DE800EE184A /* Products */,
-				DED90A9EEAFF142577850E3E /* Pods */,
-				C0B991F0D791F26CECBDA698 /* Frameworks */,
+				EA78D879A6A6E31ED27414D7 /* Pods */,
+				D407A72077E4F20DE065EB8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,12 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9E2AE3E1C303DE800EE184A /* Build configuration list for PBXNativeTarget "Fishionary" */;
 			buildPhases = (
-				F38E8919A6AEDDCD2714DB82 /* Check Pods Manifest.lock */,
+				A1EF77CB35AC7AECD27DA279 /* [CP] Check Pods Manifest.lock */,
 				F9E2AE261C303DE800EE184A /* Sources */,
 				F9E2AE271C303DE800EE184A /* Frameworks */,
 				F9E2AE281C303DE800EE184A /* Resources */,
-				6816ABA42F59BD826BE754ED /* Embed Pods Frameworks */,
-				35D9CC91F90BECBA2E1A489F /* Copy Pods Resources */,
+				4CD157525E154EE8909C7E79 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,11 +271,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = jeyries;
 				TargetAttributes = {
 					F9E2AE291C303DE800EE184A = {
 						CreatedOnToolsVersion = 7.2;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -332,49 +332,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35D9CC91F90BECBA2E1A489F /* Copy Pods Resources */ = {
+		4CD157525E154EE8909C7E79 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6816ABA42F59BD826BE754ED /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/DownPicker/DownPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/GRMustache/GRMustache.framework",
+				"${BUILT_PRODUCTS_DIR}/JRSwizzle/JRSwizzle.framework",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DownPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRMustache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JRSwizzle.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F38E8919A6AEDDCD2714DB82 /* Check Pods Manifest.lock */ = {
+		A1EF77CB35AC7AECD27DA279 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fishionary-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -495,17 +500,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -527,11 +543,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -539,17 +556,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -565,25 +593,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		F9E2AE3F1C303DE800EE184A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38D54175E3144F0E858B6586 /* Pods-Fishionary.debug.xcconfig */;
+			baseConfigurationReference = 4517C3499FEE5F60B246AF6E /* Pods-Fishionary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Fishionary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeyries.fishionary;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.jeyries.fishionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -593,16 +625,18 @@
 		};
 		F9E2AE401C303DE800EE184A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40FFDA4684C728EE2F0F1CFC /* Pods-Fishionary.release.xcconfig */;
+			baseConfigurationReference = 974FB7E6F224D89A3AFF96FC /* Pods-Fishionary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Fishionary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeyries.fishionary;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.jeyries.fishionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

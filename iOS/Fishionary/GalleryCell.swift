@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryCell: UICollectionViewCell {
+final class GalleryCell: UICollectionViewCell {
     
     
     @IBOutlet weak var thumbImageView: UIImageView!

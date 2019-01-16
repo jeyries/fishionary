@@ -5,7 +5,4 @@ use_frameworks!
 target 'Fishionary' do
     pod 'CHTCollectionViewWaterfallLayout'
     pod 'DownPicker'
-    #pod 'RxSwift'
-    #pod 'RxCocoa'
-    pod 'GRMustache', '~> 7.3.2'
 end

@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 import DownPicker
-import GRMustache
+
 
 final class DetailViewController: UIViewController, WKNavigationDelegate {
     
@@ -66,28 +66,21 @@ final class DetailViewController: UIViewController, WKNavigationDelegate {
                     detailWebViewHeight.constant = 0
                     
                 } else {
-                    let rendering = NoMustache.render(concern: concern)
-                    /*
-                    var rendering = ""
-                    do {
-                        let url = Bundle.main.bundleURL
-                            .appendingPathComponent("data/concern.html")
-                        let content = try String(contentsOf: url)
-
-                        let template = try GRMustacheTemplate(from: content)
-                        let data = [
-                                "concern": concern
-                        ]
-                        rendering = try template.renderObject(data)
-
-                    } catch {
-
-                    }*/
-
+                    let rendering = SimpleRenderer.render(concern: concern)
                     print("rendering : \(rendering)")
+                    
                     detailWebView.navigationDelegate = self
                     detailWebView.scrollView.isScrollEnabled = false
                     detailWebView.loadHTMLString(rendering, baseURL: nil)
+                    
+                    let htmlData = rendering.data(using: .utf8)!
+                    
+                    let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
+                        NSAttributedString.DocumentType.html]
+                    let attributedString = try? NSMutableAttributedString(data:htmlData,
+                                                                          options: options,
+                                                                          documentAttributes: nil)
+                    
                 }
             }
 
@@ -202,7 +195,7 @@ final class DetailViewController: UIViewController, WKNavigationDelegate {
 }
 
 
-struct NoMustache {
+struct SimpleRenderer {
     static func render(concern: String) -> String {
         return """
 <html>

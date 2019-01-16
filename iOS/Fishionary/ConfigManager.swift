@@ -10,7 +10,7 @@ import Foundation
 
 final class ConfigManager {
     
-    static let sharedInstance = ConfigManager()
+    static let shared = ConfigManager()
 
     var source = "english"
     var target = "france"

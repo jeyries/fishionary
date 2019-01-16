@@ -15,8 +15,8 @@ final class FishCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     
     func configure(result: MatchResult) {
-        let source = ConfigManager.sharedInstance.source
-        let target = ConfigManager.sharedInstance.target
+        let source = ConfigManager.shared.source
+        let target = ConfigManager.shared.target
         
         let fish = result.fish
         mainLabel!.text = fish.name(target: source)

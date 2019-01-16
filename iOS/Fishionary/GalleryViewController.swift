@@ -12,7 +12,7 @@ private let reuseIdentifier = "GalleryCell"
 
 final class GalleryViewController: UICollectionViewController {
     
-    let objects = DataManager.sharedInstance.filterAnyLanguage(search: nil)
+    let objects = DataManager.shared.filterAnyLanguage(search: nil)
 
     // MARK: UICollectionViewDataSource
 

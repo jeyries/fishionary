@@ -15,7 +15,7 @@ private let FOOTER_IDENTIFIER = "WaterfallFooter"
 
 final class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
-    let objects = DataManager.sharedInstance.filterAnyLanguage(search: nil)
+    let objects = DataManager.shared.filterAnyLanguage(search: nil)
 
     var collectionView : UICollectionView!
     var didSelect : ((Fish) -> ())!

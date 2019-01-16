@@ -13,7 +13,7 @@ import SafariServices
 
 final class DetailViewController: UIViewController {
     
-    let props = DataManager.sharedInstance.filter_props()
+    let props = DataManager.shared.filter_props()
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var detailImage: UIImageView!
@@ -25,12 +25,7 @@ final class DetailViewController: UIViewController {
     var targetPicker : DownPicker!
     var translationsController : TranslationsViewController!
     
-    var detailItem: Fish? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
-    }
+    var detailItem: Fish? 
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -38,15 +33,15 @@ final class DetailViewController: UIViewController {
             preconditionFailure("no fish available")
         }
             
-        let source = ConfigManager.sharedInstance.source
+        let source = ConfigManager.shared.source
         let name = fish.name(target: source)
-        let source_prop = DataManager.sharedInstance.search_prop(name: source)
+        let source_prop = DataManager.shared.search_prop(name: source)
         
         self.title = String(format: "%@ (%@)"
             ,name
             ,source_prop!.header)
         
-        let target = ConfigManager.sharedInstance.target
+        let target = ConfigManager.shared.target
         
         if let label = self.detailDescriptionLabel {
             label.text = fish.name(target: target)
@@ -66,12 +61,10 @@ final class DetailViewController: UIViewController {
         let attributedString = try! NSMutableAttributedString(data: htmlData,
                                                               options: options,
                                                               documentAttributes: nil)
-     
-        debugPrint(attributedString.links)
-        
         
         detailConcernLabel.attributedText = attributedString
         detailConcernLabel.isHidden = concern.isEmpty
+        detailConcernLabel.isUserInteractionEnabled = true
         detailConcernLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapConcern)))
     }
 
@@ -80,7 +73,7 @@ final class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.edgesForExtendedLayout = [] // no overlap with navigation bar
         if detailItem == nil {
-            let objects = DataManager.sharedInstance.database
+            let objects = DataManager.shared.database
             let index = DataManager.search_fish(scientific: "SPARUS AURATA", fishes: objects)
             if index >= 0 {
                 self.detailItem = objects[index]
@@ -88,13 +81,13 @@ final class DetailViewController: UIViewController {
         }
         self.configureView()
         
-        let props = DataManager.sharedInstance.filter_props()
+        let props = DataManager.shared.filter_props()
         let texts = props.map() {
             return $0.header
         }
         
-        let target = ConfigManager.sharedInstance.target
-        let prop = DataManager.sharedInstance.search_prop(name: target)
+        let target = ConfigManager.shared.target
+        let prop = DataManager.shared.search_prop(name: target)
         targetTextField.text = prop?.header
         
         targetPicker = DownPicker.init(textField: targetTextField, withData: texts)
@@ -129,13 +122,12 @@ final class DetailViewController: UIViewController {
     // other stuff
     
     func prepareTranslations() {
-        if let fish = self.detailItem {
-            let names = fish.names(target: ConfigManager.sharedInstance.target)
-            translationsController.objects = names
-            
-            containerHeight.constant = CGFloat(names.count * 44)
-            view.layoutIfNeeded()
-        }
+        guard let fish = self.detailItem else { return }
+        let names = fish.names(target: ConfigManager.shared.target)
+        translationsController.objects = names
+        
+        containerHeight.constant = CGFloat(names.count * 44)
+        view.layoutIfNeeded()
     }
     
     @objc func targetSelected(_ sender: AnyObject) {
@@ -144,14 +136,12 @@ final class DetailViewController: UIViewController {
         let row = picker.getView().selectedRow(inComponent: 0)
         let value = props[row].name
         print("target = \(value)")
-        ConfigManager.sharedInstance.target = value
+        ConfigManager.shared.target = value
         prepareTranslations()
     }
 
     
-    @objc func showImageOnClick(_ img: AnyObject)
-    {
-        print("image tapped")
+    @objc func showImageOnClick(_ img: AnyObject) {
         performSegue(withIdentifier: "showImage", sender: nil)
     }
     
@@ -163,7 +153,7 @@ final class DetailViewController: UIViewController {
     }
 }
 
-extension NSAttributedString {
+private extension NSAttributedString {
     var links: [URL] {
         var links = [URL]()
         self.enumerateAttribute(.link, in: NSRange(0..<self.length), options: []) { value, range, stop in
@@ -175,7 +165,7 @@ extension NSAttributedString {
     }
 }
 
-struct SimpleRenderer {
+private struct SimpleRenderer {
     static func render(concern: String) -> String {
         return """
 <html>

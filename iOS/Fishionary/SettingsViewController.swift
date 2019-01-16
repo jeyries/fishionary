@@ -11,7 +11,7 @@ import DownPicker
 
 final class SettingsViewController: UIViewController{
 
-    let props = DataManager.sharedInstance.filter_props()
+    let props = DataManager.shared.filter_props()
     
     @IBOutlet weak var sourceTextField: UITextField!
     @IBOutlet weak var targetTextField: UITextField!
@@ -29,15 +29,15 @@ final class SettingsViewController: UIViewController{
             return $0.header
         }
         
-        let source = ConfigManager.sharedInstance.source
-        var prop = DataManager.sharedInstance.search_prop(name: source)
+        let source = ConfigManager.shared.source
+        var prop = DataManager.shared.search_prop(name: source)
         sourceTextField.text = prop?.header
         
         sourcePicker = DownPicker.init(textField: sourceTextField, withData: texts)
         sourcePicker.addTarget(self, action: #selector(sourceSelected), for: .valueChanged)
         
-        let target = ConfigManager.sharedInstance.target
-        prop = DataManager.sharedInstance.search_prop(name: target)
+        let target = ConfigManager.shared.target
+        prop = DataManager.shared.search_prop(name: target)
         targetTextField.text = prop?.header
     
         targetPicker = DownPicker.init(textField: targetTextField, withData: texts)
@@ -58,7 +58,7 @@ final class SettingsViewController: UIViewController{
         let row = picker.getView().selectedRow(inComponent: 0)
         let value = props[row].name
         print("source = \(value)")
-        ConfigManager.sharedInstance.source = value
+        ConfigManager.shared.source = value
     }
 
     @objc func targetSelected(_ sender: AnyObject) {
@@ -67,7 +67,7 @@ final class SettingsViewController: UIViewController{
         let row = picker.getView().selectedRow(inComponent: 0)
         let value = props[row].name
         print("target = \(value)")
-        ConfigManager.sharedInstance.target = value
+        ConfigManager.shared.target = value
     }
 
     

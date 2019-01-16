@@ -26,11 +26,6 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
         let button = UIBarButtonItem(title: "Menu", style: .plain ,target: self, action: #selector(showMenu))
         self.navigationItem.rightBarButtonItem = button
         
-
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
@@ -46,19 +41,13 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
     }
 
 
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
-    }
-
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                let controller = segue.destination as! DetailViewController
                 controller.detailItem = object.fish
                 //controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -82,6 +71,10 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
         let result = objects[indexPath.row]
         cell.configure(result: result)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
 
     // MARK: - Search Controller
@@ -159,11 +152,6 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
         present(alertController, animated: true, completion: nil)
         
     }
-
-    func adaptivePresentationStyleForPresentationController(
-        controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
     
     // other
 
@@ -183,7 +171,7 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
 
     func update() {
         let searchString = searchController.searchBar.text;
-        objects = DataManager.sharedInstance.filterAnyLanguage(search: searchString)
+        objects = DataManager.shared.filterAnyLanguage(search: searchString)
         tableView.reloadData()
     }
     

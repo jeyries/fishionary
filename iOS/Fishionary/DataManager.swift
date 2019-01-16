@@ -7,7 +7,7 @@ import Foundation
 
 final class DataManager {
 
-    static let sharedInstance = DataManager()
+    static let shared = DataManager()
 
     var database = [Fish]()
     var props = [Property]()

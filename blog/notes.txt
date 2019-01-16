@@ -99,4 +99,25 @@ extension NSAttributedString {
     }
 }
 
+now you can install a UITapGestureRecognizer on the label, and open a Safari view when the user tap the label.
+
+        detailConcernLabel.attributedText = attributedString
+        detailConcernLabel.isUserInteractionEnabled = true
+        detailConcernLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapConcern)))
+
+    @objc func tapConcern() {
+        let attributedString = detailConcernLabel.attributedText!
+        guard let link = attributedString.links.first else { return }
+        let safariVC = SFSafariViewController(url: link)
+        present(safariVC, animated: true, completion: nil)
+    }
+
+=== Supporting the iPad
+
+The initial customer for this app wanted to support the iPad. It could be a perfect valid choice, even if we could wonder if people that go fishing takes their iPad with them. 
+Probably they rather go fishing with a phone than a tablet.
+Anyway, as I convert this app to an exercice aimed at instructional purpose, let's not be distracted by the support of
+multiple device form factor. Maybe that will be a goal for a future tutorial.
+So I will remove the UISplitViewController and reduce the list of supported devices and orientations.
+
 

@@ -1,0 +1,76 @@
+
+=== Dependencies
+
+Depeendencies in the project were managed by CocoaPod. It is a pretty capable dependency manager for iOS projects, though I may prefer to use Carthage these days. Carthage is more lightweight and gives more control to the developer.
+
+in 2015 RxSwift was booming. I had practiced a bit the Objective-C version: ReactiveCocoa in the past. The problem here is that I wanted to use it everywhere. Specially in this case, this framework is used only at one place in the code. RxSwift is a big dependency; it will shape the way you are doing your project so it should not be taken as a light decision. Some developers hate it with some reasons (in debug, have you ever seen how huge is a RxSwift call stack ?). Here the choice should be obvious, there is no reason at all to have it in a demo project like that.
+
+UIWebView has been deprecated since a long time, it is time to switch. WKWebView is a no brainer, the change is easy. However in some case, I was using a web view just for rendering some attributed text with sometime a link in it, maybe something cleaner can be done ? Also, web view take some time to display at first, this could be changed with an NSAttributedString.
+
+== Rendering HTML into an NSAttributedString
+
+At some point, every iOS developer will encounter this situation: you need to display some text that is provided with some HTML formating. 
+Here I had choosen to use a version of the Mustache library for performing this task.
+
+The template looks like that:
+
+<html>
+<style type="text/css">
+body {
+    font-family: "-apple-system", "sans-serif";
+    font-size: 14px;
+}
+h2 {
+    font-size: 17px;
+}
+</style>
+<body>
+    <hr>
+    <h2>Concern :</h2>
+    <p>{{{concern}}}</p>
+</body>
+</html>
+
+
+First problem, the GRMustache.swift library is not maintened anymore and does not compile with Swift 4.
+Ok, I can switch back to the GRMustache library in Objective-C.
+
+Then I realized that after all, it is a bit of overkill, because nowadays we have multi-line strings in Swift and
+the string interpolation can perfectly do the job:
+
+struct SimpleRenderer {
+    static func render(concern: String) -> String {
+        return """
+<html>
+<style type="text/css">
+body {
+    font-family: "-apple-system", "sans-serif";
+    font-size: 14px;
+}
+h2 {
+    font-size: 17px;
+}
+</style>
+<body>
+    <hr>
+    <h2>Concern :</h2>
+    <p>\(concern)</p>
+</body>
+</html>
+"""
+    }
+}
+
+Next step: after all, do we really need to instantiate a web view (WKWebView) just for rendering some text ?
+we can use NSAttributedString for that task.
+
+
+let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
+                        NSAttributedString.DocumentType.html]
+
+let attributedString = try? NSMutableAttributedString(data:htmlData,
+                                                        options: options,
+                                                        documentAttributes: nil)
+
+
+

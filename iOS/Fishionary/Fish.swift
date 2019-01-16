@@ -42,6 +42,15 @@ struct Fish {
     func names(target: String) -> [String] {
         return json[target] as! [String]
     }
+    
+    var concern: String? {
+        return  """
+        NEAR THREATENED   - - -   Lophius gastrophysus: least concern; Lophius vomerinus=Cape Monk, Devil Anglerfish, Baudroie Diable, Baudroie du Cap\r
+        Rape del Cabo, Rape Diablo:  <a href=\"http://www.iucnredlist.org/apps/redlist/search\" target=\"_blank\">IUCNRedlist</a>
+        """
+        ///return json["concern"] as? String
+    }
+    
 }
 
 // UIKit

@@ -1,4 +1,16 @@
 
+
+=== Upgrading to Swift 4
+
+A lot has change since Swift 2:
+- guard 
+
+Also new techniques have become popular:
+- MVVM
+
+Other have declined in popularity:
+- RxSwift
+
 === Dependencies
 
 Depeendencies in the project were managed by CocoaPod. It is a pretty capable dependency manager for iOS projects, though I may prefer to use Carthage these days. Carthage is more lightweight and gives more control to the developer.
@@ -10,6 +22,7 @@ UIWebView has been deprecated since a long time, it is time to switch. WKWebView
 == Rendering HTML into an NSAttributedString
 
 At some point, every iOS developer will encounter this situation: you need to display some text that is provided with some HTML formating. 
+Also this text can have some HTML link in it and user should be able to follow the link.
 Here I had choosen to use a version of the Mustache library for performing this task.
 
 The template looks like that:
@@ -72,5 +85,18 @@ let attributedString = try? NSMutableAttributedString(data:htmlData,
                                                         options: options,
                                                         documentAttributes: nil)
 
+Then how to get the link ? Easy, NSAttributedString has already done the parsing of the HTML, we can retrieve the link from it:
+
+extension NSAttributedString {
+    var links: [URL] {
+        var links = [URL]()
+        self.enumerateAttribute(.link, in: NSRange(0..<self.length), options: []) { value, range, stop in
+            if let value = value as? URL {
+                links.append(value)
+            }
+        }
+        return links
+    }
+}
 
 

@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import WebKit
 import DownPicker
+import SafariServices
 
 
-final class DetailViewController: UIViewController, WKNavigationDelegate {
+final class DetailViewController: UIViewController {
     
     let props = DataManager.sharedInstance.filter_props()
 
@@ -19,9 +19,8 @@ final class DetailViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var targetTextField: UITextField!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
-    @IBOutlet weak var detailWebView: WKWebView!
-    @IBOutlet weak var detailWebViewHeight: NSLayoutConstraint!
-
+    @IBOutlet weak var detailConcernLabel: UILabel!
+    
     
     var targetPicker : DownPicker!
     var translationsController : TranslationsViewController!
@@ -35,56 +34,45 @@ final class DetailViewController: UIViewController, WKNavigationDelegate {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let fish = self.detailItem {
-            
-            let source = ConfigManager.sharedInstance.source
-            let name = fish.name(target: source)
-            let source_prop = DataManager.sharedInstance.search_prop(name: source)
-            
-            self.title = String(format: "%@ (%@)"
-                ,name
-                ,source_prop!.header)
-            
-            let target = ConfigManager.sharedInstance.target
-            
-            if let label = self.detailDescriptionLabel {
-                label.text = fish.name(target: target)
-            }
-            
-            if let imageView = self.detailImage {
-                let content = fish.imageContent()
-                imageView.contentMode = .scaleAspectFit
-                imageView.image = content
-            }
-            
-            if let detailWebView = self.detailWebView {
-                //let concern = fish.json["concern"] as! String
-                let concern = "NEAR THREATENED   - - -   Lophius gastrophysus: least concern; Lophius vomerinus=Cape Monk, Devil Anglerfish, Baudroie Diable, Baudroie du Cap\rRape del Cabo, Rape Diablo:  <a href=\"http://www.iucnredlist.org/apps/redlist/search\" target=\"_blank\">IUCNRedlist</a>"
-
-                if (concern.isEmpty){
-                    detailWebView.isHidden = true
-                    detailWebViewHeight.constant = 0
-                    
-                } else {
-                    let rendering = SimpleRenderer.render(concern: concern)
-                    print("rendering : \(rendering)")
-                    
-                    detailWebView.navigationDelegate = self
-                    detailWebView.scrollView.isScrollEnabled = false
-                    detailWebView.loadHTMLString(rendering, baseURL: nil)
-                    
-                    let htmlData = rendering.data(using: .utf8)!
-                    
-                    let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
-                        NSAttributedString.DocumentType.html]
-                    let attributedString = try? NSMutableAttributedString(data:htmlData,
-                                                                          options: options,
-                                                                          documentAttributes: nil)
-                    
-                }
-            }
-
+        guard let fish = self.detailItem else {
+            preconditionFailure("no fish available")
         }
+            
+        let source = ConfigManager.sharedInstance.source
+        let name = fish.name(target: source)
+        let source_prop = DataManager.sharedInstance.search_prop(name: source)
+        
+        self.title = String(format: "%@ (%@)"
+            ,name
+            ,source_prop!.header)
+        
+        let target = ConfigManager.sharedInstance.target
+        
+        if let label = self.detailDescriptionLabel {
+            label.text = fish.name(target: target)
+        }
+        
+        if let imageView = self.detailImage {
+            let content = fish.imageContent()
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = content
+        }
+        
+        let concern = fish.concern ?? ""
+        let rendering = SimpleRenderer.render(concern: concern)
+        let htmlData = rendering.data(using: .utf8)!
+        let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
+            NSAttributedString.DocumentType.html]
+        let attributedString = try! NSMutableAttributedString(data: htmlData,
+                                                              options: options,
+                                                              documentAttributes: nil)
+     
+        debugPrint(attributedString.links)
+        
+        
+        detailConcernLabel.attributedText = attributedString
+        detailConcernLabel.isHidden = concern.isEmpty
+        detailConcernLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapConcern)))
     }
 
     override func viewDidLoad() {
@@ -119,11 +107,6 @@ final class DetailViewController: UIViewController, WKNavigationDelegate {
         detailImage.addGestureRecognizer(tapGestureRecognizer)
         
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Segues
@@ -171,29 +154,26 @@ final class DetailViewController: UIViewController, WKNavigationDelegate {
         print("image tapped")
         performSegue(withIdentifier: "showImage", sender: nil)
     }
-
     
-    // MARK: - WebView
-
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        let h = webView.scrollView.contentSize.height
-        //print("webview height = \(h)")
-        detailWebViewHeight.constant = h
-    }
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-        // open links in Safari
-        if navigationAction.navigationType == .linkActivated {
-            UIApplication.shared.open(navigationAction.request.url!)
-            decisionHandler(.cancel)
-            return
-        }
-        
-        decisionHandler(.allow)
+    @objc func tapConcern() {
+        let attributedString = detailConcernLabel.attributedText!
+        guard let link = attributedString.links.first else { return }
+        let safariVC = SFSafariViewController(url: link)
+        present(safariVC, animated: true, completion: nil)
     }
 }
 
+extension NSAttributedString {
+    var links: [URL] {
+        var links = [URL]()
+        self.enumerateAttribute(.link, in: NSRange(0..<self.length), options: []) { value, range, stop in
+            if let value = value as? URL {
+                links.append(value)
+            }
+        }
+        return links
+    }
+}
 
 struct SimpleRenderer {
     static func render(concern: String) -> String {

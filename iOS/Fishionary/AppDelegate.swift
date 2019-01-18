@@ -14,8 +14,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
-        let database = DataManager.shared.database
-        print("count= \(database.count)")
+        _ = DataManager.shared
     }
 
 

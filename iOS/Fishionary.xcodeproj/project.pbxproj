@@ -11,7 +11,6 @@
 		BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */; };
 		BB85168AB5141ED570B518AD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB851ACFAE85AA23A31AD395 /* DataManager.swift */; };
 		CFA2AD8158D071B16DD5BB9A /* Pods_Fishionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */; };
-		F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */; };
 		F90BA95B1CA99B3A002A0BF0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F90BA95D1CA99B3A002A0BF0 /* Localizable.strings */; };
 		F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91BCA271C428A640090DFA0 /* TranslationsViewController.swift */; };
 		F91BCA2A1C428DC70090DFA0 /* TranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91BCA291C428DC70090DFA0 /* TranslationCell.swift */; };
@@ -42,7 +41,6 @@
 		BB8516A1B40F147AC2224D2E /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		BB851ACFAE85AA23A31AD395 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F90BA95C1CA99B3A002A0BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F90BA9671CA99B9B002A0BF0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		F90BA9681CA99B9C002A0BF0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				F9E2AE311C303DE800EE184A /* DetailViewController.swift */,
 				F9EA30C31C3557110093E590 /* SettingsViewController.swift */,
 				F9D074F41C359D160081A5C2 /* GalleryViewController.swift */,
-				F90B69A61C39286C00F0FCB7 /* MenuViewController.swift */,
 				F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */,
 				F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */,
 				F91D19861C3C1C08003BAD65 /* WebViewController.swift */,
@@ -391,7 +388,6 @@
 				F91BCA2A1C428DC70090DFA0 /* TranslationCell.swift in Sources */,
 				F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */,
 				F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */,
-				F90B69A71C39286C00F0FCB7 /* MenuViewController.swift in Sources */,
 				F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */,
 				F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */,
 				F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */,

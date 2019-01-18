@@ -158,8 +158,7 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
     func select_fish(scientific: String) {
         
         let fishes = objects.map { $0.fish }
-        let row = DataManager.search_fish(scientific: scientific, fishes: fishes)
-        if row < 0 {
+        guard let row = DataManager.search_fish(scientific: scientific, fishes: fishes) else{
             return
         }
 

@@ -74,8 +74,7 @@ final class DetailViewController: UIViewController {
         self.edgesForExtendedLayout = [] // no overlap with navigation bar
         if detailItem == nil {
             let objects = DataManager.shared.database
-            let index = DataManager.search_fish(scientific: "SPARUS AURATA", fishes: objects)
-            if index >= 0 {
+            if let index = DataManager.search_fish(scientific: "SPARUS AURATA", fishes: objects) {
                 self.detailItem = objects[index]
             }
         }

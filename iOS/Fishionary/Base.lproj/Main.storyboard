@@ -330,27 +330,27 @@
                         <viewControllerLayoutGuide type="bottom" id="PNV-BV-tT7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yTU-di-WuN" userLabel="Root View">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9af-HY-0Dl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samplefish" translatesAutoresizingMaskIntoConstraints="NO" id="7cq-MP-djw" userLabel="Image View">
-                                        <rect key="frame" x="209" y="77" width="960" height="431"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="samplefish" translatesAutoresizingMaskIntoConstraints="NO" id="7cq-MP-djw" userLabel="Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="7cq-MP-djw" secondAttribute="bottom" constant="77" id="e4F-JS-gAQ"/>
-                                    <constraint firstItem="7cq-MP-djw" firstAttribute="leading" secondItem="9af-HY-0Dl" secondAttribute="leading" constant="209" id="f8x-bM-aiE"/>
-                                    <constraint firstAttribute="trailing" secondItem="7cq-MP-djw" secondAttribute="trailing" constant="209" id="i2k-Kv-mwx"/>
-                                    <constraint firstItem="7cq-MP-djw" firstAttribute="top" secondItem="9af-HY-0Dl" secondAttribute="top" constant="77" id="mEc-zc-vH6"/>
+                                    <constraint firstAttribute="bottom" secondItem="7cq-MP-djw" secondAttribute="bottom" id="e4F-JS-gAQ"/>
+                                    <constraint firstItem="7cq-MP-djw" firstAttribute="leading" secondItem="9af-HY-0Dl" secondAttribute="leading" id="f8x-bM-aiE"/>
+                                    <constraint firstAttribute="trailing" secondItem="7cq-MP-djw" secondAttribute="trailing" id="i2k-Kv-mwx"/>
+                                    <constraint firstItem="7cq-MP-djw" firstAttribute="top" secondItem="9af-HY-0Dl" secondAttribute="top" id="mEc-zc-vH6"/>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ko-F8-hcn">
-                                <rect key="frame" x="265" y="30" width="100" height="44"/>
+                                <rect key="frame" x="557" y="10" width="100" height="44"/>
                                 <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="EYz-Fh-4Oh"/>
@@ -364,7 +364,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9af-HY-0Dl" firstAttribute="bottom" secondItem="PNV-BV-tT7" secondAttribute="top" id="8Ci-lU-1sa"/>
+                            <constraint firstItem="9af-HY-0Dl" firstAttribute="bottom" secondItem="yTU-di-WuN" secondAttribute="bottom" id="8Ci-lU-1sa"/>
                             <constraint firstItem="6Ko-F8-hcn" firstAttribute="top" secondItem="zsw-Sr-ihy" secondAttribute="bottom" constant="10" id="9FF-og-9fV"/>
                             <constraint firstAttribute="trailing" secondItem="6Ko-F8-hcn" secondAttribute="trailing" constant="10" id="Xnn-qA-UJ8"/>
                             <constraint firstAttribute="trailing" secondItem="9af-HY-0Dl" secondAttribute="trailing" id="gz3-QD-RjE"/>
@@ -372,6 +372,10 @@
                             <constraint firstItem="9af-HY-0Dl" firstAttribute="leading" secondItem="yTU-di-WuN" secondAttribute="leading" id="w6a-1s-K5r"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="667" height="375"/>
                     <connections>
                         <outlet property="doneButton" destination="6Ko-F8-hcn" id="r7M-LF-ge1"/>
                         <outlet property="imageConstraintBottom" destination="e4F-JS-gAQ" id="1ym-vO-2jz"/>
@@ -384,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JT4-9X-m3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="128"/>
+            <point key="canvasLocation" x="1735" y="127"/>
         </scene>
         <!--Translations View Controller-->
         <scene sceneID="hNd-6Y-7rE">
@@ -403,7 +407,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daurade Royale" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbP-dB-qca" userLabel="Label">
-                                            <rect key="frame" x="36" y="11" width="303" height="22"/>
+                                            <rect key="frame" x="36" y="11" width="303" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>

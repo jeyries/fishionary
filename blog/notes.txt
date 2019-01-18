@@ -120,4 +120,15 @@ Anyway, as I convert this app to an exercice aimed at instructional purpose, let
 multiple device form factor. Maybe that will be a goal for a future tutorial.
 So I will remove the UISplitViewController and reduce the list of supported devices and orientations.
 
+Also supporting multiple interface orientations has some impact on the development time and should be considered carrefully.
+Most people are fine using their iPhone app in portrait only mode.
+
+There is one exception here, displaying the fullscreen image of a fish works better in landscape, 
+so I use a 90 degree rotated view for this (see ImageViewController)
+
+=== using Flow/ Coordinator pattern instead of segue (UIStoryboardSegue)
+
+benefits of segue: they looks nice in Storyboards
+
+Flow pattern (sometime named Coordinator pattern) improve decoupling between view controller
 

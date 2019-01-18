@@ -56,7 +56,7 @@ final class ImageViewController: UIViewController, UIScrollViewDelegate {
     */
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
+        return .landscape
     }
     
     // Update zoom scale and constraints with animation.
@@ -119,7 +119,7 @@ final class ImageViewController: UIViewController, UIScrollViewDelegate {
         let minZoom = min(1, min(viewWidth / imageWidth,
             viewHeight / imageHeight))
         
-        print("minZoom: \(String(format:"%.3f", minZoom))")
+        print(String(format:"minZoom: %.3f", minZoom))
         
         scrollView.minimumZoomScale = minZoom
         scrollView.zoomScale = minZoom

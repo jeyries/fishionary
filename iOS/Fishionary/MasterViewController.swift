@@ -48,7 +48,7 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
                 let controller = segue.destination as! DetailViewController
-                controller.detailItem = object.fish
+                controller.vm = DetailViewModel(fish: object.fish)
                 //controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }

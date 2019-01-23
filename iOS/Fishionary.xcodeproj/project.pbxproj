@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D8FA12221F86AAD00538BD8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8FA12121F86AAD00538BD8 /* DetailViewModel.swift */; };
 		BB85122253D19B676DDB54D7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = BB8516A1B40F147AC2224D2E /* data */; };
 		BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */; };
 		BB85168AB5141ED570B518AD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB851ACFAE85AA23A31AD395 /* DataManager.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fishionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4517C3499FEE5F60B246AF6E /* Pods-Fishionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.debug.xcconfig"; sourceTree = "<group>"; };
+		6D8FA12121F86AAD00538BD8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		974FB7E6F224D89A3AFF96FC /* Pods-Fishionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.release.xcconfig"; sourceTree = "<group>"; };
 		BB8516A1B40F147AC2224D2E /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				F9E2AE2F1C303DE800EE184A /* MasterViewController.swift */,
 				F9E2AE311C303DE800EE184A /* DetailViewController.swift */,
+				6D8FA12121F86AAD00538BD8 /* DetailViewModel.swift */,
 				F9EA30C31C3557110093E590 /* SettingsViewController.swift */,
 				F9D074F41C359D160081A5C2 /* GalleryViewController.swift */,
 				F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */,
@@ -385,6 +388,7 @@
 				F91D19891C3C3AA2003BAD65 /* Property.swift in Sources */,
 				F9E2AE321C303DE800EE184A /* DetailViewController.swift in Sources */,
 				F9E2AE301C303DE800EE184A /* MasterViewController.swift in Sources */,
+				6D8FA12221F86AAD00538BD8 /* DetailViewModel.swift in Sources */,
 				F91BCA2A1C428DC70090DFA0 /* TranslationCell.swift in Sources */,
 				F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */,
 				F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */,

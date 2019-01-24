@@ -10,14 +10,10 @@ import UIKit
 
 final class GalleryCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var thumbImageView: UIImageView!
     
-    
     func configure(fish: Fish) {
-
-        thumbImageView!.image = fish.imageContent()
-        
+        thumbImageView.image = fish.imageContent()
     }
     
 }

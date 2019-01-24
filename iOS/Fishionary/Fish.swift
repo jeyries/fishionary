@@ -73,28 +73,31 @@ extension Fish {
 }
 
 // filtering
-struct MatchResult {
-    let fish: Fish
-    let matchText: String?
-    let matchRange: Range<String.Index>?
+enum MatchResult {
+    case None
+    case All
+    case Some(text: String, range: Range<String.Index>)
 }
 
+
 extension Fish {
-    func match(search: String?) -> MatchResult? {
+    func match(search: String?) -> MatchResult {
         
-        if (search == nil || search!.isEmpty) {
-            return MatchResult(fish: self, matchText: nil, matchRange: nil)
+        guard let search = search?.lowercased(), !search.isEmpty else {
+            return MatchResult.All
         }
-        
-        let _search = search!.lowercased()
         
         for name in searchTexts {
-            let range = name.range(of: _search)
-            if  range != nil {
-                return MatchResult(fish: self, matchText: name, matchRange: range)
+            if let range = name.range(of: search) {
+                return MatchResult.Some(text: name, range: range)
             }
         }
-        return nil
+        return MatchResult.None
     }
     
+}
+
+struct FishAndMatch {
+    let fish: Fish
+    let match: MatchResult
 }

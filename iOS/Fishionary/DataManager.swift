@@ -30,9 +30,15 @@ final class DataManager {
         print("loaded \(props.count) properties")
     }
     
-    func filterAnyLanguage(search: String?) -> [MatchResult] {
+    func filterAnyLanguage(search: String?) -> [FishAndMatch] {
         return database.compactMap { fish in
-            fish.match(search: search)
+            let match = fish.match(search: search)
+            switch match {
+            case .None:
+                return nil
+            default:
+                return FishAndMatch(fish: fish, match: match)
+            }
         }
     }
     
@@ -46,15 +52,11 @@ final class DataManager {
     }
     
     func search_prop(name: String) -> Property? {
-        return props.first(where: { prop in
-            prop.name == name
-        })
+        return props.first { $0.name == name }
     }
 
     static func search_fish(scientific: String, fishes: [Fish]) -> Int? {
-        return fishes.firstIndex { fish in
-            fish.name(target: "scientific") == scientific
-        }
+        return fishes.firstIndex { $0.name(target: "scientific") == scientific }
     }
 
 }

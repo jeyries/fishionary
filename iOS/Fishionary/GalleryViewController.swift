@@ -28,8 +28,8 @@ final class GalleryViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GalleryCell
     
         // Configure the cell
-        let result = objects[indexPath.row]
-        cell.configure(fish: result.fish)
+        let object = objects[indexPath.row]
+        cell.configure(fish: object.fish)
         return cell
     }
     

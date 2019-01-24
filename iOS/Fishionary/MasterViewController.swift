@@ -13,7 +13,7 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
 
     let searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? = nil
-    var objects = [MatchResult]()
+    var objects = [FishAndMatch]()
     
 
     override func viewDidLoad() {
@@ -68,8 +68,8 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath as IndexPath) as! FishCell
         //print("configure row \(indexPath.row)")
-        let result = objects[indexPath.row]
-        cell.configure(result: result)
+        let object = objects[indexPath.row]
+        cell.configure(fish: object.fish, match: object.match)
         return cell
     }
     

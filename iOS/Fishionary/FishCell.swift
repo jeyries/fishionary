@@ -14,30 +14,39 @@ final class FishCell: UITableViewCell {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    func configure(result: MatchResult) {
+    func configure(fish: Fish, match: MatchResult) {
         let source = ConfigManager.shared.source
         let target = ConfigManager.shared.target
         
-        let fish = result.fish
-        mainLabel!.text = fish.name(target: source)
-        detailLabel!.text = fish.name(target: target)
-        detailLabel!.textColor = .black
-        thumbImageView!.image = fish.imageContent()
+        mainLabel.text = fish.name(target: source)
+        detailLabel.text = fish.name(target: target)
+        detailLabel.textColor = .black
+        thumbImageView.image = fish.imageContent()
         
-        if (result.matchText != nil) {
+        if let attributedString = match.attributedString {
+            detailLabel.attributedText = attributedString
+        }
+    }
+    
+}
 
-            let text = result.matchText!
-            let range = result.matchRange!
+
+private extension MatchResult {
+    var attributedString: NSAttributedString? {
+        switch self {
+        case .None:
+            return nil
+        case .All:
+            return nil
+        case .Some(let text, let range):
             let start: Int = text.distance(from: text.startIndex, to: range.lowerBound)
             let length: Int = text.distance(from: range.lowerBound, to: range.upperBound)
-
             let attributedString = NSMutableAttributedString(string: text)
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.blue, NSAttributedString.Key.backgroundColor: UIColor.yellow]
+            let attributes = [
+                NSAttributedString.Key.foregroundColor: UIColor.blue,
+                NSAttributedString.Key.backgroundColor: UIColor.yellow]
             attributedString.addAttributes(attributes, range: NSMakeRange(start, length))
-            detailLabel!.attributedText = attributedString
-  
+            return attributedString
         }
-        
     }
-
 }

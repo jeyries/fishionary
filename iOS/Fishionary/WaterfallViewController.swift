@@ -18,7 +18,7 @@ final class WaterfallViewController: UIViewController, UICollectionViewDataSourc
     let objects = DataManager.shared.filterAnyLanguage(search: nil)
 
     var collectionView : UICollectionView!
-    var didSelect : ((Fish) -> ())!
+    var didSelect : ((Fish) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,11 +162,8 @@ final class WaterfallViewController: UIViewController, UICollectionViewDataSourc
     // MARK - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if let didSelect = didSelect {
-            let result = objects[indexPath.row]
-            didSelect( result.fish )
-        }
+        let result = objects[indexPath.row]
+        didSelect?( result.fish )
     }
   
 }

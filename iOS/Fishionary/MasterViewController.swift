@@ -15,6 +15,12 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
     var detailViewController: DetailViewController? = nil
     var objects = [FishAndMatch]()
     
+    enum Action {
+        case showDetail(fish: Fish)
+        case showMenu
+    }
+    
+    var callback: ((Action) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,21 +46,6 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
         update()
     }
 
-
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row]
-                let controller = segue.destination as! DetailViewController
-                controller.vm = DetailViewModel(fish: object.fish)
-                //controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
-
     // MARK: - Table View
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,7 +65,8 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetail", sender: nil)
+        let object = objects[indexPath.row]
+        callback?(.showDetail(fish: object.fish))
     }
 
     // MARK: - Search Controller
@@ -86,71 +78,7 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
     // MARK: - Menu
     
     @objc func showMenu(_ sender: AnyObject) {
-        
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        
-        alertController.addAction(UIAlertAction(title: "Settings", style: .default, handler: { alert in
-            
-            let storyboard = UIStoryboard(
-                name: "Main",
-                bundle: nil)
-            
-            let controller = storyboard.instantiateViewController(withIdentifier: "Settings")
-            
-            self.present(
-                controller,
-                animated: true,
-                completion: nil)
-            
-        }))
-        
-        alertController.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { alert in
-            
-            let controller = WaterfallViewController()
-            let nav = UINavigationController.init(rootViewController: controller)
-            
-            self.present(
-                nav,
-                animated: true,
-                completion: nil)
-            
-            controller.didSelect = {
-                [unowned self] (fish : Fish) in
-                let name = fish.name(target: "scientific")
-                print("selected \(name)")
-                self.dismiss(animated: true, completion: { () -> Void in
-                    self.select_fish(scientific: name)
-                })
-            }
-            
-        }))
-        
-        alertController.addAction(UIAlertAction(title: "Info", style: .default, handler: { alert in
-            
-            //let requestURL = NSURL(string:"https://www.google.com")!
-            let requestURL = Bundle.main.bundleURL
-                .appendingPathComponent("data/info/index.html")
-            
-            let controller = WebViewController(requestURL: requestURL)
-            controller.title = "Informations"
-      
-            let nav = UINavigationController.init(rootViewController: controller)
-            
-            self.present(
-                nav,
-                animated: true,
-                completion: nil)
-            
-        }))
-        
-        
-        let popover = alertController.popoverPresentationController
-        popover?.permittedArrowDirections = .any
-        popover?.delegate = self
-        popover?.barButtonItem = sender as? UIBarButtonItem
-        
-        present(alertController, animated: true, completion: nil)
-        
+        callback?(.showMenu)
     }
     
     // other
@@ -165,7 +93,8 @@ final class MasterViewController: UITableViewController, UISearchResultsUpdating
         let path = IndexPath(row: row, section: 0)
         tableView.selectRow(at: path, animated: true, scrollPosition: .middle)
         
-        performSegue(withIdentifier: "showDetail", sender: nil)
+        let object = objects[row]
+        callback?(.showDetail(fish: object.fish))
     }
 
     func update() {

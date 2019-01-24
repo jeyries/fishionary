@@ -22,6 +22,12 @@ final class DetailViewController: UIViewController {
     var translationsController: TranslationsViewController!
     
     var vm: DetailViewModel!
+    
+    enum Action {
+        case showImage(image: UIImage)
+    }
+    
+    var callback: ((Action) -> ())?
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -59,13 +65,7 @@ final class DetailViewController: UIViewController {
     // MARK: - Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showImage" {
-            
-            let controller = segue.destination as! ImageViewController
-            let image = vm.image
-            controller.image = image
-        
-        } else if segue.identifier == "showTranslations" {
+        if segue.identifier == "showTranslations" {
             
             translationsController = segue.destination as? TranslationsViewController
             prepareTranslations()
@@ -93,9 +93,12 @@ final class DetailViewController: UIViewController {
         prepareTranslations()
     }
 
+    @IBAction func actionView(_ sender: Any) {
+        showImageOnClick()
+    }
     
-    @objc func showImageOnClick(_ img: AnyObject) {
-        performSegue(withIdentifier: "showImage", sender: nil)
+    @objc func showImageOnClick() {
+        callback?(.showImage(image: vm.image))
     }
     
     @objc func tapConcern() {

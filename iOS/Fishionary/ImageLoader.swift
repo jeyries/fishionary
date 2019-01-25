@@ -18,7 +18,6 @@ final class ImageLoader {
     
     private init() {
         queue = OperationQueue()
-        //queue.maxConcurrentOperationCount = ProcessInfo.processInfo.activeProcessorCount
         queue.maxConcurrentOperationCount = OperationQueue.defaultMaxConcurrentOperationCount
         queue.qualityOfService = .userInitiated
     }

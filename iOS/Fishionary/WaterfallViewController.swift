@@ -156,7 +156,9 @@ final class WaterfallViewController: UIViewController, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath?) -> CGSize {
         
         let result = objects[indexPath!.row]
-        return result.fish.imageSize()
+        let fish = result.fish
+        let image = ImageLoader.shared.loadSynchronously(path: fish.imagePath)!
+        return image.size
     }
     
     // MARK - UICollectionViewDelegate

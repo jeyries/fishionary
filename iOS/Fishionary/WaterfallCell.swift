@@ -11,6 +11,7 @@ import UIKit
 final class WaterfallCell: UICollectionViewCell {
     
     private var imageView: UIImageView!
+    private var imageOperation: Operation?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +27,11 @@ final class WaterfallCell: UICollectionViewCell {
     }
     
     func configure(fish: Fish) {
-        imageView.image = fish.imageContent()
+        imageOperation?.cancel()
+        imageView.image = nil
+        imageOperation = ImageLoader.shared.load(path: fish.imagePath) { [weak self] image in
+            self?.imageView.image = image
+        }
     }
 
 }

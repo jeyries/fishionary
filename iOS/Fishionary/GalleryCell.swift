@@ -11,9 +11,14 @@ import UIKit
 final class GalleryCell: UICollectionViewCell {
     
     @IBOutlet weak var thumbImageView: UIImageView!
+    private var imageOperation: Operation?
     
     func configure(fish: Fish) {
-        thumbImageView.image = fish.imageContent()
+        imageOperation?.cancel()
+        thumbImageView.image = nil
+        imageOperation = ImageLoader.shared.load(path: fish.imagePath) { [weak self] image in
+            self?.thumbImageView.image = image
+        }
     }
     
 }

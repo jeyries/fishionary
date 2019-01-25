@@ -55,21 +55,25 @@ struct Fish {
 
 // UIKit
 extension Fish {
-    func imageContent() -> UIImage {
-        //print("imageContent for \(image)")
+    
+    var imagePath: String {
         let filename = image
-        let path = Bundle.main.bundleURL
-                .appendingPathComponent("data/database")
-                .appendingPathComponent(filename)
-                .path
-        let content = UIImage(contentsOfFile: path)!
+        return Bundle.main.bundleURL
+            .appendingPathComponent("data/database")
+            .appendingPathComponent(filename)
+            .path
+    }
+    
+    /*
+    func imageContent() -> UIImage {
+        let content = UIImage(contentsOfFile: imagePath)!
         return content
     }
     
     func imageSize() -> CGSize {
         //print("imageSize for \(image)")
         return imageContent().size
-    }
+    }*/
 }
 
 // filtering

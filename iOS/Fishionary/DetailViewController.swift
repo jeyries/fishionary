@@ -34,8 +34,12 @@ final class DetailViewController: UIViewController {
         self.title = vm.title
 
         detailImage.contentMode = .scaleAspectFit
-        detailImage.image = vm.image
-
+        //detailImage.image = vm.image
+        detailImage.image = nil
+        ImageLoader.shared.load(path: vm.imagePath) { [weak self] image in
+            self?.detailImage.image = image
+        }
+        
         detailConcernLabel.attributedText = vm.concern
         detailConcernLabel.isHidden = !vm.hasConcern
         detailConcernLabel.isUserInteractionEnabled = true
@@ -98,7 +102,10 @@ final class DetailViewController: UIViewController {
     }
     
     @objc func showImageOnClick() {
-        callback?(.showImage(image: vm.image))
+        ImageLoader.shared.load(path: vm.imagePath) { [weak self] image in
+            guard let image = image else { return }
+            self?.callback?(.showImage(image: image))
+        }
     }
     
     @objc func tapConcern() {

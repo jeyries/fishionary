@@ -32,8 +32,12 @@ final class DetailViewModel {
         return fish.name(target: target)
     }
     
+    /*
     var image: UIImage {
         return fish.imageContent()
+    }*/
+    var imagePath: String {
+        return fish.imagePath
     }
     
     var concern: NSAttributedString? {

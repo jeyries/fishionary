@@ -150,3 +150,17 @@ This paradigm is called MVVM (Model / View / ViewModel)
 More info here: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel
 
 in my project, I had a DetailViewController that could benefit a bit of refactor. I extracted most of the presentation logic into a view model named DetailViewModel.
+
+=== ImageLoader
+
+You should do the loading and decoding of images in the background.
+There is plenty of library for doing that, but you can achive pretty good results by using 
+some simple tools: NSOperationQueue for background processing, NSCache for image caching.
+
+=== Moving dependencies to Carthage
+
+#github "chiahsien/CHTCollectionViewWaterfallLayout"
+github "u1tkzw/CHTCollectionViewWaterfallLayout" "develop"
+#github "airbnb/MagazineLayout"
+github "Darkseal/DownPicker"
+

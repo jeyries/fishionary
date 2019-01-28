@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6D22F96D21F9DDBD00633965 /* MainStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D22F96C21F9DDBD00633965 /* MainStoryboard.swift */; };
+		6D450C6F21FF0E6C00AAB25C /* CHTCollectionViewWaterfallLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6D450C6921FF0E3700AAB25C /* CHTCollectionViewWaterfallLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6D450C7121FF0E6C00AAB25C /* DownPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6D450C6A21FF0E3700AAB25C /* DownPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6D50606421FB06C0004576E9 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50606321FB06C0004576E9 /* ImageLoader.swift */; };
 		6D52D34821F9BB8A006C10DC /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52D34721F9BB8A006C10DC /* AppFlow.swift */; };
 		6D52D34A21F9D880006C10DC /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D52D34921F9D880006C10DC /* MainMenu.swift */; };
@@ -15,7 +17,6 @@
 		BB85122253D19B676DDB54D7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = BB8516A1B40F147AC2224D2E /* data */; };
 		BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */; };
 		BB85168AB5141ED570B518AD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB851ACFAE85AA23A31AD395 /* DataManager.swift */; };
-		CFA2AD8158D071B16DD5BB9A /* Pods_Fishionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */; };
 		F90BA95B1CA99B3A002A0BF0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F90BA95D1CA99B3A002A0BF0 /* Localizable.strings */; };
 		F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91BCA271C428A640090DFA0 /* TranslationsViewController.swift */; };
 		F91BCA2A1C428DC70090DFA0 /* TranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91BCA291C428DC70090DFA0 /* TranslationCell.swift */; };
@@ -39,15 +40,29 @@
 		F9EA30C41C3557110093E590 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA30C31C3557110093E590 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6D450C7221FF0E6C00AAB25C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6D450C7121FF0E6C00AAB25C /* DownPicker.framework in Embed Frameworks */,
+				6D450C6F21FF0E6C00AAB25C /* CHTCollectionViewWaterfallLayout.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fishionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4517C3499FEE5F60B246AF6E /* Pods-Fishionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.debug.xcconfig"; sourceTree = "<group>"; };
 		6D22F96C21F9DDBD00633965 /* MainStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboard.swift; sourceTree = "<group>"; };
+		6D450C6921FF0E3700AAB25C /* CHTCollectionViewWaterfallLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHTCollectionViewWaterfallLayout.framework; path = Carthage/Build/iOS/CHTCollectionViewWaterfallLayout.framework; sourceTree = "<group>"; };
+		6D450C6A21FF0E3700AAB25C /* DownPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DownPicker.framework; path = Carthage/Build/iOS/DownPicker.framework; sourceTree = "<group>"; };
 		6D50606321FB06C0004576E9 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		6D52D34721F9BB8A006C10DC /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		6D52D34921F9D880006C10DC /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		6D8FA12121F86AAD00538BD8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		974FB7E6F224D89A3AFF96FC /* Pods-Fishionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary.release.xcconfig"; sourceTree = "<group>"; };
 		BB8516A1B40F147AC2224D2E /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		BB8518FEFCA7AA8D7EA3E642 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		BB851ACFAE85AA23A31AD395 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -135,7 +150,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFA2AD8158D071B16DD5BB9A /* Pods_Fishionary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,18 +159,10 @@
 		D407A72077E4F20DE065EB8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2D06F66A15C53CF3D2DAA7E4 /* Pods_Fishionary.framework */,
+				6D450C6921FF0E3700AAB25C /* CHTCollectionViewWaterfallLayout.framework */,
+				6D450C6A21FF0E3700AAB25C /* DownPicker.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EA78D879A6A6E31ED27414D7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4517C3499FEE5F60B246AF6E /* Pods-Fishionary.debug.xcconfig */,
-				974FB7E6F224D89A3AFF96FC /* Pods-Fishionary.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		F9E2AE211C303DE800EE184A = {
@@ -164,7 +170,6 @@
 			children = (
 				F9E2AE2C1C303DE800EE184A /* Fishionary */,
 				F9E2AE2B1C303DE800EE184A /* Products */,
-				EA78D879A6A6E31ED27414D7 /* Pods */,
 				D407A72077E4F20DE065EB8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -261,11 +266,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9E2AE3E1C303DE800EE184A /* Build configuration list for PBXNativeTarget "Fishionary" */;
 			buildPhases = (
-				A1EF77CB35AC7AECD27DA279 /* [CP] Check Pods Manifest.lock */,
 				F9E2AE261C303DE800EE184A /* Sources */,
 				F9E2AE271C303DE800EE184A /* Frameworks */,
 				F9E2AE281C303DE800EE184A /* Resources */,
-				4CD157525E154EE8909C7E79 /* [CP] Embed Pods Frameworks */,
+				6D450C7221FF0E6C00AAB25C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,55 +346,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4CD157525E154EE8909C7E79 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/DownPicker/DownPicker.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHTCollectionViewWaterfallLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DownPicker.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fishionary/Pods-Fishionary-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1EF77CB35AC7AECD27DA279 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Fishionary-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F9E2AE261C303DE800EE184A /* Sources */ = {
@@ -541,6 +496,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "Carthage\\Build\\iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -597,6 +553,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "Carthage\\Build\\iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -616,13 +573,16 @@
 		};
 		F9E2AE3F1C303DE800EE184A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4517C3499FEE5F60B246AF6E /* Pods-Fishionary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Fishionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.jeyries.fishionary;
@@ -637,13 +597,16 @@
 		};
 		F9E2AE401C303DE800EE184A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 974FB7E6F224D89A3AFF96FC /* Pods-Fishionary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Fishionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.jeyries.fishionary;

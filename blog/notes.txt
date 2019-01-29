@@ -1,9 +1,10 @@
 
 
-=== Upgrading to Swift 4
+=== Migrating an app to Swift 4
 
 A lot has change since Swift 2:
 - guard 
+- JSON handling, using Codable
 
 Also new techniques have become popular:
 - MVVM
@@ -164,3 +165,6 @@ github "u1tkzw/CHTCollectionViewWaterfallLayout" "develop"
 #github "airbnb/MagazineLayout"
 github "Darkseal/DownPicker"
 
+carthage update --no-build 
+
+carthage bootstrap --cache-builds --platform iOS

@@ -13,12 +13,12 @@ private let CELL_IDENTIFIER = "WaterfallCell"
 private let HEADER_IDENTIFIER = "WaterfallHeader"
 private let FOOTER_IDENTIFIER = "WaterfallFooter"
 
-final class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
+final class WaterfallViewController: UIViewController {
     
     let objects = DataManager.shared.filterAnyLanguage(search: nil)
 
-    var collectionView : UICollectionView!
-    var didSelect : ((Fish) -> ())?
+    var collectionView: UICollectionView!
+    var didSelect: ((Fish) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,77 +54,17 @@ final class WaterfallViewController: UIViewController, UICollectionViewDataSourc
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        updateLayoutForOrientation(orientation: UIApplication.shared.statusBarOrientation)
-        //updateLayoutForSize(...)
-    }
-
-    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        super.willAnimateRotation(to: toInterfaceOrientation, duration: duration)
-        updateLayoutForOrientation(orientation: toInterfaceOrientation)
-    }
-    
-    func updateLayoutForOrientation(orientation: UIInterfaceOrientation) {
-        let layout = collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
-        layout.columnCount = orientation.isPortrait ? 2 : 3;
-    }
-
-    
-    /*
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        
-        print("size: \(size)")
-        
-        coordinator.animateAlongsideTransition({ (UIViewControllerTransitionCoordinatorContext) -> Void in
-            
-            let layout = self.collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
-            let orientation = UIApplication.sharedApplication().statusBarOrientation
-            
-            switch orientation {
-            case .Portrait:
-                print("Portrait")
-                layout.columnCount = 2
-            default:
-                print("Anything But Portrait")
-                layout.columnCount = 3
-            }
-            
-            }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
-                print("rotation completed")
-        })
-        
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        //updateLayoutForSize(size)
-    }
-    */
-    
-    /*
-    func updateLayoutForSize(size: CGSize) {
-        let layout = collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
-        layout.columnCount = size.width < 1024 ? 2 : 3;
-    }
-    */
-    
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        print("willTransitionToTraitCollection: \(newCollection)")
-        if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
-            
-        }
-    }
-    
-    
     @objc func done(_ sender: AnyObject) {
         self.dismiss(animated: false, completion: nil)
     }
-    
-    // MARK: UICollectionViewDataSource
+}
+
+// MARK: UICollectionViewDataSource
+extension WaterfallViewController: UICollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return objects.count
@@ -150,8 +90,10 @@ final class WaterfallViewController: UIViewController, UICollectionViewDataSourc
         
         return reusableView!;
     }
-    
-    // MARK - CHTCollectionViewDelegateWaterfallLayout
+}
+
+// MARK: CHTCollectionViewDelegateWaterfallLayout
+extension WaterfallViewController: CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath?) -> CGSize {
         

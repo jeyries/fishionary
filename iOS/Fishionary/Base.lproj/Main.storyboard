@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z67-0h-8Qn">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="434.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="597.5"/>
                                         <subviews>
                                             <imageView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="360" image="samplefish" translatesAutoresizingMaskIntoConstraints="NO" id="npH-dU-qdf" userLabel="Detail Image">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -75,18 +75,19 @@
                                                     <segue destination="sIS-4u-uxh" kind="embed" identifier="showTranslations" id="SNs-Nv-Mhe"/>
                                                 </connections>
                                             </containerView>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlx-SR-qqi">
-                                                <rect key="frame" x="0.0" y="414" width="375" height="20.5"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sf7-q6-fK2">
+                                                <rect key="frame" x="0.0" y="414" width="375" height="183.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Concern">
+                                                    <fragment>
+                                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                         <attributes>
-                                                            <font key="NSFont" metaFont="system" size="17"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
@@ -120,7 +121,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="containerHeight" destination="atw-lk-biO" id="Y2d-ac-t5N"/>
-                        <outlet property="detailConcernLabel" destination="Nlx-SR-qqi" id="iX1-BJ-CIW"/>
+                        <outlet property="detailConcernTextView" destination="sf7-q6-fK2" id="8B9-jc-bO4"/>
                         <outlet property="detailImage" destination="npH-dU-qdf" id="CCd-8W-8vW"/>
                         <outlet property="targetTextField" destination="c6n-8d-C7Y" id="vn2-zO-VOU"/>
                     </connections>

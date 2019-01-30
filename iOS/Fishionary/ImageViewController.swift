@@ -23,38 +23,17 @@ final class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         scrollView.delegate = self
         scrollView.maximumZoomScale = 2
         imageView.image = image
         updateZoom()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
         super.viewDidAppear(animated)
-        
         updateZoom()
-
     }
 
-    
-    /*
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        let value = UIInterfaceOrientation.LandscapeLeft.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
-    }
-    */
-    
-    /*
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-    */
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
@@ -85,7 +64,6 @@ final class ImageViewController: UIViewController, UIScrollViewDelegate {
         print("zoomScale: \(String(format:"%.3f", scrollView.zoomScale))")
         print("image x zoomScale: \(Int(scrollView.zoomScale * imageWidth)) x \(Int(scrollView.zoomScale * imageHeight))")
         
-        
         // center image if it is smaller than the scroll view
         let hPadding = max(0, (viewWidth - scrollView.zoomScale * imageWidth) / 2)
         let vPadding = max(0, (viewHeight - scrollView.zoomScale * imageHeight) / 2)
@@ -99,7 +77,6 @@ final class ImageViewController: UIViewController, UIScrollViewDelegate {
         imageConstraintBottom.constant = vPadding
         
         view.layoutIfNeeded()
-        
     }
     
     // Zoom to show as much image as possible unless image is smaller than the scroll view
@@ -141,6 +118,5 @@ final class ImageViewController: UIViewController, UIScrollViewDelegate {
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-
 
 }

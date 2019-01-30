@@ -16,7 +16,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var targetTextField: UITextField!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
-    @IBOutlet weak var detailConcernLabel: UILabel!
+    @IBOutlet weak var detailConcernTextView: UITextView!
     
     var targetPicker: DownPicker!
     var translationsController: TranslationsViewController!
@@ -40,10 +40,11 @@ final class DetailViewController: UIViewController {
             self?.detailImage.image = image
         }
         
-        detailConcernLabel.attributedText = vm.concern
-        detailConcernLabel.isHidden = !vm.hasConcern
-        detailConcernLabel.isUserInteractionEnabled = true
-        detailConcernLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapConcern)))
+        detailConcernTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        detailConcernTextView.attributedText = vm.concern
+        detailConcernTextView.isHidden = !vm.hasConcern
+        detailConcernTextView.isUserInteractionEnabled = true
+        detailConcernTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapConcern)))
     }
 
     override func viewDidLoad() {
@@ -83,8 +84,8 @@ final class DetailViewController: UIViewController {
         let names = vm.names
         translationsController.objects = names
         
-        containerHeight.constant = CGFloat(names.count * 44)
-        view.layoutIfNeeded()
+        containerHeight.constant = CGFloat(names.count) * translationsController.tableView.rowHeight
+        view.setNeedsUpdateConstraints()
     }
     
     @objc func targetSelected(_ sender: AnyObject) {
@@ -109,7 +110,7 @@ final class DetailViewController: UIViewController {
     }
     
     @objc func tapConcern() {
-        let attributedString = detailConcernLabel.attributedText!
+        let attributedString = detailConcernTextView.attributedText!
         guard let link = attributedString.links.first else { return }
         let safariVC = SFSafariViewController(url: link)
         present(safariVC, animated: true, completion: nil)

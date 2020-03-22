@@ -27,6 +27,11 @@
 		F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */; };
 		F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */; };
 		F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */; };
+		F97824B42427C3BF005D81B5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B32427C3BF005D81B5 /* TestView.swift */; };
+		F97824B62427CAE5005D81B5 /* FishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B52427CAE5005D81B5 /* FishList.swift */; };
+		F97824B82427D0C4005D81B5 /* FishDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B72427D0C4005D81B5 /* FishDetail.swift */; };
+		F97824BA2427D39B005D81B5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B92427D39B005D81B5 /* RootView.swift */; };
+		F97824BC2427D4FA005D81B5 /* FishRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824BB2427D4FA005D81B5 /* FishRow.swift */; };
 		F9D074F51C359D160081A5C2 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F41C359D160081A5C2 /* GalleryViewController.swift */; };
 		F9D074F71C35A0610081A5C2 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F61C35A0610081A5C2 /* GalleryCell.swift */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
@@ -130,6 +135,11 @@
 		F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallHeader.swift; sourceTree = "<group>"; };
 		F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallFooter.swift; sourceTree = "<group>"; };
 		F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		F97824B32427C3BF005D81B5 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		F97824B52427CAE5005D81B5 /* FishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishList.swift; sourceTree = "<group>"; };
+		F97824B72427D0C4005D81B5 /* FishDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetail.swift; sourceTree = "<group>"; };
+		F97824B92427D39B005D81B5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F97824BB2427D4FA005D81B5 /* FishRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishRow.swift; sourceTree = "<group>"; };
 		F9D074F41C359D160081A5C2 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F9D074F61C35A0610081A5C2 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +175,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F97824B12427C390005D81B5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F97824B22427C39B005D81B5 /* Test */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		F97824B22427C39B005D81B5 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F97824B32427C3BF005D81B5 /* TestView.swift */,
+				F97824B92427D39B005D81B5 /* RootView.swift */,
+				F97824B52427CAE5005D81B5 /* FishList.swift */,
+				F97824B72427D0C4005D81B5 /* FishDetail.swift */,
+				F97824BB2427D4FA005D81B5 /* FishRow.swift */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		F9E2AE211C303DE800EE184A = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +215,7 @@
 		F9E2AE2C1C303DE800EE184A /* Fishionary */ = {
 			isa = PBXGroup;
 			children = (
+				F97824B12427C390005D81B5 /* Components */,
 				F9EA30BA1C352D6A0093E590 /* Storyboards */,
 				F9EA30BC1C352D9B0093E590 /* Controllers */,
 				F9EA30BE1C352DD80093E590 /* Managers */,
@@ -354,12 +385,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91D19891C3C3AA2003BAD65 /* Property.swift in Sources */,
+				F97824B42427C3BF005D81B5 /* TestView.swift in Sources */,
 				F9E2AE321C303DE800EE184A /* DetailViewController.swift in Sources */,
 				F9E2AE301C303DE800EE184A /* MasterViewController.swift in Sources */,
+				F97824BA2427D39B005D81B5 /* RootView.swift in Sources */,
 				6D8FA12221F86AAD00538BD8 /* DetailViewModel.swift in Sources */,
 				F91BCA2A1C428DC70090DFA0 /* TranslationCell.swift in Sources */,
 				F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */,
 				F9EA30C01C3533A70093E590 /* FishCell.swift in Sources */,
+				F97824B62427CAE5005D81B5 /* FishList.swift in Sources */,
 				6D52D34821F9BB8A006C10DC /* AppFlow.swift in Sources */,
 				F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */,
 				F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */,
@@ -370,9 +404,11 @@
 				6D50606421FB06C0004576E9 /* ImageLoader.swift in Sources */,
 				F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */,
 				F9EA30C21C3542810093E590 /* ConfigManager.swift in Sources */,
+				F97824B82427D0C4005D81B5 /* FishDetail.swift in Sources */,
 				F932FEC71C3A79DD00E9A7F5 /* WaterfallCell.swift in Sources */,
 				F91D19871C3C1C08003BAD65 /* WebViewController.swift in Sources */,
 				F9D074F71C35A0610081A5C2 /* GalleryCell.swift in Sources */,
+				F97824BC2427D4FA005D81B5 /* FishRow.swift in Sources */,
 				6D22F96D21F9DDBD00633965 /* MainStoryboard.swift in Sources */,
 				F9D074F51C359D160081A5C2 /* GalleryViewController.swift in Sources */,
 				BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */,
@@ -512,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -563,7 +599,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

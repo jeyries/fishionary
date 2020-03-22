@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +17,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
         _ = DataManager.shared
+        
+        let rootView = RootView()
+        window!.rootViewController = UIHostingController(rootView: rootView)
+        window!.makeKeyAndVisible()
+        
+        /*
         let navigationController = window?.rootViewController as! UINavigationController
         flow = AppFlow(navigationController: navigationController)
         flow.start()
+ */
     }
 
 

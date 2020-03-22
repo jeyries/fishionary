@@ -9,9 +9,14 @@
 import SwiftUI
 
 
+
 struct FishList: View {
     
     let objects: [FishAndMatch] = DataManager.shared.filterAnyLanguage(search: nil)
+    
+    @State private var showingMenu = false
+    @State private var showingModal = false
+    @State private var modal = ModalView.Modal.settings
     
     var body: some View {
         List {
@@ -23,11 +28,33 @@ struct FishList: View {
                 }
             }
         }
-        .navigationBarTitle(Text("Master"))
+        .navigationBarTitle(Text("Fishionary"))
+        .navigationBarItems(trailing: menuButton)
+        .actionSheet(isPresented: $showingMenu) { actionSheet }
+        .sheet(isPresented: $showingModal) {
+            ModalView(modal: self.modal)
+        }
+        
     }
+    
+    var menuButton: some View {
+        Button(action: { self.showingMenu.toggle() }) {
+            Text("Menu")
+        }
+    }
+    
+    var actionSheet: ActionSheet {
+        ActionSheet(
+            title: Text("Menu"),
+            message: nil,
+            buttons: [.default(Text("Settings")) { self.modal = .settings; self.showingModal.toggle() },
+                      .default(Text("Gallery")) { self.modal = .gallery; self.showingModal.toggle() },
+                      .default(Text("Info")) { self.modal = .info; self.showingModal.toggle() } ])
+    }
+    
 }
 
-struct MasterView_Previews: PreviewProvider {
+struct FishList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             FishList()
@@ -45,6 +72,31 @@ extension FishAndMatch: Identifiable {
     var id: String {
         return self.fish.id
     }
+}
+
+private struct ModalView: View {
+    enum Modal {
+        case settings
+        case gallery
+        case info
+    }
+    
+    var modal: Modal
+    
+    var body: some View {
+        ZStack {
+            if self.modal == .settings {
+                SettingsView()
+            }
+            if self.modal == .gallery {
+                GalleryView()
+            }
+            if self.modal == .info {
+                InfoView()
+            }
+        }
+    }
+    
 }
 
 /*

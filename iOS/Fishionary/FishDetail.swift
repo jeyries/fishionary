@@ -12,21 +12,32 @@ import SwiftUI
 
 struct FishDetail: View {
     
-    var fish: Fish
+    let fish: Fish
+    
+    @State var showingZoom = false
     
     var body: some View {
         VStack {
             Text("This is \(fish.id)")
-            //Text("This is \(fish.imagePath)")
-            
-            /*
-            ImageLoader.shared.load(path: vm.imagePath) { [weak self] image in
-                self?.detailImage.image = image
-            }*/
             Image(uiImage: UIImage(contentsOfFile: fish.imagePath)!)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
 
         }
+        .navigationBarItems(trailing: profileButton)
+        .sheet(isPresented: $showingZoom) {
+            Text("This is \(self.fish.imagePath)")
+            /*ProfileHost()
+                .environmentObject(self.userData)*/
+        }
     }
+    
+    var profileButton: some View {
+        Button(action: { self.showingZoom.toggle() }) {
+            Text("View")
+        }
+    }
+    
 }
 
 struct DetailView_Previews: PreviewProvider {

@@ -35,6 +35,7 @@
 		F97824BE2427FDCB005D81B5 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824BD2427FDCB005D81B5 /* GalleryView.swift */; };
 		F97824C02427FF43005D81B5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824BF2427FF43005D81B5 /* InfoView.swift */; };
 		F97824C224280105005D81B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824C124280105005D81B5 /* SettingsView.swift */; };
+		F9784FD72428C4E400F122F9 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9784FD62428C4E400F122F9 /* ZoomView.swift */; };
 		F9D074F51C359D160081A5C2 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F41C359D160081A5C2 /* GalleryViewController.swift */; };
 		F9D074F71C35A0610081A5C2 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F61C35A0610081A5C2 /* GalleryCell.swift */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
@@ -146,6 +147,7 @@
 		F97824BD2427FDCB005D81B5 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		F97824BF2427FF43005D81B5 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F97824C124280105005D81B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F9784FD62428C4E400F122F9 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		F9D074F41C359D160081A5C2 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F9D074F61C35A0610081A5C2 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +202,7 @@
 				F97824C124280105005D81B5 /* SettingsView.swift */,
 				F97824BD2427FDCB005D81B5 /* GalleryView.swift */,
 				F97824BF2427FF43005D81B5 /* InfoView.swift */,
+				F9784FD62428C4E400F122F9 /* ZoomView.swift */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */,
 				F97824BE2427FDCB005D81B5 /* GalleryView.swift in Sources */,
 				F9EA30C21C3542810093E590 /* ConfigManager.swift in Sources */,
+				F9784FD72428C4E400F122F9 /* ZoomView.swift in Sources */,
 				F97824B82427D0C4005D81B5 /* FishDetail.swift in Sources */,
 				F932FEC71C3A79DD00E9A7F5 /* WaterfallCell.swift in Sources */,
 				F91D19871C3C1C08003BAD65 /* WebViewController.swift in Sources */,

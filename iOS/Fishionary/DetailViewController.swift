@@ -110,23 +110,8 @@ final class DetailViewController: UIViewController {
     }
     
     @objc func tapConcern() {
-        let attributedString = detailConcernTextView.attributedText!
-        guard let link = attributedString.links.first else { return }
+        guard let link = vm.concernLink else { return }
         let safariVC = SFSafariViewController(url: link)
         present(safariVC, animated: true, completion: nil)
     }
 }
-
-private extension NSAttributedString {
-    var links: [URL] {
-        var links = [URL]()
-        self.enumerateAttribute(.link, in: NSRange(0..<self.length), options: []) { value, range, stop in
-            if let value = value as? URL {
-                links.append(value)
-            }
-        }
-        return links
-    }
-}
-
-

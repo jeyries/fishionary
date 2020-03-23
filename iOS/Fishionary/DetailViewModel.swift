@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class DetailViewModel {
+struct DetailViewModel {
     
     private let fish: Fish
     
-    convenience init() {
+    init() {
         self.init(fish: DetailViewModel.defaultFish)
     }
     
@@ -70,6 +70,10 @@ final class DetailViewModel {
                                               documentAttributes: nil)
     }
     
+    var concernLink: URL? {
+        return concern?.links.first
+    }
+    
     var hasConcern: Bool {
         guard let concern = fish.concern, !concern.isEmpty else { return false }
         return true
@@ -100,4 +104,20 @@ final class DetailViewModel {
         return objects[index]
     }
 }
+
+
+
+private extension NSAttributedString {
+    var links: [URL] {
+        var links = [URL]()
+        self.enumerateAttribute(.link, in: NSRange(0..<self.length), options: []) { value, range, stop in
+            if let value = value as? URL {
+                links.append(value)
+            }
+        }
+        return links
+    }
+}
+
+
 

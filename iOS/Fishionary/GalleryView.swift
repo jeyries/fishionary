@@ -8,17 +8,19 @@
 
 import SwiftUI
 import UIKit
+import Combine
 
 struct GalleryView: UIViewControllerRepresentable {
     
+    @EnvironmentObject private var appData: AppData
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<GalleryView>) -> UIViewController {
         let controller = WaterfallViewController()
+        let appData = self.appData
         controller.didSelect = { fish in
             let name = fish.name(target: "scientific")
             print("selected \(name)")
-            /*navigation.dismiss(animated: true) {
-                self?.masterViewController.select_fish(scientific: name)
-            }*/
+            appData.showSelectedFish(fish: fish)
         }
         return controller
     }
@@ -29,7 +31,9 @@ struct GalleryView: UIViewControllerRepresentable {
 }
 
 struct GalleryView_Previews: PreviewProvider {
+    
     static var previews: some View {
         GalleryView()
+            .environmentObject(AppData())
     }
 }

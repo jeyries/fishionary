@@ -27,7 +27,6 @@
 		F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */; };
 		F932FECB1C3A7A2200E9A7F5 /* WaterfallFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */; };
 		F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */; };
-		F97824B42427C3BF005D81B5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B32427C3BF005D81B5 /* TestView.swift */; };
 		F97824B62427CAE5005D81B5 /* FishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B52427CAE5005D81B5 /* FishList.swift */; };
 		F97824B82427D0C4005D81B5 /* FishDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B72427D0C4005D81B5 /* FishDetail.swift */; };
 		F97824BA2427D39B005D81B5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B92427D39B005D81B5 /* RootView.swift */; };
@@ -36,6 +35,7 @@
 		F97824C02427FF43005D81B5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824BF2427FF43005D81B5 /* InfoView.swift */; };
 		F97824C224280105005D81B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824C124280105005D81B5 /* SettingsView.swift */; };
 		F9784FD72428C4E400F122F9 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9784FD62428C4E400F122F9 /* ZoomView.swift */; };
+		F9B1B2D4242A208B009F86B8 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1B2D3242A208B009F86B8 /* AppData.swift */; };
 		F9D074F51C359D160081A5C2 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F41C359D160081A5C2 /* GalleryViewController.swift */; };
 		F9D074F71C35A0610081A5C2 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D074F61C35A0610081A5C2 /* GalleryCell.swift */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
@@ -139,7 +139,6 @@
 		F932FEC81C3A7A0100E9A7F5 /* WaterfallHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallHeader.swift; sourceTree = "<group>"; };
 		F932FECA1C3A7A2200E9A7F5 /* WaterfallFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallFooter.swift; sourceTree = "<group>"; };
 		F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		F97824B32427C3BF005D81B5 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F97824B52427CAE5005D81B5 /* FishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishList.swift; sourceTree = "<group>"; };
 		F97824B72427D0C4005D81B5 /* FishDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetail.swift; sourceTree = "<group>"; };
 		F97824B92427D39B005D81B5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		F97824BF2427FF43005D81B5 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F97824C124280105005D81B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F9784FD62428C4E400F122F9 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
+		F9B1B2D3242A208B009F86B8 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		F9D074F41C359D160081A5C2 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		F9D074F61C35A0610081A5C2 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,7 +194,7 @@
 		F97824B22427C39B005D81B5 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				F97824B32427C3BF005D81B5 /* TestView.swift */,
+				F9B1B2D3242A208B009F86B8 /* AppData.swift */,
 				F97824B92427D39B005D81B5 /* RootView.swift */,
 				F97824B52427CAE5005D81B5 /* FishList.swift */,
 				F97824B72427D0C4005D81B5 /* FishDetail.swift */,
@@ -335,8 +335,9 @@
 				TargetAttributes = {
 					F9E2AE291C303DE800EE184A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = DUG7QVRS59;
 						LastSwiftMigration = 1130;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -397,7 +398,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91D19891C3C3AA2003BAD65 /* Property.swift in Sources */,
-				F97824B42427C3BF005D81B5 /* TestView.swift in Sources */,
 				F9E2AE321C303DE800EE184A /* DetailViewController.swift in Sources */,
 				F9E2AE301C303DE800EE184A /* MasterViewController.swift in Sources */,
 				F97824C02427FF43005D81B5 /* InfoView.swift in Sources */,
@@ -409,6 +409,7 @@
 				F97824B62427CAE5005D81B5 /* FishList.swift in Sources */,
 				6D52D34821F9BB8A006C10DC /* AppFlow.swift in Sources */,
 				F932FEC91C3A7A0100E9A7F5 /* WaterfallHeader.swift in Sources */,
+				F9B1B2D4242A208B009F86B8 /* AppData.swift in Sources */,
 				F91BCA281C428A640090DFA0 /* TranslationsViewController.swift in Sources */,
 				F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */,
 				6D52D34A21F9D880006C10DC /* MainMenu.swift in Sources */,
@@ -629,9 +630,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DUG7QVRS59;
 				INFOPLIST_FILE = Fishionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.jeyries.fishionary;
@@ -650,9 +651,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DUG7QVRS59;
 				INFOPLIST_FILE = Fishionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.jeyries.fishionary;

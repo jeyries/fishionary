@@ -18,7 +18,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidFinishLaunching(_ application: UIApplication) {
         _ = DataManager.shared
         
-        let rootView = RootView()
+        let rootView = RootView().environmentObject(AppData())
         window!.rootViewController = UIHostingController(rootView: rootView)
         window!.makeKeyAndVisible()
         

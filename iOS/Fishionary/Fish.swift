@@ -7,8 +7,9 @@ import Foundation
 import UIKit
 
 
-struct Fish {
+struct Fish: Identifiable {
 
+    let id = UUID()
     let image: String
     let json: [String: Any]
     let searchTexts: [String]
@@ -83,6 +84,19 @@ enum MatchResult {
     case Some(text: String, range: Range<String.Index>)
 }
 
+struct AttributedString {
+    static func makeHighlightedText(text: String, range: Range<String.Index>) -> NSAttributedString {
+        let start: Int = text.distance(from: text.startIndex, to: range.lowerBound)
+        let length: Int = text.distance(from: range.lowerBound, to: range.upperBound)
+        let nsrange = NSMakeRange(start, length)
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.blue,
+            .backgroundColor: UIColor.yellow]
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttributes(attributes, range: nsrange)
+        return attributedString
+    }
+}
 
 extension Fish {
     func match(search: String?) -> MatchResult {

@@ -68,21 +68,3 @@ struct DetailView_Previews: PreviewProvider {
     }
 }
 
-////
-
-private struct CustomTextView: UIViewRepresentable {
-    
-    let attributedText: NSAttributedString?
-    
-    func makeUIView(context: UIViewRepresentableContext<CustomTextView>) -> UIView {
-        let textView = UITextView()
-        textView.attributedText = attributedText
-        textView.isEditable = false
-        return textView
-    }
-    
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<CustomTextView>) {
-        // nothing here
-    }
-    
-}

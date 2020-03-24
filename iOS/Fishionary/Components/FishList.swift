@@ -10,15 +10,23 @@ import SwiftUI
 
 struct FishList: View {
     
-    let objects: [FishAndMatch] = DataManager.shared.filterAnyLanguage(search: nil)
+    @State var searchText: String? = nil
+    
+    var objects: [FishAndMatch] {
+        return DataManager.shared.filterAnyLanguage(search: searchText)
+    }
     
     var body: some View {
-        List {
-            ForEach(objects) { object in
-                NavigationLink(
-                    destination: FishDetail(fish: object.fish)
-                ) {
-                    FishRow(fish: object.fish)
+        VStack {
+            SearchBar(text: $searchText)
+            Text("searching \(searchText ?? "nothing")")
+            List {
+                ForEach(objects) { object in
+                    NavigationLink(
+                        destination: FishDetail(fish: object.fish)
+                    ) {
+                        FishRow(object: object)
+                    }
                 }
             }
         }
@@ -34,15 +42,20 @@ struct FishList_Previews: PreviewProvider {
     }
 }
 
-extension Fish: Identifiable {
-    var id: String {
-        return self.name(target: "scientific")
-    }
-}
-
-extension FishAndMatch: Identifiable {
+/*
+extension MatchResult: Identifiable {
+    case None
+    case All
+    case Some(text: String, range: Range<String.Index>)
+    
     var id: String {
         return self.fish.id
     }
-}
+    
+}*/
 
+extension FishAndMatch: Identifiable {
+    var id: UUID {
+        return self.fish.id
+    }
+}

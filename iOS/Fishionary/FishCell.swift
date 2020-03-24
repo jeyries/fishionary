@@ -48,14 +48,7 @@ private extension MatchResult {
         case .All:
             return nil
         case .Some(let text, let range):
-            let start: Int = text.distance(from: text.startIndex, to: range.lowerBound)
-            let length: Int = text.distance(from: range.lowerBound, to: range.upperBound)
-            let attributedString = NSMutableAttributedString(string: text)
-            let attributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.blue,
-                NSAttributedString.Key.backgroundColor: UIColor.yellow]
-            attributedString.addAttributes(attributes, range: NSMakeRange(start, length))
-            return attributedString
+            return AttributedString.makeHighlightedText(text: text, range: range)
         }
     }
 }

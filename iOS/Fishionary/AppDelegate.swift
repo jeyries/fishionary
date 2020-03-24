@@ -13,20 +13,15 @@ import SwiftUI
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var flow: AppFlow!
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
         _ = DataManager.shared
         
+        self.window = UIWindow()
+        
         let rootView = RootView().environmentObject(AppData())
         window!.rootViewController = UIHostingController(rootView: rootView)
         window!.makeKeyAndVisible()
-        
-        /*
-        let navigationController = window?.rootViewController as! UINavigationController
-        flow = AppFlow(navigationController: navigationController)
-        flow.start()
- */
     }
 
 

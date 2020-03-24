@@ -12,11 +12,12 @@ import SwiftUI
 
 struct FishDetail: View {
     
-    //let fish: Fish
-    let vm: DetailViewModel
+    @EnvironmentObject private var appData: AppData
     
-    init(fish: Fish) {
-        vm = DetailViewModel(fish: fish)
+    let fish: Fish
+    
+    var vm: DetailViewModel {
+        DetailViewModel(fish: fish, source: appData.source, target: appData.target)
     }
     
     @State var showingZoom = false
@@ -26,7 +27,7 @@ struct FishDetail: View {
             image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            Text(vm.target)
+            Text(vm.targetDescription)
                 .padding(10)
                 .background(Color(.lightGray))
                 .cornerRadius(10)
@@ -64,6 +65,7 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             FishDetail(fish: objects[0].fish)
+                .environmentObject(AppData())
         }
     }
 }

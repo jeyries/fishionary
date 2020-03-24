@@ -10,32 +10,20 @@ import UIKit
 
 struct DetailViewModel {
     
-    private let fish: Fish
-    
-    init() {
-        self.init(fish: DetailViewModel.defaultFish)
-    }
-    
-    init(fish: Fish) {
-        self.fish = fish
-    }
+    let fish: Fish
+    let source: String
+    let target: String
     
     var title: String {
-        let source = ConfigManager.shared.source
         let name = fish.name(target: source)
         let source_prop = DataManager.shared.search_prop(name: source)!
         return "\(name) (\(source_prop.header))"
     }
     
     var name: String {
-        let target = ConfigManager.shared.target
         return fish.name(target: target)
     }
     
-    /*
-    var image: UIImage {
-        return fish.imageContent()
-    }*/
     var imagePath: String {
         return fish.imagePath
     }
@@ -79,8 +67,7 @@ struct DetailViewModel {
         return true
     }
     
-    var target: String {
-        let target = ConfigManager.shared.target
+    var targetDescription: String {
         let prop = DataManager.shared.search_prop(name: target)!
         return prop.header
     }
@@ -94,7 +81,6 @@ struct DetailViewModel {
     }
     
     var names: [String] {
-        let target = ConfigManager.shared.target
         return fish.names(target: target)
     }
     

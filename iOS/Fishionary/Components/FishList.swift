@@ -42,17 +42,6 @@ struct FishList_Previews: PreviewProvider {
     }
 }
 
-/*
-extension MatchResult: Identifiable {
-    case None
-    case All
-    case Some(text: String, range: Range<String.Index>)
-    
-    var id: String {
-        return self.fish.id
-    }
-    
-}*/
 
 extension FishAndMatch: Identifiable {
     var id: UUID {

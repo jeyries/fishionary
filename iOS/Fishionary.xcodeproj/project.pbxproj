@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D450C6F21FF0E6C00AAB25C /* CHTCollectionViewWaterfallLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6D450C6921FF0E3700AAB25C /* CHTCollectionViewWaterfallLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6D50606421FB06C0004576E9 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50606321FB06C0004576E9 /* ImageLoader.swift */; };
 		6D8FA12221F86AAD00538BD8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8FA12121F86AAD00538BD8 /* DetailViewModel.swift */; };
 		BB85122253D19B676DDB54D7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = BB8516A1B40F147AC2224D2E /* data */; };
@@ -32,6 +31,7 @@
 		F97824C02427FF43005D81B5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824BF2427FF43005D81B5 /* InfoView.swift */; };
 		F97824C224280105005D81B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824C124280105005D81B5 /* SettingsView.swift */; };
 		F9784FD72428C4E400F122F9 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9784FD62428C4E400F122F9 /* ZoomView.swift */; };
+		F98672F6242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98672F5242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift */; };
 		F9B1B2D4242A208B009F86B8 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1B2D3242A208B009F86B8 /* AppData.swift */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
 		F9E2AE371C303DE800EE184A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E2AE361C303DE800EE184A /* Assets.xcassets */; };
@@ -45,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6D450C6F21FF0E6C00AAB25C /* CHTCollectionViewWaterfallLayout.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6D450C6921FF0E3700AAB25C /* CHTCollectionViewWaterfallLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHTCollectionViewWaterfallLayout.framework; path = Carthage/Build/iOS/CHTCollectionViewWaterfallLayout.framework; sourceTree = "<group>"; };
 		6D50606321FB06C0004576E9 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		6D8FA12121F86AAD00538BD8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BB8516A1B40F147AC2224D2E /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
@@ -114,6 +112,7 @@
 		F97824BF2427FF43005D81B5 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F97824C124280105005D81B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F9784FD62428C4E400F122F9 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
+		F98672F5242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		F9B1B2D3242A208B009F86B8 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,9 +135,16 @@
 		D407A72077E4F20DE065EB8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6D450C6921FF0E3700AAB25C /* CHTCollectionViewWaterfallLayout.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F98672F4242AC89100E9FE37 /* ThirdParties */ = {
+			isa = PBXGroup;
+			children = (
+				F98672F5242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift */,
+			);
+			path = ThirdParties;
 			sourceTree = "<group>";
 		};
 		F9B1B2D5242A6CB7009F86B8 /* Components */ = {
@@ -180,6 +186,7 @@
 		F9E2AE2C1C303DE800EE184A /* Fishionary */ = {
 			isa = PBXGroup;
 			children = (
+				F98672F4242AC89100E9FE37 /* ThirdParties */,
 				F9B1B2D5242A6CB7009F86B8 /* Components */,
 				F9EA30BC1C352D9B0093E590 /* Controllers */,
 				F9EA30BE1C352DD80093E590 /* Managers */,
@@ -349,6 +356,7 @@
 				F97824B82427D0C4005D81B5 /* FishDetail.swift in Sources */,
 				F932FEC71C3A79DD00E9A7F5 /* WaterfallCell.swift in Sources */,
 				F91D19871C3C1C08003BAD65 /* WebViewController.swift in Sources */,
+				F98672F6242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
 				F97824C224280105005D81B5 /* SettingsView.swift in Sources */,
 				F97824BC2427D4FA005D81B5 /* FishRow.swift in Sources */,
 				BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */,
@@ -446,7 +454,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = Carthage/Build/iOS;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -503,7 +510,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = Carthage/Build/iOS;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

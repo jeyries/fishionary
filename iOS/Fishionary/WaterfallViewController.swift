@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CHTCollectionViewWaterfallLayout
+//import CHTCollectionViewWaterfallLayout
 
 private let CELL_IDENTIFIER = "WaterfallCell"
 private let HEADER_IDENTIFIER = "WaterfallHeader"
@@ -95,9 +95,9 @@ extension WaterfallViewController: UICollectionViewDataSource {
 // MARK: CHTCollectionViewDelegateWaterfallLayout
 extension WaterfallViewController: CHTCollectionViewDelegateWaterfallLayout {
     
-    func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath?) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
-        let result = objects[indexPath!.row]
+        let result = objects[indexPath.row]
         let fish = result.fish
         let image = ImageLoader.shared.loadSynchronously(path: fish.imagePath)!
         return image.size

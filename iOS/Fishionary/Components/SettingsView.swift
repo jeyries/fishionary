@@ -8,19 +8,49 @@
 
 import SwiftUI
 
-struct SettingsView: UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<SettingsView>) -> UIViewController {
-        let controller = MainStoryboard.settingsViewController
-        return controller
+struct SettingsView: View {
+    
+    @EnvironmentObject private var appData: AppData
+
+    let props = DataManager.shared.filter_props()
+    
+    var pickerContent: some View {
+        ForEach(props, id: \.name) { prop in
+            Text(prop.header).tag(prop.name)
+        }
     }
     
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<SettingsView>) {
-        // nothing here
+    var body: some View {
+        VStack {
+            Image("home-background-transparent")
+                .resizable()
+                .scaledToFit()
+                .frame(width: nil, height: 200, alignment: .center)
+        
+            Form {
+                Section {
+                    Picker(selection: $appData.source,
+                           label: Text("Source"),
+                           content: { pickerContent })
+                        .pickerStyle(WheelPickerStyle())
+                }
+                
+                Section {
+                    Picker(selection: $appData.target,
+                           label: Text("Target"),
+                           content: { pickerContent })
+                        .pickerStyle(WheelPickerStyle())
+                }
+                
+            }
+        }
     }
+
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(AppData())
     }
 }

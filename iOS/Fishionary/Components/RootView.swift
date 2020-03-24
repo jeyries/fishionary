@@ -66,12 +66,12 @@ struct RootView: View {
             }
             if self.modal == .gallery {
                 //self.gallery
-                GalleryView().environmentObject(appData)
+                GalleryView()
             }
             if self.modal == .info {
                 InfoView()
             }
-        }
+        }.environmentObject(appData)
     }
     
     

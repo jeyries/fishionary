@@ -10,6 +10,8 @@ import Combine
 import SwiftUI
 
 final class AppData: ObservableObject {
+    @Published var source = "scientific"
+    @Published var target = "english"
     @Published var showingModal = false
     @Published var showingSelectedFish = false
     @Published var selectedFish = DetailViewModel.defaultFish

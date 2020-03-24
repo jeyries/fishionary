@@ -10,20 +10,20 @@ import SwiftUI
 
 struct FishRow: View {
     
-    let sourceName: String
-    let targetName: String
-    let imagePath: String
+    @EnvironmentObject private var appData: AppData
     
-    init(fish: Fish) {
-  
-        let source = ConfigManager.shared.source
-        sourceName = fish.name(target: source)
-        
-        let target = ConfigManager.shared.target
-        targetName = fish.name(target: target)
-        
-        imagePath = fish.imagePath
-        
+    let fish: Fish
+    
+    var sourceName: String {
+        fish.name(target: appData.source)
+    }
+    
+    var targetName: String {
+        fish.name(target: appData.target)
+    }
+    
+    var imagePath: String {
+        fish.imagePath
     }
     
     var body: some View {
@@ -54,10 +54,12 @@ struct FishRow_Previews: PreviewProvider {
         
         Group {
             FishRow(fish: objects[0].fish)
+                .environmentObject(AppData())
             FishRow(fish: objects[1].fish)
+                .environmentObject(AppData())
         }
         .previewLayout(.fixed(width: 300, height: 70))
-        
+
     }
 }
 

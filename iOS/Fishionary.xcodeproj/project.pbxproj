@@ -183,15 +183,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F97824B12427C390005D81B5 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F97824B22427C39B005D81B5 /* Test */,
-			);
-			name = Components;
-			sourceTree = "<group>";
-		};
-		F97824B22427C39B005D81B5 /* Test */ = {
+		F9B1B2D5242A6CB7009F86B8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				F9B1B2D3242A208B009F86B8 /* AppData.swift */,
@@ -204,7 +196,7 @@
 				F97824BF2427FF43005D81B5 /* InfoView.swift */,
 				F9784FD62428C4E400F122F9 /* ZoomView.swift */,
 			);
-			name = Test;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F9E2AE211C303DE800EE184A = {
@@ -227,7 +219,7 @@
 		F9E2AE2C1C303DE800EE184A /* Fishionary */ = {
 			isa = PBXGroup;
 			children = (
-				F97824B12427C390005D81B5 /* Components */,
+				F9B1B2D5242A6CB7009F86B8 /* Components */,
 				F9EA30BA1C352D6A0093E590 /* Storyboards */,
 				F9EA30BC1C352D9B0093E590 /* Controllers */,
 				F9EA30BE1C352DD80093E590 /* Managers */,

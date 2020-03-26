@@ -38,10 +38,10 @@ struct FishDetail: View {
             CustomTextView(attributedText: vm.concern)
                 .onTapGesture { print("hello") }
         }
-        .onAppear { self.vm.compute() } // compute the details only when the view appear
-        .navigationBarTitle(vm.title)
-        .navigationBarItems(trailing: zoomButton)
-        .sheet(isPresented: $showingZoom) { ZoomView(image: self.image)
+            .onAppear { self.update() } // compute the details only when the view appear
+            .navigationBarTitle(vm.title)
+            .navigationBarItems(trailing: zoomButton)
+            .sheet(isPresented: $showingZoom) { ZoomView(image: self.image)
         }
     }
     
@@ -54,6 +54,10 @@ struct FishDetail: View {
         Button(action: { self.showingZoom.toggle() }) {
             Text("View")
         }
+    }
+    
+    func update() {
+         vm.compute(source: appData.source, target: appData.target)
     }
     
     
@@ -86,9 +90,8 @@ extension FishDetail {
             self.fish = fish
         }
         
-        func compute() {
-            let submodel = DetailViewModel(fish: fish, source: "english", target: "scientific")
-            print(submodel.title)
+        func compute(source: String, target: String) {
+            let submodel = DetailViewModel(fish: fish, source: source, target: target)
             title = submodel.title
             imagePath = submodel.imagePath
             targetDescription = submodel.targetDescription

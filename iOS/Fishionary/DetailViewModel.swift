@@ -9,10 +9,12 @@
 import UIKit
 
 struct DetailViewModel {
-    
     let fish: Fish
     let source: String
     let target: String
+}
+
+extension DetailViewModel {
     
     var title: String {
         let name = fish.name(target: source)
@@ -53,7 +55,9 @@ struct DetailViewModel {
         let options = [
             NSAttributedString.DocumentReadingOptionKey.documentType:
             NSAttributedString.DocumentType.html]
-        return try! NSMutableAttributedString(data: rendering.data(using: .utf8)!,
+        
+        guard let data = rendering.data(using: .utf8) else { return nil }
+        return try? NSMutableAttributedString(data: data,
                                               options: options,
                                               documentAttributes: nil)
     }
@@ -83,7 +87,9 @@ struct DetailViewModel {
     var names: [String] {
         return fish.names(target: target)
     }
-    
+}
+
+extension DetailViewModel {
     static var defaultFish: Fish {
         let objects = DataManager.shared.database
         let index = DataManager.search_fish(scientific: "SPARUS AURATA", fishes: objects)!

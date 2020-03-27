@@ -34,18 +34,18 @@ struct FishRow: View {
     
     var body: some View {
         HStack {
-            Image(uiImage: UIImage(contentsOfFile: imagePath)!)
+            image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 80, height: 65)
                 .padding(10)
             VStack(alignment: .leading) {
-                Text(fish.id.uuidString).font(.caption)
+                //Text(fish.id.uuidString).font(.caption)
                 Text(sourceName)
                     .font(.system(size: 17))
-                    .background(Color(.green))
-                detailText.environmentObject(appData)
-                CustomLabel(attributedText: detailAttributedString)
+                    //.background(Color(.green))
+                detailText
+                //CustomLabel(attributedText: detailAttributedString)
             }
             
         }
@@ -67,6 +67,15 @@ struct FishRow: View {
         case .Some(let text, let range):
             return AnyView(HighlightedText(text: text, range: range))
         }
+    }
+    
+    var uiImage: UIImage? {
+        return ImageLoader.shared.loadSynchronously(path: imagePath)
+    }
+    
+    var image: Image {
+        guard let uiImage = self.uiImage else { return Image(systemName: "star") }
+        return Image(uiImage: uiImage)
     }
     
 }

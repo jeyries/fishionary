@@ -14,10 +14,14 @@ struct GalleryView: UIViewControllerRepresentable {
     
     @EnvironmentObject private var appData: AppData
     
+    let objects = DataManager.shared.filterAnyLanguage(search: nil)
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<GalleryView>) -> UIViewController {
         let controller = WaterfallViewController()
+        controller.images = objects.map { $0.fish.imagePath }
         let appData = self.appData
-        controller.didSelect = { fish in
+        controller.didSelect = { index in
+            let fish = self.objects[index].fish
             let name = fish.name(target: "scientific")
             print("selected \(name)")
             appData.showSelectedFish(fish: fish)

@@ -41,12 +41,15 @@ struct FishDetail: View {
             .onAppear { self.update() } // compute the details only when the view appear
             .navigationBarTitle(vm.title)
             .navigationBarItems(trailing: zoomButton)
-            .sheet(isPresented: $showingZoom) { ZoomView(image: self.image)
-        }
+            .sheet(isPresented: $showingZoom) { ZoomView(image: self.image) }
+    }
+    
+    var uiImage: UIImage? {
+        return ImageLoader.shared.loadSynchronously(path: vm.imagePath)
     }
     
     var image: Image {
-        guard let uiImage = UIImage(contentsOfFile: vm.imagePath) else { return Image(systemName: "star") }
+        guard let uiImage = self.uiImage else { return Image(systemName: "star") }
         return Image(uiImage: uiImage)
     }
     

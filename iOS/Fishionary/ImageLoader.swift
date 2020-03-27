@@ -40,6 +40,7 @@ final class ImageLoader {
             return image
         }
         
+        print("loading \(path)")
         guard let image = UIImage(contentsOfFile: path) else {
             return nil
         }
@@ -47,4 +48,32 @@ final class ImageLoader {
         imageCache.setObject(image, forKey: path as NSString)
         return image
     }
+    
+    func loadSize(path: String) -> CGSize {
+        print("loadSize \(path)")
+        guard let image = loadSynchronously(path: path) else { return .zero }
+        return image.size
+    }
+    
+    /*
+    func loadSizeCGImage(path: String) -> CGSize {
+        guard let image = CGImageSourceCreateWithURL(URL(fileURLWithPath: path) as CFURL, nil) else { return .zero }
+        let _properties = CGImageSourceCopyPropertiesAtIndex(image, 0, nil)!
+        let properties = _properties as NSDictionary
+        let width = properties[kCGImagePropertyPixelWidth] as! Int
+        let height = properties[kCGImagePropertyPixelHeight] as! Int
+        return CGSize(width: width, height: height)
+    }
+    
+    func loadSizeCIImage(path: String) -> CGSize {
+        guard let image = CIImage(contentsOf: URL(fileURLWithPath: path)) else { return .zero }
+        return image.extent.size
+    }
+    
+    func loadSizeUIImage(path: String) -> CGSize {
+        guard let image = UIImage(contentsOfFile: path) else { return .zero }
+        return image.size
+    }*/
+    
+    
 }

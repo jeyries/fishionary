@@ -9,28 +9,17 @@
 import UIKit
 //import CHTCollectionViewWaterfallLayout
 
-private let CELL_IDENTIFIER = "WaterfallCell"
-private let HEADER_IDENTIFIER = "WaterfallHeader"
-private let FOOTER_IDENTIFIER = "WaterfallFooter"
 
 final class WaterfallViewController: UIViewController {
     
-    let objects = DataManager.shared.filterAnyLanguage(search: nil)
+    var images = [String]()
+    var didSelect: ((Int) -> ())?
+    
+    override func loadView() {
+        self.view = collectionView
+    }
 
-    var collectionView: UICollectionView!
-    var didSelect: ((Fish) -> ())?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.view.backgroundColor = .red
-        
-
-        let button = UIBarButtonItem(barButtonSystemItem: .done,target: self, action: #selector(done))
-        self.navigationItem.rightBarButtonItem = button
-        
-        
+    private lazy var layout: UICollectionViewLayout = {
         let layout = CHTCollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10);
         layout.headerHeight = 0 //15;
@@ -38,25 +27,19 @@ final class WaterfallViewController: UIViewController {
         layout.minimumColumnSpacing = 20;
         layout.minimumInteritemSpacing = 30;
         layout.columnCount = 2
-        
-        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        return layout
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.dataSource = self;
         collectionView.delegate = self;
         collectionView.backgroundColor = .white
-        
-        collectionView.register(WaterfallCell.self, forCellWithReuseIdentifier: CELL_IDENTIFIER)
-        collectionView.register(WaterfallHeader.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader, withReuseIdentifier:HEADER_IDENTIFIER)
-        collectionView.register(WaterfallFooter.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter, withReuseIdentifier:FOOTER_IDENTIFIER)
-        
-
-         self.view.addSubview(self.collectionView)
-        
-    }
+        collectionView.register(WaterfallCell.self, forCellWithReuseIdentifier: "WaterfallCell")
+        return collectionView
+    }()
     
-    @objc func done(_ sender: AnyObject) {
-        self.dismiss(animated: false, completion: nil)
-    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -67,47 +50,62 @@ extension WaterfallViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return objects.count
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_IDENTIFIER, for: indexPath as IndexPath) as! WaterfallCell
-        
-        // Configure the cell
-        let result = objects[indexPath.row]
-        cell.configure(fish: result.fish)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WaterfallCell", for: indexPath as IndexPath) as! WaterfallCell
+        let imagePath = images[indexPath.row]
+        cell.configure(imagePath: imagePath)
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        var reusableView : UICollectionReusableView? = nil
-        
-        if (kind == CHTCollectionElementKindSectionHeader) {
-            reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HEADER_IDENTIFIER, for: indexPath)
-        } else if (kind == CHTCollectionElementKindSectionFooter) {
-            reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FOOTER_IDENTIFIER, for: indexPath)
-        }
-        
-        return reusableView!;
     }
 }
 
 // MARK: CHTCollectionViewDelegateWaterfallLayout
+
 extension WaterfallViewController: CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
-        let result = objects[indexPath.row]
-        let fish = result.fish
-        let image = ImageLoader.shared.loadSynchronously(path: fish.imagePath)!
-        return image.size
+        let imagePath = images[indexPath.row]
+        return ImageLoader.shared.loadSize(path: imagePath)
     }
     
     // MARK - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let result = objects[indexPath.row]
-        didSelect?( result.fish )
+        didSelect?( indexPath.row )
     }
   
+}
+
+private class WaterfallCell: UICollectionViewCell {
+    
+    private var imageOperation: Operation?
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.frame = self.contentView.bounds
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.addSubview(imageView)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(imagePath: String) {
+        imageOperation?.cancel()
+        imageView.image = nil
+        imageOperation = ImageLoader.shared.load(path: imagePath) { [weak self] image in
+            self?.imageView.image = image
+        }
+    }
+
 }

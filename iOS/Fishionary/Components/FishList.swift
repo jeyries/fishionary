@@ -19,7 +19,7 @@ struct FishList: View {
     var body: some View {
         VStack {
             SearchBar(text: $searchText)
-            Text("searching \(searchText ?? "nothing")")
+            //Text("searching \(searchText ?? "nothing")")
             List {
                 ForEach(objects) { object in
                     NavigationLink(

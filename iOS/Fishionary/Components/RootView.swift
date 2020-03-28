@@ -69,7 +69,9 @@ struct RootView: View {
                 GalleryView()
             }
             if self.modal == .info {
-                InfoView()
+                //InfoView()
+                CustomWebView(url: Bundle.main.bundleURL
+                          .appendingPathComponent("data/info/index.html"))
             }
         }.environmentObject(appData)
     }

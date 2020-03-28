@@ -14,13 +14,13 @@ struct RootView: View {
     enum Modal {
         case none
         case settings
-        case gallery
         case info
     }
     
     @EnvironmentObject private var appData: AppData
     
     @State private var showingMenu = false
+    @State private var showingGallery = false
 
     @State private var modal = Modal.settings {
         didSet {
@@ -31,16 +31,27 @@ struct RootView: View {
     var body: some View {
         NavigationView {
             VStack {
-                FishList()
+                if showingGallery {
+                    GalleryView()
+                } else {
+                    FishList()
+                }
+                
                 NavigationLink(
                     destination: FishDetail(fish: appData.selectedFish),
                     isActive: $appData.showingSelectedFish) {
                     EmptyView() }
             }
             .navigationBarTitle(Text("Fishionary"))
-            .navigationBarItems(trailing: menuButton)
+            .navigationBarItems(leading: menuButton, trailing: galleryButton)
             .actionSheet(isPresented: $showingMenu) { actionSheet }
             .sheet(isPresented: $appData.showingModal ) { self.modalView }
+        }
+    }
+    
+    var galleryButton: some View {
+        Button(action: { self.showingGallery.toggle() }) {
+            Text(showingGallery ? "List": "Gallery")
         }
     }
     
@@ -55,7 +66,6 @@ struct RootView: View {
             title: Text("Menu"),
             message: nil,
             buttons: [.default(Text("Settings")) { self.modal = .settings },
-                      .default(Text("Gallery")) { self.modal = .gallery },
                       .default(Text("Info")) { self.modal = .info } ])
     }
     
@@ -63,13 +73,7 @@ struct RootView: View {
         ZStack {
             if self.modal == .settings {
                 SettingsView()
-            }
-            if self.modal == .gallery {
-                //self.gallery
-                GalleryView()
-            }
-            if self.modal == .info {
-                //InfoView()
+            } else if self.modal == .info {
                 CustomWebView(url: Bundle.main.bundleURL
                           .appendingPathComponent("data/info/index.html"))
             }

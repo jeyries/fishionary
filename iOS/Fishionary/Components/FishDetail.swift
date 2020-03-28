@@ -26,7 +26,7 @@ struct FishDetail: View {
         ZStack {
             if self.showingZoom {
                 self.destination
-                    .transition(.move(edge: .bottom))
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
             } else {
                 self.content
             }
@@ -57,21 +57,25 @@ struct FishDetail: View {
     }
     
     var content: some View {
-        VStack {
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Text(vm.targetDescription)
-                .padding(10)
-                .background(Color(.lightGray))
-                .cornerRadius(10)
-                .padding(10)
-            ForEach(vm.names, id: \.self) { name in
-                Text(name)
+        ZStack {
+            Color(.white)
+            VStack {
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Text(vm.targetDescription)
+                    .padding(10)
+                    .background(Color(.lightGray))
+                    .cornerRadius(10)
+                    .padding(10)
+                ForEach(vm.names, id: \.self) { name in
+                    Text(name)
+                }
+                CustomTextView(attributedText: vm.concern)
+                    .onTapGesture { print("hello") }
             }
-            CustomTextView(attributedText: vm.concern)
-                .onTapGesture { print("hello") }
         }
+        
     }
     
     func update() {

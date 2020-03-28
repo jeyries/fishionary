@@ -13,22 +13,30 @@ struct ZoomView: View {
     let image: Image
     
     @State var scale: CGFloat = 0.8
+    @State var magnification: CGFloat = 1.0
+    
+    @State var translation: CGPoint = .zero
+    @State var drag: CGPoint = .zero
     
     var body: some View {
         image
             .rotationEffect(.degrees(90))
-            .scaleEffect(scale)
-            .gesture(MagnificationGesture()
-                .onChanged { value in
-                    self.scale = value.magnitude
-                }
-            )
-        /*
-        ScrollView {
-            image
-                .resizable()
-                .scaledToFit()
-        }*/
+            .scaleEffect(scale * magnification)
+            .transformEffect(.init(translationX: translation.x + drag.x, y: translation.y + drag.y))
+            .gesture(dragGesture)
+            .gesture(magnificationGesture)
+    }
+    
+    var dragGesture: some Gesture {
+        DragGesture()
+            .onChanged { value in self.drag = value.location - value.startLocation }
+            .onEnded { value in self.drag = .zero; self.translation = self.translation + value.location - value.startLocation }
+    }
+    
+    var magnificationGesture: some Gesture {
+        MagnificationGesture()
+            .onChanged { value in self.magnification = value.magnitude }
+            .onEnded { value in self.magnification = 1; self.scale *= value.magnitude }
     }
 }
 
@@ -42,5 +50,16 @@ struct ZoomView_Previews: PreviewProvider {
     
     static var previews: some View {
         ZoomView(image: image)
+    }
+}
+
+
+extension CGPoint {
+    static func -(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+    }
+    
+    static func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
 }

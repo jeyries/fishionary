@@ -23,6 +23,40 @@ struct FishDetail: View {
     @State var showingZoom = false
     
     var body: some View {
+        ZStack {
+            if self.showingZoom {
+                self.destination
+                    .transition(.move(edge: .bottom))
+            } else {
+                self.content
+            }
+        }
+            .onAppear { self.update() } // compute the details only when the view appear
+            .navigationBarTitle(vm.title)
+            .navigationBarItems(trailing: zoomButton)
+            //.sheet(isPresented: $showingZoom) { ZoomView(image: self.image) }
+    }
+    
+    var uiImage: UIImage? {
+        return ImageLoader.shared.loadSynchronously(path: vm.imagePath)
+    }
+    
+    var image: Image {
+        guard let uiImage = self.uiImage else { return Image(systemName: "star") }
+        return Image(uiImage: uiImage)
+    }
+    
+    var zoomButton: some View {
+        Button(action: { self.showingZoom.toggle() }) {
+            Text("Zoom")
+        }
+    }
+    
+    var destination: some View {
+        ZoomView(image: self.image)
+    }
+    
+    var content: some View {
         VStack {
             image
                 .resizable()
@@ -37,25 +71,6 @@ struct FishDetail: View {
             }
             CustomTextView(attributedText: vm.concern)
                 .onTapGesture { print("hello") }
-        }
-            .onAppear { self.update() } // compute the details only when the view appear
-            .navigationBarTitle(vm.title)
-            .navigationBarItems(trailing: zoomButton)
-            .sheet(isPresented: $showingZoom) { ZoomView(image: self.image) }
-    }
-    
-    var uiImage: UIImage? {
-        return ImageLoader.shared.loadSynchronously(path: vm.imagePath)
-    }
-    
-    var image: Image {
-        guard let uiImage = self.uiImage else { return Image(systemName: "star") }
-        return Image(uiImage: uiImage)
-    }
-    
-    var zoomButton: some View {
-        Button(action: { self.showingZoom.toggle() }) {
-            Text("View")
         }
     }
     
@@ -81,9 +96,9 @@ struct DetailView_Previews: PreviewProvider {
 extension FishDetail {
     class ViewModel: ObservableObject {
         
-        @Published var title: String = "title"
-        @Published var imagePath: String  = "imagePath"
-        @Published var targetDescription: String = "targetDescription"
+        @Published var title: String = ""
+        @Published var imagePath: String  = ""
+        @Published var targetDescription: String = ""
         @Published var names: [String] = []
         @Published var concern: NSAttributedString? = nil
         

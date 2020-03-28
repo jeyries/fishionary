@@ -19,7 +19,6 @@
 		F91D19871C3C1C08003BAD65 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D19861C3C1C08003BAD65 /* WebViewController.swift */; };
 		F91D19891C3C3AA2003BAD65 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D19881C3C3AA2003BAD65 /* Property.swift */; };
 		F932FEC51C3A733700E9A7F5 /* WaterfallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */; };
-		F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */; };
 		F97824B62427CAE5005D81B5 /* FishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B52427CAE5005D81B5 /* FishList.swift */; };
 		F97824B82427D0C4005D81B5 /* FishDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B72427D0C4005D81B5 /* FishDetail.swift */; };
 		F97824BA2427D39B005D81B5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824B92427D39B005D81B5 /* RootView.swift */; };
@@ -97,7 +96,6 @@
 		F91D19861C3C1C08003BAD65 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F91D19881C3C3AA2003BAD65 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallViewController.swift; sourceTree = "<group>"; };
-		F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		F97824B52427CAE5005D81B5 /* FishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishList.swift; sourceTree = "<group>"; };
 		F97824B72427D0C4005D81B5 /* FishDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetail.swift; sourceTree = "<group>"; };
 		F97824B92427D39B005D81B5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 			children = (
 				6D8FA12121F86AAD00538BD8 /* DetailViewModel.swift */,
 				F932FEC41C3A733700E9A7F5 /* WaterfallViewController.swift */,
-				F932FECC1C3AD48E00E9A7F5 /* ImageViewController.swift */,
 				F91D19861C3C1C08003BAD65 /* WebViewController.swift */,
 			);
 			name = Controllers;
@@ -326,7 +323,6 @@
 				F97824B62427CAE5005D81B5 /* FishList.swift in Sources */,
 				F90232C0242A8ED900E914D0 /* CustomTextView.swift in Sources */,
 				F9B1B2D4242A208B009F86B8 /* AppData.swift in Sources */,
-				F932FECD1C3AD48E00E9A7F5 /* ImageViewController.swift in Sources */,
 				F90232BE242A796700E914D0 /* SearchBar.swift in Sources */,
 				F932FEC51C3A733700E9A7F5 /* WaterfallViewController.swift in Sources */,
 				F90232C2242A8F4000E914D0 /* CustomLabel.swift in Sources */,

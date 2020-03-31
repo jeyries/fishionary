@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import struct Kingfisher.LocalFileImageDataProvider
+import KingfisherSwiftUI
 
 struct FishRow: View {
     
@@ -69,14 +71,21 @@ struct FishRow: View {
         }
     }
     
+    var image: KFImage {
+        let provider = LocalFileImageDataProvider(fileURL: URL(fileURLWithPath: imagePath))
+        return KFImage(source: .provider(provider))
+        //return KFImage(URL(fileURLWithPath: imagePath))
+    }
+    
+    /*
     var uiImage: UIImage? {
         return ImageLoader.shared.loadSynchronously(path: imagePath)
     }
-    
+
     var image: Image {
         guard let uiImage = self.uiImage else { return Image(systemName: "star") }
         return Image(uiImage: uiImage)
-    }
+    }*/
     
 }
 

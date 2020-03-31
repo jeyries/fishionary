@@ -7,7 +7,8 @@
 //
 
 import SwiftUI
-
+import struct Kingfisher.LocalFileImageDataProvider
+import KingfisherSwiftUI
 
 
 struct FishDetail: View {
@@ -37,13 +38,10 @@ struct FishDetail: View {
             //.sheet(isPresented: $showingZoom) { ZoomView(image: self.image) }
     }
     
-    var uiImage: UIImage? {
-        return ImageLoader.shared.loadSynchronously(path: vm.imagePath)
-    }
-    
-    var image: Image {
-        guard let uiImage = self.uiImage else { return Image(systemName: "star") }
-        return Image(uiImage: uiImage)
+    var image: KFImage {
+        let provider = LocalFileImageDataProvider(fileURL: URL(fileURLWithPath: vm.imagePath))
+        return KFImage(source: .provider(provider))
+        //return KFImage(URL(fileURLWithPath: vm.imagePath))
     }
     
     var zoomButton: some View {
@@ -53,7 +51,7 @@ struct FishDetail: View {
     }
     
     var destination: some View {
-        ZoomView(image: self.image)
+        ZoomView(image: AnyView(self.image))
     }
     
     var content: some View {

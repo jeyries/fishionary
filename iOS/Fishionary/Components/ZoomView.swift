@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ZoomView: View {
     
-    let image: Image
+    let image: AnyView // Image
     
     @State var scale: CGFloat = 0.8
     @State var magnification: CGFloat = 1.0
@@ -49,7 +49,7 @@ struct ZoomView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        ZoomView(image: image)
+        ZoomView(image: AnyView(image))
     }
 }
 

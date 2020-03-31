@@ -8,7 +8,8 @@
 
 import UIKit
 //import CHTCollectionViewWaterfallLayout
-
+//import struct Kingfisher.LocalFileImageDataProvider
+import Kingfisher
 
 final class WaterfallViewController: UIViewController {
     
@@ -40,9 +41,13 @@ final class WaterfallViewController: UIViewController {
         return collectionView
     }()
     
+    private func provider(at indexPath: IndexPath ) -> ImageDataProvider {
+        let path = images[indexPath.row]
+        let url = URL(fileURLWithPath: path)
+        return LocalFileImageDataProvider(fileURL: url)
+    }
 }
 
-// MARK: UICollectionViewDataSource
 extension WaterfallViewController: UICollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -61,27 +66,60 @@ extension WaterfallViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: CHTCollectionViewDelegateWaterfallLayout
-
 extension WaterfallViewController: CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
         let imagePath = images[indexPath.row]
-        return ImageLoader.shared.loadSize(path: imagePath)
+        //return UIImage(contentsOfFile: imagePath)?.size ?? .zero
+        
+        let provider = self.provider(at: indexPath)
+ 
+        var image: UIImage?
+
+        //let group = DispatchGroup()
+        //group.enter()
+        
+        let cache = ImageCache.default
+        cache.retrieveImage(forKey:  provider.cacheKey, callbackQueue: .mainCurrentOrAsync) { result in
+            switch result {
+                case .success(let value):
+                    image = value.image
+
+                case .failure(let error):
+                    print(error)
+            }
+            //group.leave()
+        }
+        
+        //group.wait()
+        
+        if image == nil {
+            image = UIImage(contentsOfFile: imagePath)
+            if let image = image {
+                cache.store(image, forKey: provider.cacheKey)
+            }
+        }
+        
+        return image?.size ?? .zero
     }
-    
-    // MARK - UICollectionViewDelegate
-    
+}
+
+extension WaterfallViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         didSelect?( indexPath.row )
     }
-  
+}
+
+extension WaterfallViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let sources = indexPaths.map { Source.provider(self.provider(at: $0)) }
+        ImagePrefetcher(sources: sources).start()
+    }
 }
 
 private class WaterfallCell: UICollectionViewCell {
     
-    private var imageOperation: Operation?
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -101,11 +139,9 @@ private class WaterfallCell: UICollectionViewCell {
     }
     
     func configure(imagePath: String) {
-        imageOperation?.cancel()
-        imageView.image = nil
-        imageOperation = ImageLoader.shared.load(path: imagePath) { [weak self] image in
-            self?.imageView.image = image
-        }
+        let url = URL(fileURLWithPath: imagePath)
+        let provider = LocalFileImageDataProvider(fileURL: url)
+        imageView.kf.setImage(with: provider)
     }
 
 }

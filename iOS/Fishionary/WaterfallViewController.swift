@@ -8,173 +8,140 @@
 
 import UIKit
 import CHTCollectionViewWaterfallLayout
+import Kingfisher
 
-private let CELL_IDENTIFIER = "WaterfallCell"
-private let HEADER_IDENTIFIER = "WaterfallHeader"
-private let FOOTER_IDENTIFIER = "WaterfallFooter"
-
-class WaterfallViewController: UIViewController, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
+final class WaterfallViewController: UIViewController {
     
-    let objects = DataManager.sharedInstance.filterAnyLanguage(nil)
+    var images = [String]()
+    var didSelect: ((Int) -> ())?
+    
+    override func loadView() {
+        self.view = collectionView
+    }
 
-    var collectionView : UICollectionView!
-    var didSelect : (Fish -> ())!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.redColor()
-        
-
-        let button = UIBarButtonItem(barButtonSystemItem: .Done,target: self, action: "done:")
-        self.navigationItem.rightBarButtonItem = button
-        
-        
+    private lazy var layout: UICollectionViewLayout = {
         let layout = CHTCollectionViewWaterfallLayout()
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10);
         layout.headerHeight = 0 //15;
         layout.footerHeight = 0 //10;
         layout.minimumColumnSpacing = 20;
         layout.minimumInteritemSpacing = 30;
         layout.columnCount = 2
-        
-        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        return layout
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.dataSource = self;
         collectionView.delegate = self;
-        collectionView.backgroundColor = UIColor.whiteColor()
-        
-        collectionView.registerClass(WaterfallCell.self, forCellWithReuseIdentifier: CELL_IDENTIFIER)
-        collectionView.registerClass(WaterfallHeader.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader, withReuseIdentifier:HEADER_IDENTIFIER)
-        collectionView.registerClass(WaterfallFooter.self, forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter, withReuseIdentifier:FOOTER_IDENTIFIER)
-        
+        collectionView.prefetchDataSource = self
+        collectionView.backgroundColor = .white
+        collectionView.register(WaterfallCell.self, forCellWithReuseIdentifier: "WaterfallCell")
+        return collectionView
+    }()
+    
+    private func provider(at indexPath: IndexPath ) -> ImageDataProvider {
+        let path = images[indexPath.row]
+        let url = URL(fileURLWithPath: path)
+        return LocalFileImageDataProvider(fileURL: url)
+    }
+}
 
-         self.view.addSubview(self.collectionView)
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        updateLayoutForOrientation(UIApplication.sharedApplication().statusBarOrientation)
-        //updateLayoutForSize(...)
-    }
-
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
-        updateLayoutForOrientation(toInterfaceOrientation)
-    }
-    
-    func updateLayoutForOrientation(orientation: UIInterfaceOrientation) {
-        let layout = collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
-        layout.columnCount = UIInterfaceOrientationIsPortrait(orientation) ? 2 : 3;
-    }
-
-    
-    /*
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        
-        print("size: \(size)")
-        
-        coordinator.animateAlongsideTransition({ (UIViewControllerTransitionCoordinatorContext) -> Void in
-            
-            let layout = self.collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
-            let orientation = UIApplication.sharedApplication().statusBarOrientation
-            
-            switch orientation {
-            case .Portrait:
-                print("Portrait")
-                layout.columnCount = 2
-            default:
-                print("Anything But Portrait")
-                layout.columnCount = 3
-            }
-            
-            }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
-                print("rotation completed")
-        })
-        
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        //updateLayoutForSize(size)
-    }
-    */
-    
-    /*
-    func updateLayoutForSize(size: CGSize) {
-        let layout = collectionView.collectionViewLayout as! CHTCollectionViewWaterfallLayout
-        layout.columnCount = size.width < 1024 ? 2 : 3;
-    }
-    */
-    
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        
-        print("willTransitionToTraitCollection: \(newCollection)")
-        if newCollection.containsTraitsInCollection(UITraitCollection(verticalSizeClass: .Regular)) {
-            
-        }
-    }
-    
-    
-    func done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-    
-    // MARK: UICollectionViewDataSource
+extension WaterfallViewController: UICollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return objects.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {                
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CELL_IDENTIFIER, forIndexPath: indexPath) as! WaterfallCell
-        
-        // Configure the cell
-        let fish = objects[indexPath.row]
-        cell.imageView.image = fish.imageContent()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WaterfallCell", for: indexPath as IndexPath) as! WaterfallCell
+        let imagePath = images[indexPath.row]
+        cell.configure(imagePath: imagePath)
         return cell
     }
+}
+
+extension WaterfallViewController: CHTCollectionViewDelegateWaterfallLayout {
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        var reusableView : UICollectionReusableView? = nil
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if (kind == CHTCollectionElementKindSectionHeader) {
-            reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: HEADER_IDENTIFIER, forIndexPath: indexPath)
-        } else if (kind == CHTCollectionElementKindSectionFooter) {
-            reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: FOOTER_IDENTIFIER, forIndexPath: indexPath)
+        let imagePath = images[indexPath.row]
+        //return UIImage(contentsOfFile: imagePath)?.size ?? .zero
+        
+        let provider = self.provider(at: indexPath)
+ 
+        var image: UIImage?
+
+        //let group = DispatchGroup()
+        //group.enter()
+        
+        let cache = ImageCache.default
+        cache.retrieveImage(forKey:  provider.cacheKey, callbackQueue: .mainCurrentOrAsync) { result in
+            switch result {
+                case .success(let value):
+                    image = value.image
+
+                case .failure(let error):
+                    print(error)
+            }
+            //group.leave()
         }
         
-        return reusableView!;
-    }
-    
-    // MARK - CHTCollectionViewDelegateWaterfallLayout
-    
-    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
+        //group.wait()
         
-        let fish = objects[indexPath.row]
-        return fish.imageSize()
-    }
-    
-    // MARK - UICollectionViewDelegate
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        if let didSelect = didSelect {
-            let fish = objects[indexPath.row]
-            didSelect( fish )
+        if image == nil {
+            image = UIImage(contentsOfFile: imagePath)
+            if let image = image {
+                cache.store(image, forKey: provider.cacheKey)
+            }
         }
+        
+        return image?.size ?? .zero
     }
-  
+}
+
+extension WaterfallViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelect?( indexPath.row )
+    }
+}
+
+extension WaterfallViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let sources = indexPaths.map { Source.provider(self.provider(at: $0)) }
+        ImagePrefetcher(sources: sources).start()
+    }
+}
+
+private class WaterfallCell: UICollectionViewCell {
+    
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.frame = self.contentView.bounds
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.addSubview(imageView)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(imagePath: String) {
+        let url = URL(fileURLWithPath: imagePath)
+        let provider = LocalFileImageDataProvider(fileURL: url)
+        imageView.kf.setImage(with: provider)
+    }
+
 }

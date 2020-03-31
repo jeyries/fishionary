@@ -1,18 +1,18 @@
 Requires
 ---
 
-- XCode 7
-- CocoaPods
+- XCode 11
 
 Fishionary
 ---
 
-in Spotlight, search for Terminal, then copy-paste :
+This is a tutorial app that I wrote in order to learn SwiftUI.
+
+Build instructions:
 
 ```sh
 cd ~/Desktop
 git clone https://github.com/jeyries/fishionary.git
 cd fishionary/iOS
-pod install
-open Fishionary.xcworkspace
+xed Fishionary.xcodeproj
 ```

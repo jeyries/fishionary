@@ -24,11 +24,11 @@
 		F97824BE2427FDCB005D81B5 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824BD2427FDCB005D81B5 /* GalleryView.swift */; };
 		F97824C224280105005D81B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97824C124280105005D81B5 /* SettingsView.swift */; };
 		F9784FD72428C4E400F122F9 /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9784FD62428C4E400F122F9 /* ZoomView.swift */; };
-		F98672F6242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98672F5242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift */; };
 		F98672F8242FB5D300E9FE37 /* CustomWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98672F7242FB5D300E9FE37 /* CustomWebView.swift */; };
 		F98672FB242FFC7C00E9FE37 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F98672FA242FFC7C00E9FE37 /* KingfisherSwiftUI */; };
 		F98672FD242FFC7C00E9FE37 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F98672FC242FFC7C00E9FE37 /* Kingfisher */; };
 		F9B1B2D4242A208B009F86B8 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1B2D3242A208B009F86B8 /* AppData.swift */; };
+		F9CC4F2024333EE700F8056C /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F9CC4F1F24333EE700F8056C /* CHTCollectionViewWaterfallLayout */; };
 		F9E2AE2E1C303DE800EE184A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2AE2D1C303DE800EE184A /* AppDelegate.swift */; };
 		F9E2AE371C303DE800EE184A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E2AE361C303DE800EE184A /* Assets.xcassets */; };
 		F9E2AE3A1C303DE800EE184A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E2AE381C303DE800EE184A /* LaunchScreen.storyboard */; };
@@ -101,7 +101,6 @@
 		F97824BD2427FDCB005D81B5 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		F97824C124280105005D81B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F9784FD62428C4E400F122F9 /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
-		F98672F5242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		F98672F7242FB5D300E9FE37 /* CustomWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
 		F9B1B2D3242A208B009F86B8 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		F9E2AE2A1C303DE800EE184A /* Fishionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +117,7 @@
 			files = (
 				F98672FD242FFC7C00E9FE37 /* Kingfisher in Frameworks */,
 				F98672FB242FFC7C00E9FE37 /* KingfisherSwiftUI in Frameworks */,
+				F9CC4F2024333EE700F8056C /* CHTCollectionViewWaterfallLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,14 +129,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F98672F4242AC89100E9FE37 /* ThirdParties */ = {
-			isa = PBXGroup;
-			children = (
-				F98672F5242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift */,
-			);
-			path = ThirdParties;
 			sourceTree = "<group>";
 		};
 		F9B1B2D5242A6CB7009F86B8 /* Components */ = {
@@ -178,7 +170,6 @@
 		F9E2AE2C1C303DE800EE184A /* Fishionary */ = {
 			isa = PBXGroup;
 			children = (
-				F98672F4242AC89100E9FE37 /* ThirdParties */,
 				F9B1B2D5242A6CB7009F86B8 /* Components */,
 				F9EA30BC1C352D9B0093E590 /* Controllers */,
 				F9EA30BE1C352DD80093E590 /* Managers */,
@@ -239,6 +230,7 @@
 			packageProductDependencies = (
 				F98672FA242FFC7C00E9FE37 /* KingfisherSwiftUI */,
 				F98672FC242FFC7C00E9FE37 /* Kingfisher */,
+				F9CC4F1F24333EE700F8056C /* CHTCollectionViewWaterfallLayout */,
 			);
 			productName = Fishionary;
 			productReference = F9E2AE2A1C303DE800EE184A /* Fishionary.app */;
@@ -291,6 +283,7 @@
 			mainGroup = F9E2AE211C303DE800EE184A;
 			packageReferences = (
 				F98672F9242FFC7C00E9FE37 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F9CC4F1E24333EE700F8056C /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */,
 			);
 			productRefGroup = F9E2AE2B1C303DE800EE184A /* Products */;
 			projectDirPath = "";
@@ -335,7 +328,6 @@
 				F98672F8242FB5D300E9FE37 /* CustomWebView.swift in Sources */,
 				F9784FD72428C4E400F122F9 /* ZoomView.swift in Sources */,
 				F97824B82427D0C4005D81B5 /* FishDetail.swift in Sources */,
-				F98672F6242AC8E100E9FE37 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
 				F97824C224280105005D81B5 /* SettingsView.swift in Sources */,
 				F97824BC2427D4FA005D81B5 /* FishRow.swift in Sources */,
 				BB8513DE4E8AF9B76CAB144C /* Fish.swift in Sources */,
@@ -585,6 +577,14 @@
 				minimumVersion = 5.13.2;
 			};
 		};
+		F9CC4F1E24333EE700F8056C /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chiahsien/CHTCollectionViewWaterfallLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -597,6 +597,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F98672F9242FFC7C00E9FE37 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F9CC4F1F24333EE700F8056C /* CHTCollectionViewWaterfallLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9CC4F1E24333EE700F8056C /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayout;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

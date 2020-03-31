@@ -7,8 +7,7 @@
 //
 
 import UIKit
-//import CHTCollectionViewWaterfallLayout
-//import struct Kingfisher.LocalFileImageDataProvider
+import CHTCollectionViewWaterfallLayout
 import Kingfisher
 
 final class WaterfallViewController: UIViewController {
@@ -36,6 +35,7 @@ final class WaterfallViewController: UIViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.dataSource = self;
         collectionView.delegate = self;
+        collectionView.prefetchDataSource = self
         collectionView.backgroundColor = .white
         collectionView.register(WaterfallCell.self, forCellWithReuseIdentifier: "WaterfallCell")
         return collectionView
@@ -68,7 +68,7 @@ extension WaterfallViewController: UICollectionViewDataSource {
 
 extension WaterfallViewController: CHTCollectionViewDelegateWaterfallLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let imagePath = images[indexPath.row]
         //return UIImage(contentsOfFile: imagePath)?.size ?? .zero
